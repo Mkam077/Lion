@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+    version="2.3">
+<!--Ces règles sont utilisées par les h:link -->
+
+	<navigation-rule>
+		<from-view-id>/connexion.xhtml</from-view-id>
+		<navigation-case>
+<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
+ -->
+ 			<from-outcome>sucess</from-outcome>
+			<to-view-id>/accueil.xhtml</to-view-id>
+	
+		</navigation-case>
+		<navigation-case>
+<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
+ -->			<from-outcome>notsucess</from-outcome>
+			<to-view-id>/erreurConnexion.xhtml</to-view-id>
+			
+		</navigation-case>
+	</navigation-rule>
+	
+<!-- de la page accueil aux autre page	 -->
+	<navigation-rule>
+	  <from-view-id>accueil.xhtml</from-view-id>
+	  <navigation-case>
+	     <from-outcome>ajoutArticle</from-outcome>
+	     <to-view-id>ajouterUnArticle.xhtml</to-view-id>
+	  </navigation-case>
+	</navigation-rule>
+</faces-config>

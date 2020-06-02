@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15909325369160" configfile="/KasuchamiWeb/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="connexion.xhtml" id="pf15910258220382" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf159102585518713 pf15911193319050" path="/connexion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" id="pf15910258220385" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf159102584015710" path="accueil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" id="pf159102584015712" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf159102584015710" path="ajouterUnArticle.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" id="pf159102585518715" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf159102585518713" path="/accueil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="erreurConnexion.xhtml" id="pf15911193319051" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15911193319050" path="/erreurConnexion.xhtml"/>
+  <links id="pf159102584015710" target="pf159102584015712" source="pf15910258220385" outcome="ajoutArticle"/>
+  <links id="pf159102585518713" target="pf159102585518715" source="pf15910258220382" outcome="sucess"/>
+  <links id="pf15911193319050" target="pf15911193319051" source="pf15910258220382" outcome="notsucess"/>
+</pageflow:Pageflow>
