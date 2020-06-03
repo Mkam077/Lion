@@ -41,10 +41,29 @@ public class ArticleStock {
 	
     @Column (name= "articleEnTransit")
 	private Integer articleEnTransit;
+    
+
 	
 //
 //    @Column (name= "dateEnregistrement")
 //	private  LocalDateTime    dateEnregistrement;
+    
+    // obtenue par un traitement algo
+    @Column (name="articleCalculCde")
+    private Integer articleCalculCde;
+    
+    ////////////////////////Constructeur//////////////////
+    
+    public ArticleStock() {
+    	
+    	
+    }
+    
+    public ArticleStock( int articleCalculCde ) {
+    	
+    	this.articleCalculCde = articleCalculCde;
+    	
+    }
 	
 	/////////////////////////Getter and Setter////////////////////////////////
 	public long getIdArticleStock() {
@@ -119,5 +138,13 @@ public class ArticleStock {
 //		this.dateEnregistrement = localDateTime;
 //	}
 	
-
+   public Integer getArticleCalculCde( ) {
+	      return articleCalculCde;
+   }
+	
+   public void setArticleCalculCde( Integer articleCalculCde ) {
+	   this.articleCalculCde =  articleCalculCde;
+   }
+	
+	
 }

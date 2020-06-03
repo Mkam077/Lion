@@ -3,6 +3,7 @@ package Service;
 import java.util.List;
 
 import DTO.ArticleStockDto;
+import Entity.ArticleStock;
 
 public interface ArticleStockServiceInterface {
 
@@ -18,9 +19,9 @@ public interface ArticleStockServiceInterface {
 
 	List<ArticleStockDto> rechercherParNom(String nom);
 
+	void calculQteTot ();
 	
-	
-	
+	 //void ring();
 	
 
 }

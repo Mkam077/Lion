@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 
 import BuilderEntity.ArticleStockBuilder;
@@ -69,5 +70,24 @@ public class DaoArticleStock    {
 		return resultList.stream().map(articleStock -> ArticleStockBuilder.fromEntity(articleStock)).collect(Collectors.toList());
 
 	}
+
+	
+	public void  calculQteTot (){
+
+		List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList();
+
+		for ( ArticleStock articleStock : listResult) {
+
+			int totalcde = articleStock.getArticleUtilisationLibre() + articleStock.getArticleBloque() + articleStock.getArticleControleQualite()
+			+ articleStock.getArticleEnRetour() + articleStock.getArticleEnTransit() + articleStock.getArticleStockNonLibre();
+
+			ArticleStock articleCalculcde  = new ArticleStock( totalcde);
+
+			entitymanager.merge(articleCalculcde);
+		}
+   System.out.println("ok");
+
+	}
+
 
 }

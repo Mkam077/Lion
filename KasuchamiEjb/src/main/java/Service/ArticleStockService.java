@@ -5,10 +5,12 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import DTO.ArticleStockDto;
 import Dao.DaoArticleStock;
+import Entity.ArticleStock;
 
 @Service
 public class ArticleStockService implements ArticleStockServiceInterface {
@@ -61,7 +63,17 @@ public class ArticleStockService implements ArticleStockServiceInterface {
 		daoArticleStock.modifier(articleStockDto);
 		
 	}
+
+	@Scheduled(cron = "0/40 * * * * * ")
+	@Override
+	public void calculQteTot() {
+		daoArticleStock.calculQteTot();
+		
+	}
 	
-	
+//	//@Scheduled(cron = "* 0/1 * * * * ")
+//	public void ring() {
+//		System.out.println("ok");
+//	}
 	
 }
