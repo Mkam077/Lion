@@ -33,7 +33,7 @@ public class DaoPersonne implements PersonneDaoInterface {
 		//on va chercher dans la colonne identifiant de compte User un identifiant qui correspond à la personne que l' on est
 		//en train d' ajouter ou de créer. si il existe on retourne son compteUser.
 		CompteUser userEntity = this.entityManager.createNamedQuery("CompteUser.findName", CompteUser.class)
-				.setParameter("identifiant",personneDto.getCompteUerDto().getidentifiant())
+				.setParameter("identifiant",personneDto.getidentifiant())
 				.getSingleResult();
         
 		//si il existe un compteUser on effectue l' action d' ajout

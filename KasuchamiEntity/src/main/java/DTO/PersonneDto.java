@@ -11,7 +11,7 @@ public class PersonneDto implements Serializable {
 	
 	//Attributs liée au cardinalités	
 		//Attribut pour le lien One To One avec CompteUser
-   private CompteUserDto compteUerDto ;
+   private CompteUserDto compteUserDto ;
 	
 	// Attributs liée à la classe
 	private Long idPersonne;
@@ -77,12 +77,12 @@ public class PersonneDto implements Serializable {
 	}
 
 
-	public CompteUserDto getCompteUerDto() {
-		return compteUerDto;
+	public CompteUserDto getCompteUserDto() {
+		return compteUserDto;
 	}
 
-	public void setCompteUerDto(CompteUserDto compteUerDto) {
-		this.compteUerDto = compteUerDto;
+	public void setCompteUerDto(CompteUserDto compteUserDto) {
+		this.compteUserDto = compteUserDto;
 	}
 
 	@Override

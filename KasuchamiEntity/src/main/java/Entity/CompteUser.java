@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table (name="CompteUser")
 @NamedQueries ( {@NamedQuery ( name = "CompteUser.AfficherTout", query = "SELECT c FROM CompteUser c"),
-	@NamedQuery(name = "CompteUser.findName", query = "SELECT c FROM CompteUser c WHERE c.identifiant = :nomf"),
+	@NamedQuery(name = "CompteUser.findName", query = "SELECT c FROM CompteUser c WHERE c.identifiant = :identifiant"),
 	@NamedQuery(name = "CompteUser.connexion", query = "SELECT c FROM CompteUser c WHERE c.identifiant =:nomf AND c.motDePasse = :nomg ")
 	
 })

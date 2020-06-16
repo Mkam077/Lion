@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Ajout d'un CompteUser</title>
+
+</h:head>
+<body>
+	<h1>Supprimer un CompteUser</h1>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="comptUserlist" var="compteUser"
+			value="#{compteUserMB.compteUserDtoList}" style="width:85%;">
+
+			<p:column headerText="id">
+				<h:outputText id="id" value="#{compteUser.idCompteUser}" />
+			</p:column>
+
+			<p:column headerText="Identifiant">
+				<h:outputText id="idc" value="#{compteUser.identifiant}" />
+			</p:column>
+			<p:column headerText="MotDePasse">
+				<h:outputText id="Mdp"
+					value="#{compteUser.motDePasse}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="comptUserlist" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{compteUserMB.supprimer }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>Modifier un CompteUser</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="compteUserList" var="compteUser"
+			value="#{compteUserMB.compteUserDtoList}" style="width:85%;">
+
+			<p:column headerText="Identifiant">
+				<p:inputText id="idc" value="#{compteUser.identifiant}" />
+			</p:column>
+			<p:column headerText="MotDePasse">
+				<p:inputText id="mdp"
+					value="#{compteUser.motDePasse}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="compteUserList" value="update"
+					icon="ui-icon-closethick"
+					action="#{articleStockMB.modifier }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>ajout d'un CompteUser</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="compteentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="compteUserid"
+						value="Identifiant Compte User" />
+					<p:inputText id="compteUserid"
+						value="#{compteUserMB.compteUserDto.identifiant}"
+						size="25" />
+					<p:message for="compteUserid" />
+
+					<h:outputLabel for="compteUserMdp"
+						value="Mot de Passe Du Compte User" />
+					<p:inputText id="compteUserMdp"
+						value="#{compteUserMB.compteUserDto.motDePasse}"
+						size="25" />
+					<p:message for="compteUserMdp" />
+
+					<p:commandButton value="Add"
+						action="#{compteUserMB.ajouter() }" update="@form">
+					</p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+
+	<h1>Rechercher D' un Mot De Passe</h1>
+
+
+	<h:form class="form">
+		<p:panel id="compteentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="compteUserid"
+						value="Identifiant Compte User" />
+					<p:inputText id="compteUserid"
+						value="#{compteUserMB.compteUserDto.identifiant}"
+						size="25" />
+					<p:message for="compteUserid" />
+        					   
+<!--            <h:commandLink text="commandLink 1" id="cl1"> -->
+<!--            <f:setPropertyActionListener value="value pass by commandLink" -->
+<!--                 target="#{viewScope.articleStockMB.articleStockDto.articleDesignation}"/> -->
+<!--             </h:commandLink> -->
+				
+				<p:commandButton value="rechercher"
+					action="#{compteUserMB.rechercherParNom()}" update="@form" >			
+				</p:commandButton>
+
+			</h:panelGrid>
+		</p:panel>
+
+	<p:dataTable id="CompteUserDtoreherché" var="compteUserRec"
+		value="#{compteUserMB.compteUserDtoListrech}"
+		style="width:85%;">
+
+		<p:column headerText="identifiant">
+			<p:inputText id="ide" value="#{compteUserRec.identifiant}" />
+		</p:column>
+		<p:column headerText="MotDePasse">
+			<p:inputText id="Mdp"
+				value="#{compteUserRec.motDePasse}" />
+		</p:column>
+
+		<p:column style="width:120px;">
+		</p:column>
+		
+	</p:dataTable>
+	</h:form>
+</body>
+</html>
+
+

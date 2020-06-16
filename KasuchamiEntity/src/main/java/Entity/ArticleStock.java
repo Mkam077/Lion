@@ -13,7 +13,14 @@ import javax.persistence.Table;
 @Entity
 @Table (name="ArticleStock")
 @NamedQueries({ @NamedQuery(name = "ArticleStock.afficherTout", query = "SELECT a FROM ArticleStock a"),
-	@NamedQuery(name = "ArticleStock.findName", query = "SELECT a FROM ArticleStock a where a.articleDesignation = :nomf") })
+	@NamedQuery(name = "ArticleStock.findName", query = "SELECT a FROM ArticleStock a where a.articleDesignation = :nomf"),
+    //@NamedQuery(name = "ArticleStock.choix", query = "SELECT CASE a.articleUtilisationLibre "
+    	//	+ "WHEN (a.articleUtilisationLibre < 20)  THEN 'Stock Faible' "
+    		//+ "WHEN (a.articleUtilisationLibre = 20)  THEN  'Stock Correcte' "
+    //		+ "ELSE 'SurStock' "
+    //		+ "END  "
+    	//	+ "FROM ArticleStock a"),
+})
  
 public class ArticleStock {
 	
