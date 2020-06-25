@@ -74,20 +74,21 @@ public class DaoArticleStock    {
 	
 	public void  calculQteTot (){
 
-		List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList();
-
+		List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList().stream()
+				.collect(Collectors.toList());
+		
 		for ( ArticleStock articleStock : listResult) {
 
 			int totalcde = articleStock.getArticleUtilisationLibre() + articleStock.getArticleBloque() + articleStock.getArticleControleQualite()
 			+ articleStock.getArticleEnRetour() + articleStock.getArticleEnTransit() + articleStock.getArticleStockNonLibre();
 
-			ArticleStock articleCalculcde  = new ArticleStock( totalcde);
+			articleStock = articleStock.setArticleCalculCde(totalcde);
 
-			entitymanager.merge(articleCalculcde);
+			entitymanager.merge(articleStock);
 		}
    System.out.println("ok");
 
 	}
-
+                 
 
 }

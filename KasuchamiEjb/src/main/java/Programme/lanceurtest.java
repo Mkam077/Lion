@@ -1,6 +1,7 @@
 package Programme;
 
 import Dao.DaoArticleStock;
+import Service.ArticleStockService;
 
 public class lanceurtest {
 
@@ -8,9 +9,9 @@ public class lanceurtest {
 		// TODO Auto-generated method stub
 		
 		DaoArticleStock test = new DaoArticleStock();
-		
-		test.afficherTout();
-		
+		ArticleStockService test1 = new ArticleStockService();
+		test.calculQteTot();
+		//test1.calculQteTot();
 
 	}
 
