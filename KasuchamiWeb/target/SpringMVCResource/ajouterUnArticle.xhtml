@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>Kasuchami - Ajout d'un Article</title>
+
+</h:head>
+<body>
+	<h1>Supprimer un Article</h1>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="articleStocklist" var="articleStock"
+			value="#{articleStockMB.articleStockDtolist}" style="width:85%;">
+
+			<p:column headerText="id">
+				<h:outputText value="#{articleStock.idArticleStock}" />
+			</p:column>
+
+			<p:column headerText="Designation">
+				<h:outputText id="Des" value="#{articleStock.articleDesignation}" />
+			</p:column>
+			<p:column headerText="UtilisationLibre">
+				<h:outputText id="utLibre"
+					value="#{articleStock.articleUtilisationLibre}" />
+			</p:column>
+			<p:column headerText="ControleQualite">
+				<h:outputText id="ctrQual"
+					value="#{articleStock.articleControleQualite}" />
+			</p:column>
+			<p:column headerText="StockNonLibre">
+				<h:outputText id="stNLibre"
+					value="#{articleStock.articleStockNonLibre}" />
+			</p:column>
+			<p:column headerText="Bloque">
+				<h:outputText id="artBloque" value="#{articleStock.articleBloque}" />
+			</p:column>
+			<p:column headerText="EnRetour">
+				<h:outputText id="artEnRet" value="#{articleStock.articleEnRetour}" />
+			</p:column>
+			<p:column headerText="EnTransit">
+				<h:outputText id="artEnTr" value="#{articleStock.articleEnTransit}" />
+			</p:column>
+			<p:column style="width:120px;">
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="articleStocklist" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{articleStockMB.supprimerUnArticle(articleStock)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	<h1>Modifier un Article</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="articleStocklist" var="articleStock"
+			value="#{articleStockMB.articleStockDtolist}" style="width:85%;">
+
+			<p:column headerText="Designation">
+				<p:inputText id="Desup" value="#{articleStock.articleDesignation}" />
+			</p:column>
+			<p:column headerText="UtilisationLibre">
+				<p:inputText id="utLibrup"
+					value="#{articleStock.articleUtilisationLibre}" />
+			</p:column>
+			<p:column headerText="ControleQualite">
+				<p:inputText id="ctrQualup"
+					value="#{articleStock.articleControleQualite}" />
+			</p:column>
+			<p:column headerText="StockNonLibre">
+				<p:inputText id="stNLibreup"
+					value="#{articleStock.articleStockNonLibre}" />
+			</p:column>
+			<p:column headerText="Bloque">
+				<p:inputText id="artBloqueup" value="#{articleStock.articleBloque}" />
+			</p:column>
+			<p:column headerText="EnRetour">
+				<p:inputText id="artEnRetup" value="#{articleStock.articleEnRetour}" />
+			</p:column>
+			<p:column headerText="EnTransit">
+				<p:inputText id="artEnTrup" value="#{articleStock.articleEnTransit}" />
+			</p:column>
+			<p:column style="width:120px;">
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="articleStocklist" value="update"
+					icon="ui-icon-closethick"
+					action="#{articleStockMB.modifier(articleStock)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>ajout d'un Article</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="articleentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="articleStockDes"
+						value="Designation De L' Article" />
+					<p:inputText id="articleStockDes"
+						value="#{articleStockMB.articleStockDto.articleDesignation}"
+						size="25" />
+					<p:message for="articleStockDes" />
+
+					<h:outputLabel for="articleStockUtLibre"
+						value="Quantité En Utilisation Libre" />
+					<p:inputText id="articleStockUtLibre"
+						value="#{articleStockMB.articleStockDto.articleUtilisationLibre}"
+						size="25" />
+					<p:message for="articleStockUtLibre" />
+
+					<h:outputLabel for="articleStockTransit"
+						value="Quantité En Transit" />
+					<p:inputText id="articleStockTransit"
+						value="#{articleStockMB.articleStockDto.articleEnTransit}"
+						size="25" />
+					<p:message for="articleStockTransit" />
+
+
+					<h:outputLabel for="articleStockBloque" value="Quantité Bloquée" />
+					<p:inputText id="articleStockBloque"
+						value="#{articleStockMB.articleStockDto.articleBloque}" size="25" />
+					<p:message for="articleStockBloque" />
+
+					<h:outputLabel for="articleStockCtrQual"
+						value="Quantité En Controle Qualité" />
+					<p:inputText id="articleStockCtrQual"
+						value="#{articleStockMB.articleStockDto.articleControleQualite}"
+						size="25" />
+					<p:message for="articleStockCtrQual" />
+
+					<h:outputLabel for="articleStockRetour"
+						value="Quantité En Controle Retour" />
+					<p:inputText id="articleStockRetour"
+						value="#{articleStockMB.articleStockDto.articleEnRetour}"
+						size="25" />
+					<p:message for="articleStockRetour" />
+
+					<p:outputLabel for="articleStockNonLibre"
+						value="Quantité Non Libre" />
+					<p:inputText id="articleStockNonLibre"
+						value="#{articleStockMB.articleStockDto.articleStockNonLibre}"
+						size="25" />
+					<p:message for="articleStockNonLibre" />
+
+					<p:commandButton value="Add"
+						action="#{articleStockMB.ajouterUnArticle }" update="@form">
+					</p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+
+	<h1>Rechercher par un nom</h1>
+
+
+	<h:form class="form">
+		<p:panel id="articleentré" style="margin-bottom:20px">
+			<h:panelGrid columns="3" cellpadding="5" width="500"
+				style="position: relative; right: 0;">
+				<h:outputLabel for="articleStockDes"
+					value="Designation De L' Article" />
+				<p:inputText id="articleStockDes"
+					value="#{articleStockMB.articleStockDto.articleDesignation}"
+					size="25" />
+				<p:message for="articleStockDes" />
+        					   
+<!--            <h:commandLink text="commandLink 1" id="cl1"> -->
+<!--            <f:setPropertyActionListener value="value pass by commandLink" -->
+<!--                 target="#{viewScope.articleStockMB.articleStockDto.articleDesignation}"/> -->
+<!--             </h:commandLink> -->
+				
+				<p:commandButton value="rechercher"
+					action="#{articleStockMB.rechercheParDesignation()}" update="@form" >			
+				</p:commandButton>
+
+			</h:panelGrid>
+		</p:panel>
+
+	<p:dataTable id="listarticleStockDtoreherché" var="articleStockrec"
+		value="#{articleStockMB.listarticleStockDtoreherché}"
+		style="width:85%;">
+		
+		<p:column headerText="id">
+				<h:outputText value="#{articleStockrec.idArticleStock}" />
+			</p:column>
+		<p:column headerText="Designation">
+			<p:inputText id="Desup" value="#{articleStockrec.articleDesignation}" />
+		</p:column>
+		<p:column headerText="UtilisationLibre">
+			<p:inputText id="utLibrup"
+				value="#{articleStockrec.articleUtilisationLibre}" />
+		</p:column>
+		<p:column headerText="ControleQualite">
+			<p:inputText id="ctrQualup"
+				value="#{articleStockrec.articleControleQualite}" />
+		</p:column>
+		<p:column headerText="StockNonLibre">
+			<p:inputText id="stNLibreup"
+				value="#{articleStockrec.articleStockNonLibre}" />
+		</p:column>
+		<p:column headerText="Bloque">
+			<p:inputText id="artBloqueup"
+				value="#{articleStockrec.articleBloque}" />
+		</p:column>
+		<p:column headerText="EnRetour">
+			<p:inputText id="artEnRetup"
+				value="#{articleStockrec.articleEnRetour}" />
+		</p:column>
+		<p:column headerText="EnTransit">
+			<p:inputText id="artEnTrup"
+				value="#{articleStockrec.articleEnTransit}" />
+		</p:column>
+		<p:column style="width:120px;">
+		</p:column>
+		<p:column style="width:120px;">
+				<p:commandButton update="listarticleStockDtoreherché" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{articleStockMB.supprimerUnArticle(articleStockrec)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+	</p:dataTable>
+	</h:form>
+</body>
+</html>
+
+

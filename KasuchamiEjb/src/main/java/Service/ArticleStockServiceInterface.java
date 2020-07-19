@@ -19,9 +19,11 @@ public interface ArticleStockServiceInterface {
 
 	List<ArticleStockDto> rechercherParNom(String nom);
 
-	void calculQteTot ();
+	void calculIndicateurs ();
 	
-	 //void ring();
+	//void calculCouvStock ();
+	
+	// void ring();
 	
 
 }

@@ -1,5 +1,7 @@
 package Entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -49,11 +51,15 @@ public class ArticleStock {
     @Column (name= "articleEnTransit")
 	private Integer articleEnTransit;
     
-
+    @Column (name="consommationJournaliére")
+    private Integer consommationJournaliére;
+    
+    @Column ( name="couverturedestock")
+    private Integer couverturedestock;
 	
 //
-//    @Column (name= "dateEnregistrement")
-//	private  LocalDateTime    dateEnregistrement;
+  //  @Column (name= "dateEnregistrement")
+  //	  private  LocalDateTime    dateEnregistrement;
     
     // obtenue par un traitement algo
     @Column (name="articleCalculCde")
@@ -144,7 +150,7 @@ public class ArticleStock {
 //	public void setDateEnregistrement(LocalDateTime localDateTime) {
 //		this.dateEnregistrement = localDateTime;
 //	}
-	
+//	
    public Integer getArticleCalculCde( ) {
 	      return articleCalculCde;
    }
@@ -152,6 +158,24 @@ public class ArticleStock {
    public void setArticleCalculCde( Integer articleCalculCde ) {
 	   this.articleCalculCde =  articleCalculCde;
    }
+
+   public Integer getConsommationJournaliére() {
+	return consommationJournaliére;
+   }
+
+   public void setConsommationJournaliére(Integer consommation) {
+	this.consommationJournaliére = consommation;
+  }
+
+   public Integer getCouverturedestock() {
+	return couverturedestock;
+   }
+
+   public void setCouverturedestock(Integer couverturedestock) {
+	this.couverturedestock = couverturedestock;
+   }
+
+
 	
 	
 }

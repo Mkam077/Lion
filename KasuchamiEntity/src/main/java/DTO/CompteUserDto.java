@@ -25,7 +25,7 @@ public class CompteUserDto implements Serializable {
 	@NotNull(message = "Veuillez remplir ce champs")
 	@NotBlank(message = "Veuillez remplir ce champs")
 	private String motDePasse;
-
+    private String administrateur;
    // constructeur
 	public CompteUserDto() {
 		
@@ -44,18 +44,28 @@ public class CompteUserDto implements Serializable {
 	public void setidentifiant(String identifiant) {
 		this.identifiant = identifiant;
 	}
+
 	public String getmotDePasse() {
-		return motDePasse;
-	}
+	return motDePasse;
+     }
 	public void setmotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	this.motDePasse = motDePasse;
+     }	
+	public String getadministrateur() {
+		return administrateur;
 	}	
+	public void setadministrateur(String administrateur) {
+		this.administrateur = administrateur;
+	}
+	
 	public PersonneDto getPersonneDto() {
 		return personneDto;
 	}
 	public void setPersonneDto(PersonneDto personneDto) {
 		this.personneDto = personneDto;
 	}
+	
+	
 
 	@Override
 	public String toString() {

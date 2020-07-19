@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Ajout d'une Personne</title>
+
+</h:head>
+<body>
+	<h1>Supprimer une Personne</h1>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="personnelist" var="personne"
+			value="#{personneMB.listePersonneDto}" style="width:85%;">
+
+			<p:column headerText="id">
+				<h:outputText value="#{personne.idPersonne}" />
+			</p:column>
+
+			<p:column headerText="nom">
+				<h:outputText id="nom" value="#{personne.nom}" />
+			</p:column>
+			<p:column headerText="prenom">
+				<h:outputText id="pren"
+					value="#{personne.prenom}" />
+			</p:column>
+			<p:column headerText="sexe">
+				<h:outputText id="sexe"
+					value="#{personne.sexe}" />
+			</p:column>
+			<p:column headerText="identifiant">
+				<h:outputText id="ide"
+					value="#{personne.identifiant}" />
+			</p:column>
+			<p:column headerText="avatar">
+				<h:outputText id="ava" value="#{personne.avatar}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="personnelist" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{personneMB.supprimerUnePersonne( personne)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>Modifier une Personne</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="personnelist" var="personne"
+			value="#{personneMB.listePersonneDto}" style="width:85%;">
+
+			<p:column headerText="id">
+				<p:inputText value="#{personne.idPersonne}" />
+			</p:column>
+
+			<p:column headerText="nom">
+				<p:inputText id="nom" value="#{personne.nom}" />
+			</p:column>
+			<p:column headerText="prenom">
+				<p:inputText id="pren"
+					value="#{personne.prenom}" />
+			</p:column>
+			<p:column headerText="identifiant">
+				<p:inputText id="iden"
+					value="#{personne.identifiant}" />
+			</p:column>
+			<p:column headerText="sexe">
+				<p:inputText id="sexe"
+					value="#{personne.sexe}" />
+			</p:column>
+			<p:column headerText="identifiant">
+				<h:inputText id="ide"
+					value="#{personne.identifiant}" />
+			</p:column>
+			<p:column headerText="avatar">
+				<p:inputText id="ava" value="#{personne.avatar}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="personnelist" value="Update"
+					icon="ui-icon-closethick"
+					action="#{personneMB.modifierUnePersonne( personne)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>ajout d'une Personne</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="personneentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="personneNom"
+						value="Nom de L' Employe" />
+					<p:inputText id="personneNom"
+						value="#{personneMB.personneDto.nom}"
+						size="25" />
+					<p:message for="personneNom" />
+
+					<h:outputLabel for="personnePrenom"
+						value="Prenom de L'Employe" />
+					<p:inputText id="personnePrenom"
+						value="#{personneMB.personneDto.prenom}"
+						size="25" />
+					<p:message for="personnePrenom" />
+
+                    <h:outputLabel for="personneIdentifiant"
+						value="Identifiant de L'Employe" />
+					<p:inputText id="personneIdentifiant"
+						value="#{personneMB.personneDto.identifiant}"
+						size="25" />
+					<p:message for="personnePrenom" />
+					<h:outputLabel for="personneSexe"
+						value="Sexe de L' Employe" />
+					<p:inputText id="personneSexe"
+						value="#{personneMB.personneDto.sexe}"
+						size="25" />
+					<p:message for="personneSexe" />
+
+
+					<h:outputLabel for="personneAvatar" value="Avatar de L' Employe" />
+					<p:inputText id="personneAvatar"
+						value="#{personneMB.personneDto.avatar}" size="25" />
+					<p:message for="personneAvatar" />
+
+					
+
+					<p:commandButton value="Add"
+						action="#{personneMB.ajouterUnePersonne() }" update="@form">
+					</p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+
+	<h1>Rechercher par un nom</h1>
+
+
+	<h:form class="form">
+		<p:panel id="personneentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="personneNom"
+						value="Nom de L' Employe" />
+					<p:inputText id="personneNom"
+						value="#{personneMB.personneDto.nom}"
+						size="25" />
+					<p:message for="personneNom" />
+        					   
+<!--            <h:commandLink text="commandLink 1" id="cl1"> -->
+<!--            <f:setPropertyActionListener value="value pass by commandLink" -->
+<!--                 target="#{viewScope.articleStockMB.articleStockDto.articleDesignation}"/> -->
+<!--             </h:commandLink> -->
+				
+				<p:commandButton value="rechercher"
+					action="#{personneMB.rechercherUnePersonne()}" update="@form" >			
+				</p:commandButton>
+
+			</h:panelGrid>
+		</p:panel>
+
+	<p:dataTable id="personnelistRech" var="personneRech"
+			value="#{personneMB.listePersonneDtoRech}" style="width:85%;">
+
+			<p:column headerText="id">
+				<h:outputText value="#{personne.idPersonne}" />
+			</p:column>
+
+			<p:column headerText="nom">
+				<h:outputText id="nom" value="#{personneRech.nom}" />
+			</p:column>
+			<p:column headerText="prenom">
+				<h:outputText id="pren"
+					value="#{personneRech.prenom}" />
+			</p:column>
+			<p:column headerText="sexe">
+				<h:outputText id="sexe"
+					value="#{personneRech.sexe}" />
+			</p:column>
+			<p:column headerText="identifiant">
+				<h:outputText id="ide"
+					value="#{personneRech.identifiant}" />
+			</p:column>
+			<p:column headerText="avatar">
+				<h:outputText id="ava" value="#{personneRech.avatar}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="personnelistRech" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{personneMB.supprimerUnePersonne( personneRech)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</body>
+</html>
+
+

@@ -13,6 +13,7 @@ import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import DTO.ArticleStockDto;
 import Service.ArticleStockServiceInterface;
@@ -72,6 +73,7 @@ public class ArticleStockMB  implements Serializable{
 		 this.articleStockDtolist = articleStockService.Affichertout();
 		 ArticleStockDto articleStockDto = new ArticleStockDto();
 		// this.articleStockDtolist = serviceArticleStock.Affichertout();
+		 articleStockService.calculIndicateurs();
 		 
 	    }
 	 
@@ -91,7 +93,7 @@ public class ArticleStockMB  implements Serializable{
 			
 			
 		   // articleStockDto.setDateEnregistrement(newarticleStockDto.getDateEnregistrement());
-		// this.articleStockDtolist = serviceArticleStock.Affichertout();
+		 this.articleStockDtolist = articleStockService.Affichertout();
 //		 this.articleStockDtolist = serviceArticleStock.Affichertout();
 		 resetArticleStockDto();
 		 
@@ -176,9 +178,10 @@ public class ArticleStockMB  implements Serializable{
 			this.listarticleStockDtoreherché = listarticleStockDtoreherché;
 		}
 		
-		
-		
-		
+	//	@GetMapping("/articleStock/export")
+	//	public void exportToExcel(httpServletResponse response) {
+			
+	//	}
 		
 		
 		

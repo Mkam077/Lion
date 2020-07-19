@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
     version="2.3">
 <!--Ces règles sont utilisées par les h:link -->
-
+<!--     connexion d' un utilisateur -->
 	<navigation-rule>
 		<from-view-id>/connexion.xhtml</from-view-id>
 		<navigation-case>
@@ -23,12 +23,61 @@
 		</navigation-case>
 	</navigation-rule>
 	
-<!-- de la page accueil aux autre page	 -->
+<!-- 	Connexion d' un administrateur -->
 	<navigation-rule>
-	  <from-view-id>accueil.xhtml</from-view-id>
+		<from-view-id>/connexion.xhtml</from-view-id>
+		<navigation-case>
+<!-- 			<from-action>#{compteUserMB.connexionAdm}</from-action> -->
+
+ 			<from-outcome>sucessadm</from-outcome>
+			<to-view-id>/accueilAdmin.xhtml</to-view-id>
+	
+		</navigation-case>
+		<navigation-case>
+<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
+ -->			<from-outcome>notsucessadm</from-outcome>
+			<to-view-id>/erreurConnexion.xhtml</to-view-id>
+			
+		</navigation-case>
+	</navigation-rule>
+
+<!-- de la page accueil vers page GestionStock	 -->
+     <navigation-rule>
+	  <from-view-id>/accueil.xhtml</from-view-id>
 	  <navigation-case>
-	     <from-outcome>ajoutArticle</from-outcome>
-	     <to-view-id>ajouterUnArticle.xhtml</to-view-id>
+	     <from-outcome>VersStock</from-outcome>
+	     <to-view-id>/ajouterUnArticle.xhtml</to-view-id>
 	  </navigation-case>
 	</navigation-rule>
+	
+<!-- de la page accueilAdmin vers page AccueilUtilisateur	 -->
+	<navigation-rule>
+	  <from-view-id>/accueilAdmin.xhtml</from-view-id>
+	  <navigation-case>
+	     <from-outcome>VersAccueilUtilisateur</from-outcome>
+	     <to-view-id>/accueil.xhtml</to-view-id>
+	  </navigation-case>
+	</navigation-rule>
+<!-- de la page accueilAdmin vers page GestionCompteUser	 -->
+	<navigation-rule>
+	  <from-view-id>/accueilAdmin.xhtml</from-view-id>
+	  <navigation-case>
+	     <from-outcome>VersCompteUser</from-outcome>
+	     <to-view-id>/ajouterUnCompteUser.xhtml</to-view-id>
+	  </navigation-case>
+	</navigation-rule>	
+<!-- de la page accueilAdmin vers page GestionPersonne	 -->
+	<navigation-rule>
+	  <from-view-id>/accueilAdmin.xhtml</from-view-id>
+	  <navigation-case>
+	     <from-outcome>VersPersonne</from-outcome>
+	     <to-view-id>/ajouterUnePersonne.xhtml</to-view-id>
+	  </navigation-case>
+	</navigation-rule>		
+	
+	
+	
+	
+	
+	
 </faces-config>

@@ -7,7 +7,10 @@
 
 <h:head>
 	<title>Kasuchami - Ajout d'un CompteUser</title>
-
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css"  /> 
+<h:outputStylesheet library="cssPerso" name="fichecandidat.css"  /> 	
+</style>
 </h:head>
 <body>
 	<h1>Supprimer un CompteUser</h1>
@@ -56,13 +59,17 @@
 				<p:inputText id="mdp"
 					value="#{compteUser.motDePasse}" />
 			</p:column>
+			<p:column headerText="statutAdm">
+				<p:inputText id="adm"
+					value="#{compteUser.administrateur}" />
+			</p:column>
 			
 			<p:column style="width:120px;">
 			</p:column>
 			<p:column style="width:120px;">
 				<p:commandButton update="compteUserList" value="update"
 					icon="ui-icon-closethick"
-					action="#{articleStockMB.modifier }"
+					action="#{compteUserMB.modifier(compteUser) }"
 					styleClass="ui-priority-primary">
 				</p:commandButton>
 			</p:column>
@@ -95,7 +102,14 @@
 						value="#{compteUserMB.compteUserDto.motDePasse}"
 						size="25" />
 					<p:message for="compteUserMdp" />
-
+					
+					<h:outputLabel for="compteUserAdm"
+					value="statut Administrateur" />
+					<p:inputText id="compteUserAdm"
+                     value="#{compteUserMB.compteUserDto.administrateur}"
+                     size="25"/>
+			        <p:message for="compteUserMdp" />
+			        
 					<p:commandButton value="Add"
 						action="#{compteUserMB.ajouter() }" update="@form">
 					</p:commandButton>

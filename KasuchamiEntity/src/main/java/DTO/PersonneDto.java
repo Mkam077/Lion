@@ -20,6 +20,7 @@ public class PersonneDto implements Serializable {
 	private String sexe;
 	private String identifiant;
 	private String avatar;
+	
 
    // constructeur
 	public PersonneDto() {

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15909325369160" configfile="/KasuchamiWeb/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="connexion.xhtml" id="pf15910258220382" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf159102585518713 pf15911193319050" path="/connexion.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" id="pf15910258220385" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf159102584015710" path="accueil.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" id="pf159102584015712" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf159102584015710" path="ajouterUnArticle.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" id="pf159102585518715" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf159102585518713" path="/accueil.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="erreurConnexion.xhtml" id="pf15911193319051" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15911193319050" path="/erreurConnexion.xhtml"/>
-  <links id="pf159102584015710" target="pf159102584015712" source="pf15910258220385" outcome="ajoutArticle"/>
-  <links id="pf159102585518713" target="pf159102585518715" source="pf15910258220382" outcome="sucess"/>
+  <nodes xsi:type="pageflow:PFPage" name="connexion.xhtml" x="122" y="946" id="pf15910258220382" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf15911193319050 pf15950817462501 pf15950827420223 pf15951759108270" path="/connexion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="338" y="658" id="pf15910258220385" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf159102584015710 pf15951759108271 pf15951759108272" inlinks="pf15950827420223" path="/accueilAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" x="554" y="946" id="pf159102584015712" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf15951759108273" inlinks="pf159102584015710 pf15951759108270" path="/accueil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="122" y="1330" id="pf159102585518715" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/accueil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="erreurConnexion.xhtml" x="338" y="1149" id="pf15911193319051" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf15911193319050 pf15950817462501" path="/erreurConnexion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueilAdmin.xhtml" x="122" y="1714" id="pf15950817462502" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/accueilAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnCompteUser.xhtml" x="554" y="178" id="pf15951759108274" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf15951759108271" path="/ajouterUnCompteUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnePersonne.xhtml" x="554" y="562" id="pf15951759108275" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf15951759108272" path="/ajouterUnePersonne.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" id="pf15951759108276" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15951759108273" path="/ajouterUnArticle.xhtml"/>
+  <links id="pf159102584015710" target="pf159102584015712" source="pf15910258220385" outcome="VersAccueilUtilisateur"/>
   <links id="pf15911193319050" target="pf15911193319051" source="pf15910258220382" outcome="notsucess"/>
+  <links id="pf15950817462501" target="pf15911193319051" source="pf15910258220382" outcome="notsucessadm"/>
+  <links id="pf15950827420223" target="pf15910258220385" source="pf15910258220382" outcome="sucessadm"/>
+  <links id="pf15951759108270" target="pf159102584015712" source="pf15910258220382" outcome="sucess"/>
+  <links id="pf15951759108271" target="pf15951759108274" source="pf15910258220385" outcome="VersCompteUser"/>
+  <links id="pf15951759108272" target="pf15951759108275" source="pf15910258220385" outcome="VersPersonne"/>
+  <links id="pf15951759108273" target="pf15951759108276" source="pf159102584015712" outcome="VersStock"/>
 </pageflow:Pageflow>

@@ -14,8 +14,8 @@ import javax.persistence.Table;
 @Table (name="CompteUser")
 @NamedQueries ( {@NamedQuery ( name = "CompteUser.AfficherTout", query = "SELECT c FROM CompteUser c"),
 	@NamedQuery(name = "CompteUser.findName", query = "SELECT c FROM CompteUser c WHERE c.identifiant = :identifiant"),
-	@NamedQuery(name = "CompteUser.connexion", query = "SELECT c FROM CompteUser c WHERE c.identifiant =:nomf AND c.motDePasse = :nomg ")
-	
+	@NamedQuery(name = "CompteUser.connexion", query = "SELECT c FROM CompteUser c WHERE c.identifiant =:nomf AND c.motDePasse = :nomg "),
+    @NamedQuery(name = "CompteUser.connexionAdm", query = "SELECT c FROM CompteUser c WHERE c.identifiant =:nomf AND c.motDePasse = :nomg And c.administrateur = :adm ")
 })
 public class CompteUser {
 
@@ -34,6 +34,9 @@ public class CompteUser {
 	@Column( name = "motDePasse")
 	private String motDePasse;
 
+	@Column(name="administrateur")
+	private String administrateur;
+	
 	
 	
 	//Getter et setter
@@ -69,8 +72,13 @@ public class CompteUser {
 		this.motDePasse = motDePasse;
 	}
 
-	
-	
+	public String getAdministrateur() {
+		return administrateur;
+	}
 
+	public void setAdministrateur(String administrateur) {
+		this.administrateur = administrateur;
+	}
 
+	
 }

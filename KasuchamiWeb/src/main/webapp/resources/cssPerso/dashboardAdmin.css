@@ -1,0 +1,51 @@
+h3{
+	text-align: center;
+	
+}
+
+.titreSection{
+	text-align: center;
+	margin-bottom: 75px;
+}
+
+.contenantDashboard {
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-right: 300px;
+}
+
+.attributpromo{
+	display: flex;
+	flex-direction: row;
+		justify-content: space-between;
+	
+}
+
+
+.contenantPromoCandidature{
+	display: flex;
+	flex-direction: column;
+	
+}
+
+
+.contenantCandidature{
+	display: flex;
+	flex-direction: row;
+	margin-top: 200px;
+
+}
+
+.candidatureUn{
+	
+	padding-right: 150px;
+	
+}
+
+
+span{
+	
+	margin-right: 50px;
+}

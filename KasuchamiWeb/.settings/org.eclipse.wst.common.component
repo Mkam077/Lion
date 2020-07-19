@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-  <wb-module deploy-name="Kasuchami{project.version}">
+  <wb-module deploy-name="SpringMVCResource">
     <wb-resource deploy-path="/" source-path="src/main/webapp"/>
         <dependent-module archiveName="KasuchamiEjb-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/KasuchamiEjb/KasuchamiEjb">
             <dependency-type>uses</dependency-type>
@@ -8,7 +8,7 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
     <property name="java-output-path" value="/target/classes"/>
-        <property name="context-root" value="Kasuchami{project.version}"/>
+        <property name="context-root" value="SpringMVCResource"/>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="target/generated-sources/annotations"/>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>

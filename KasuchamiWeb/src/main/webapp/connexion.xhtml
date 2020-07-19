@@ -10,10 +10,20 @@
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
+	<style>
+	
+<h:outputStylesheet library="cssPerso" name="style.css"  />
+<h:outputStylesheet library="cssPerso" name="connexionCandidat.css"  />
 
+
+	
+</style>
 
 	<title>Kasuchami -connexion</title>
 </h:head>
+
+
+	
 
 <h:body>
 	<h2>Connectez vous</h2>
@@ -36,6 +46,34 @@
 
 				<h:commandButton class="buttonConnect" value="connexion"
 					action="#{compteUserMB.connexion()}"   ></h:commandButton>
+
+			</div>
+		</h:form>
+	</div>
+	<h2>Connectez vous en tant qu administrateur</h2>
+
+	<div class="contenant">
+		<h:form id="CompteUserAC">
+
+			<div class="connexion">
+
+				<h3>Login</h3>
+
+				<p:outputLabel for="identifiantinput" value="Identifiant :" />
+				<p:inputText  id="identifiantinput" type="text" 
+					placeholder="identifiant" size="35"
+					value="#{compteUserMB.compteUserDto.identifiant}"></p:inputText>
+
+				<p:outputLabel for="mdpinput" value="Mot de Passe" />
+				<p:password id="mdpinput" type="text" placeholder="Mot de Passe" 
+					size="35" value="#{compteUserMB.compteUserDto.motDePasse}"></p:password>
+					
+				<p:outputLabel for="adminput" value="Administrateur" />
+				<p:password id="adminput" type="password" placeholder="administrateur" 
+					size="35" value="#{compteUserMB.compteUserDto.administrateur}" required = "true"></p:password>
+
+				<h:commandButton class="buttonConnect" value="connexionAdministrateur"
+					action="#{compteUserMB.connexionAdm()}"   ></h:commandButton>
 
 			</div>
 		</h:form>

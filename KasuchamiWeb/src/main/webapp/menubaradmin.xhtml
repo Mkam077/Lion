@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<style>
+		
+<h:outputStylesheet library="cssPerso" name="style.css"  />
+<h:outputStylesheet library="cssPerso" name="menubar.css"  />
+<h:outputStylesheet library="cssPerso" name="dashboardAdmin.css"  />
+<h:outputStylesheet library="cssPerso" name="adminCandidature.css"  />
+<h:outputStylesheet library="bootstrap/css" name="bootstrap.min.css"/>
+	
+</style>
+	<title><ui:insert name="pageTitle">Page Title</ui:insert></title>
+</h:head>
+
+<h:body>
+ <div class="logo"> 
+           
+	<p:graphicImage name="img/logoEcole.png" width="50px" height="50px" alt="logo"/>
+            
+            </div>
+            
+	<h1>TalentsEverywhere  <b> bonjour </b>        School Edition</h1>
+	
+<!-- 	<div class="horizontal"> -->
+<!-- 		<span>Nom école</span> <span>Notifications</span> -->
+<!-- 		<h:link class="link" value="Deconnexion" outcome="connexionAdmin"></h:link> -->
+<!-- 	</div> -->
+	<div class="contenant">
+		<div class="vertical">
+		
+			<nav>
+			<ul>
+			<li>
+				
+<!-- 					<h:link value="Tableau de bord" outcome="dashboardAdmin"></h:link> -->
+				
+				</li>
+				</ul>
+				<p><i style='font-size:24px' class='far'>&#11166;</i>  GESTION DU RECRUTEMENT</p>
+				<ul>
+					<li><h:link value="compteuser" outcome="ajouterUnCompteUser"></h:link></li>
+					<li><h:link value="personne" outcome="ajouterUnePersonne"></h:link></li>
+<!-- 					<li><h:link value="Planning" outcome="dashboardAdmin"></h:link></li> -->
+				</ul>
+				<p><i style='font-size:24px' class='far'>&#11166;</i>   PARAMETRES</p>
+<!-- 				<ul> -->
+<!-- 					<li><h:link value="Processus" outcome="templates"></h:link></li> -->
+<!-- 					<li><h:link value="Templates" outcome="templates"></h:link></li> -->
+<!-- 				</ul> -->
+<!-- 				<ul> -->
+<!-- 					<li> <a href="https://startbootstrap.com/previews/sb-admin-2/">Statistiques</a> </li> -->
+<!-- 				</ul> -->
+				
+				<p>Statistiques</p>
+			</nav>
+		</div>
+		<section class="colone_centre" id="accueil_centre">
+			<ui:insert name="body">Page Body</ui:insert>
+		</section>
+	</div>
+</h:body>
+</html>

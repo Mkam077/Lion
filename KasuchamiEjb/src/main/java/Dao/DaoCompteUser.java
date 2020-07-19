@@ -89,7 +89,7 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 
 	public CompteUserDto rechercherPourConnexion ( String identifiant, String mdp) {
 		List<CompteUser> resultList = this.entityManager.createNamedQuery("CompteUser.connexion",CompteUser.class)
-				.setParameter("nomf", identifiant)
+				.setParameter("nomf" , identifiant)
 		        .setParameter("nomg", mdp)
 		        .getResultList();
 		        Optional<CompteUserDto> optional = resultList
@@ -101,5 +101,17 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 			
 	}
 	
-	
+	public CompteUserDto rechercherPourConnexionAdministrateur ( String identifiant, String mdp,String administrateur) {
+		List<CompteUser> resultList = this.entityManager.createNamedQuery("CompteUser.connexionAdm",CompteUser.class)
+				.setParameter("nomf" , identifiant)
+		        .setParameter("nomg", mdp)
+		        .setParameter("adm", administrateur)
+		        .getResultList();
+		        Optional<CompteUserDto> optional = resultList
+				.stream()
+				.map(compteUser -> CompteUserBuilder.fromEntity(compteUser))
+				.findAny();
+		 return optional.isPresent() ? optional.get() : null;
+		
+	}
 }

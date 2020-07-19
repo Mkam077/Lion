@@ -38,9 +38,11 @@ public class ArticleStockDto implements Serializable{
 //		private  LocalDateTime    dateEnregistrement;
 //		
 		
+		private Integer consommationJournaliére;
 		
+		private Integer couverturedestock;
 		
-
+		private Integer articleCalculCde;
 
 		@Override
 		public String toString() {
@@ -144,6 +146,36 @@ public class ArticleStockDto implements Serializable{
 
 		public void setArticleEnTransit(Integer articleEnTransit) {
 			this.articleEnTransit = articleEnTransit;
+		}
+
+
+		public Integer getConsommationJournaliére() {
+			return consommationJournaliére;
+		}
+
+
+		public void setConsommationJournaliére(Integer consommation) {
+			this.consommationJournaliére = consommation;
+		}
+
+
+		public Integer getCouverturedestock() {
+			return couverturedestock;
+		}
+
+
+		public void setCouverturedestock(Integer couverturedestock) {
+			this.couverturedestock = couverturedestock;
+		}
+
+
+		public Integer getArticleCalculCde() {
+			return articleCalculCde;
+		}
+
+
+		public void setArticleCalculCde(Integer articleCalculCde) {
+			this.articleCalculCde = articleCalculCde;
 		}
 
 

@@ -31,6 +31,8 @@ public class DaoArticleStock    {
 
 	}
 
+	
+	
 	public ArticleStockDto rechercheParId ( Long id) { 
 		return  ArticleStockBuilder.fromEntity(entitymanager.find(ArticleStock.class,id));
 	}
@@ -57,6 +59,8 @@ public class DaoArticleStock    {
 
 	}
 
+	
+	
 	public ArticleStock modifier ( ArticleStockDto articleStockDto) {
 		ArticleStock articlestock = ArticleStockBuilder.fromuser(articleStockDto);
 		return this.entitymanager.merge(articlestock );
@@ -72,8 +76,9 @@ public class DaoArticleStock    {
 	}
 
 	
-	public void  calculQteTot (){
-
+	public void  calcul (){
+		
+		
 		List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList().stream()
 				.collect(Collectors.toList());
 		
@@ -81,14 +86,65 @@ public class DaoArticleStock    {
 
 			int totalcde = articleStock.getArticleUtilisationLibre() + articleStock.getArticleBloque() + articleStock.getArticleControleQualite()
 			+ articleStock.getArticleEnRetour() + articleStock.getArticleEnTransit() + articleStock.getArticleStockNonLibre();
-
-			articleStock = articleStock.setArticleCalculCde(totalcde);
-
-			entitymanager.merge(articleStock);
+			
+			int couvStock = articleStock.getArticleCalculCde() / articleStock.getConsommationJournaliére();  
+			 
+			articleStock.setArticleCalculCde(totalcde);
+			articleStock.setCouverturedestock(couvStock);
+			 System.out.println("avant merge");
+			 
+			entitymanager.persist(articleStock);
+			this.entitymanager.flush();
+			System.out.println("apres merge");
+			
 		}
    System.out.println("ok");
 
 	}
-                 
+    
+//	public void calculCouvertureStock () {
+//		
+//		List<ArticleStock> listcouvStock =  entitymanager.createNamedQuery("ArticleStock.AfficherTout",ArticleStock.class).getResultList().stream()
+//		           .collect(Collectors.toList());
+//		
+//		for (  ArticleStock articleStock : listcouvStock) {
+//			
+//			int couvStock = articleStock.getArticleCalculCde() / articleStock.getConsommationJournaliére();
+//			
+//			articleStock.setCouverturedestock(couvStock);
+//			
+//			entitymanager.persist(articleStock);
+//			
+//			entitymanager.flush();
+//			System.out.println("apres mergecouv");
+//		}
+//		
+//		  System.out.println("okcouv");       
+//		
+//		
+//	}
+	
+	
+	
+	public void importer (List<ArticleStock> ListarticleStocks) {
+
+		for(ArticleStock articleStock : ListarticleStocks ) {
+		this.entitymanager.persist(articleStock);
+		this.entitymanager.flush();
+		}
+
+	}	
+	
+	public List<ArticleStock> exporter() {
+
+		 List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList().stream()
+				.collect(Collectors.toList());	
+		return listResult;
+
+	}
+	
+	
+	
+	
 
 }

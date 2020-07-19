@@ -6,8 +6,10 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -73,7 +75,7 @@ public class CompteUserMB  implements Serializable{
 
 		String identifiant = compteUserDto.getidentifiant();
 
-		this.compteUserDtoListrech = compteUserService.rechercherParNom(identifiant);
+		//this.compteUserDtoListrech = compteUserService.rechercherParNom(identifiant);
 
 	}
 
@@ -144,7 +146,7 @@ public class CompteUserMB  implements Serializable{
 //		if( compteUserDtoTrouvé = compteUserService.connexion(identifiant, motDePasse) != null   )
 		{
 			System.out.println( "connexion");
-//			HttpSessionUtils.setCompteUserIdentifiantInHTTPSession(identifiant);
+			HttpSessionUtils.setCompteUserIdentifiantInHttpSession(identifiant);
 			this.p = compteUserDto.getPersonneDto();
 			return"sucess";
 		}
@@ -160,6 +162,45 @@ public class CompteUserMB  implements Serializable{
 			
 		}
 	}
+	private boolean deconnexion() {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		session.invalidate();
+		return true;
+	}
+	
+	
+	public String connexionAdm ( ) {	
+	     try {
+		CompteUserDto compteUserDtoTrouvé= compteUserService.connexionAdm(compteUserDto);
+		String identifiant = compteUserDto.getidentifiant();
+		String motDePasse = compteUserDto.getmotDePasse();
+		String administrateur = compteUserDto.getadministrateur();
+		
+		if( identifiant.equals(compteUserDtoTrouvé.getidentifiant()) 
+				&& ( motDePasse.equals(compteUserDtoTrouvé.getmotDePasse())
+						&& (administrateur.equals(compteUserDtoTrouvé.getadministrateur()))))
+//		boolean compteUserDtoTrouvé;
+//		if( compteUserDtoTrouvé = compteUserService.connexion(identifiant, motDePasse) != null   )
+		{
+			System.out.println( "connexion");
+			
+			this.p = compteUserDto.getPersonneDto();
+			return"sucessadm";
+		}
+		else {	
+			}
+			System.out.println("pas de connexion");
+			return"notsucessadm";
+		
+			
+		} catch (NullPointerException e) {
+			System.out.println("pas de connexion attrapé");
+			return"notsucessadm";
+			
+		}
+	}
+	
+	
 	
 	public CompteUserDto getCompteUserDto() {
 		return compteUserDto;
@@ -200,12 +241,6 @@ public class CompteUserMB  implements Serializable{
 	public void setIdentifiant(String identifiant) {
 		this.identifiant = identifiant;
 	}
-
-
-
-
-
-
 
 };
 

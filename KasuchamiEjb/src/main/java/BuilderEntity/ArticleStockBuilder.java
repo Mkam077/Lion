@@ -2,6 +2,10 @@ package BuilderEntity;
 
 import java.time.LocalDateTime;
 
+import javax.print.attribute.standard.DateTimeAtCreation;
+
+import org.hibernate.query.criteria.internal.expression.function.CurrentDateFunction;
+
 import DTO.ArticleStockDto;
 import Entity.ArticleStock;
 import Factory.ArticleStockFactory;
@@ -43,7 +47,8 @@ public class ArticleStockBuilder {
 		 articleStock.setArticleBloque(articleStockDto.getArticleBloque());
 		 articleStock.setArticleEnRetour(articleStockDto.getArticleEnRetour());
 		 articleStock.setArticleEnTransit(articleStockDto.getArticleEnTransit());
-//		 articleStock.setDateEnregistrement(articleStockDto.getDateEnregistrement());
+    //	 articleStock.setDateEnregistrement(articleStockDto.getDateEnregistrement( ));
+		// articleStock.setDateEnregistrement(LocalDateTime.now());
 		return  articleStock;
 	}
 	

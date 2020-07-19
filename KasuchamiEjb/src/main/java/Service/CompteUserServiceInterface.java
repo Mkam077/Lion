@@ -23,5 +23,6 @@ public interface CompteUserServiceInterface {
     CompteUserDto connexion ( String identifiant, String mdp);
     
     CompteUserDto findconnexion ( CompteUserDto compteUserDto);
-
+ 
+    CompteUserDto connexionAdm ( CompteUserDto compteUserDto);
 }

@@ -84,7 +84,15 @@ public class CompteUserService implements CompteUserServiceInterface {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
+
+	public CompteUserDto connexionAdm( CompteUserDto compteUserDto) {
+		// TODO Auto-generated method stub
+		return dao.rechercherPourConnexionAdministrateur(compteUserDto.getidentifiant(), 
+				compteUserDto.getmotDePasse(),
+				compteUserDto.getadministrateur());
+	}
+	
+	
 
 }

@@ -1,0 +1,21 @@
+.contenantDashboard{
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.titreSection {
+	
+	padding-top: 30px;
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.contenantGeneral {
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border: 1px solid black;
+}

@@ -5,8 +5,8 @@ import javax.servlet.http.HttpSession;
 
 public final class HttpSessionUtils {
 
-	public static final String COMPTE_USER_MAIL = "compteUserMail";
-	public static final String FICHE_CANDIDAT_MAIL = "ficheCandidatMail";
+	public static final String COMPTE_USER_IDENTIFIANT = "compteUserIdentifiant";
+	public static final String FICHE_EMPLOYE_IDENTIFIANT = "ficheEmployeIdentifiant";
 	
 	private HttpSessionUtils() {
 	}
@@ -21,18 +21,18 @@ public final class HttpSessionUtils {
 		return session.getAttribute(nomAttribut);
 	}
 	
-	public static String getCompteUserMailInHttpSession() {
-		return (String) HttpSessionUtils.getAttributDansLaHttpSession(HttpSessionUtils.FICHE_CANDIDAT_MAIL);
+	public static String getCompteUserIdentifiantInHttpSession() {
+		return (String) HttpSessionUtils.getAttributDansLaHttpSession(HttpSessionUtils.COMPTE_USER_IDENTIFIANT);
 	}
 	
-	public static void setCompteUserMailInHttpSession(String compteUserMail) {
-		HttpSessionUtils.setAttributDansLaHttpSession(HttpSessionUtils.FICHE_CANDIDAT_MAIL, compteUserMail);
+	public static void setCompteUserIdentifiantInHttpSession(String compteUserIdentifiant) {
+		HttpSessionUtils.setAttributDansLaHttpSession(HttpSessionUtils.FICHE_EMPLOYE_IDENTIFIANT, compteUserIdentifiant);
 	}
 	
 	public static void getFicheCandidatMailInHttpSession() {
-		HttpSessionUtils.getAttributDansLaHttpSession(HttpSessionUtils.FICHE_CANDIDAT_MAIL);
+		HttpSessionUtils.getAttributDansLaHttpSession(HttpSessionUtils.FICHE_EMPLOYE_IDENTIFIANT);
 	}
-	public static void setFicheCandidatMailInHttpSession(String ficheCandidatMail) {
-		HttpSessionUtils.setAttributDansLaHttpSession(HttpSessionUtils.FICHE_CANDIDAT_MAIL, ficheCandidatMail);
+	public static void setFicheCandidatMailInHttpSession(String ficheEmployeIdentifiant) {
+		HttpSessionUtils.setAttributDansLaHttpSession(HttpSessionUtils.FICHE_EMPLOYE_IDENTIFIANT, ficheEmployeIdentifiant);
 	}
 }

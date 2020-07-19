@@ -1,0 +1,44 @@
+.recherche {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+.zonerecherche {
+	display: flex;
+	flex-direction: column;
+}
+
+.attribut {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.filtre {
+	display: flex;
+	flex-direction: column;
+	margin-left: -230px;
+}
+
+.etapes {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	height:400px;
+	
+}
+
+.singleEtape {
+	
+	width:200px;
+	
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+.promotion {
+	text-align: left;
+	margin-bottom: 20px;
+}

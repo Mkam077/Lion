@@ -10,7 +10,7 @@ public class lanceurtest {
 		
 		DaoArticleStock test = new DaoArticleStock();
 		ArticleStockService test1 = new ArticleStockService();
-		test.calculQteTot();
+		test.calcul();
 		//test1.calculQteTot();
 
 	}

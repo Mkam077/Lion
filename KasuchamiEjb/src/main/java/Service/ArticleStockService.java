@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import DTO.ArticleStockDto;
 import Dao.DaoArticleStock;
-import Entity.ArticleStock;
 
 @Service
 public class ArticleStockService implements ArticleStockServiceInterface {
@@ -63,17 +62,67 @@ public class ArticleStockService implements ArticleStockServiceInterface {
 		daoArticleStock.modifier(articleStockDto);
 		
 	}
-
+	@Transactional
 	@Scheduled(cron = "0/40 * * * * * ")
 	@Override
-	public void calculQteTot() {
-		daoArticleStock.calculQteTot();
+	public void calculIndicateurs() {
+		daoArticleStock.calcul();
+		
 		
 	}
 	
-//	//@Scheduled(cron = "* 0/1 * * * * ")
-//	public void ring() {
-//		System.out.println("ok");
+//	@Transactional
+//	@Scheduled(cron = "0/60 * * * * * ")
+//	@Override
+//	public void calculCouvStock() {
+//		daoArticleStock.calculCouvertureStock();
+//		
 //	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@Transactional
+	public void ajouterUneQuantité () {
+		//variable désignation article recherché 
+		ArticleStockDto articleStockRecherché = new ArticleStockDto();
+		//variable quantité ajoutée
+		int quantitéAjoutée = articleStockRecherché.getArticleEnTransit() ;
+		//ligne de l' article recherché
+		long id = articleStockRecherché.getIdArticleStock();
+		
+		//rechercher l' article concerné pour l' ajout
+		   articleStockRecherché = daoArticleStock.rechercheParId(id);
+		//ajouter la quantité transit  aux type de stock désiré
+		   int nouvelleQuantitéUtilisationLibre = articleStockRecherché.getArticleUtilisationLibre() + quantitéAjoutée;
+		   articleStockRecherché.setArticleUtilisationLibre(nouvelleQuantitéUtilisationLibre);
+		   daoArticleStock.modifier(articleStockRecherché);
+		//supprimer la quantité ajouté au stock désiré de la quantité transit
+		   int nouvelleQuantitéEnTransit = articleStockRecherché.getArticleEnTransit() - quantitéAjoutée;
+		   articleStockRecherché.setArticleEnTransit(nouvelleQuantitéEnTransit);
+		   daoArticleStock.modifier(articleStockRecherché);
+	}
+
+	
+	
+//	public void supprimerUneQuantité() {
+//		
+//			
+//	}
+//	
+//	public void transfererUneQuantité() {
+//		
+//	}
+	
+	
+	
+	//@Scheduled(cron = "* 0/1 * * * * ")
+	//public void ring() {
+	//	System.out.println("ok");
+	//}
 	
 }

@@ -7,10 +7,11 @@ import Entity.Personne;
 
 public class CompteUserBuilder {
 	
-	public  CompteUser Build ( String identifiant, String motDePasse ) {
+	public  CompteUser Build ( String identifiant, String motDePasse, String administrateur ) {
 		CompteUser compteUser = new CompteUser();
 		compteUser.setIdentifiant(identifiant);
 		compteUser.setMotDePasse(motDePasse);
+		compteUser.setAdministrateur(administrateur);
 		return compteUser;
 		
 	}
@@ -24,6 +25,7 @@ public class CompteUserBuilder {
 		compteUser.setIdCompteUser(compteUserDto.getidCompteUser());
 		compteUser.setIdentifiant(compteUserDto.getidentifiant());
 		compteUser.setMotDePasse(compteUserDto.getmotDePasse());
+		compteUser.setAdministrateur(compteUserDto.getadministrateur());
 	
 		//Contrainte one to one car personneDto n' est pas nul
 	if(compteUserDto.getPersonneDto() != null){
@@ -46,7 +48,7 @@ public class CompteUserBuilder {
 		compteUserDto.setidCompteUser(compteUser.getIdCompteUser());
 		compteUserDto.setidentifiant(compteUser.getIdentifiant());
 		compteUserDto.setmotDePasse(compteUser.getMotDePasse());
-		
+		compteUserDto.setadministrateur(compteUser.getAdministrateur());
 		//Contrainte one to one car personneDto n' est pas nul	
 	if(compteUserDto.getPersonneDto() != null) {
 			// on travaille avec une personne DTO, on la crée

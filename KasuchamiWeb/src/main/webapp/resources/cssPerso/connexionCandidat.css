@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playball|Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Viaoda+Libre&display=swap');
+
+
+*{
+	
+	background-color: white;
+	
+}
+
+h3 {
+	
+font-family: 'Viaoda Libre', cursive;
+font-size: 40px;
+text-align: center;
+color: #da8f22;
+
+	
+}
+
+h1 {
+	text-align: center;
+	color: #da8f22;
+	font-family: 'Playball', cursive;
+	font-size: 40px;
+	padding-top: 20px;
+}
+
+h5 {
+
+	text-align: center;
+	color: #da8f22;
+	font-family: 'Viaoda Libre', cursive;
+	font-size: 20px;
+}
+
+.connexion {
+	
+	width: 500px;
+	height: 500px;
+
+	margin: 60px;
+	color: #682c33;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 25px;
+	border: 4px solid #682c33;
+	border-radius: 4px;
+
+}
+
+
+.inscription {
+	
+	width: 500px;
+	height: 500px;
+
+	margin: 60px;
+	color: #682c33;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 25px;
+	border: 4px solid #da8f22;
+	border-radius: 4px;
+
+}
+
+.inscription > h3 {
+	
+font-family: 'Viaoda Libre', cursive;
+font-size: 40px;
+text-align: center;
+color: #682c33;
+
+}
+
+
+.contenant {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	
+	
+}
+.buttonConnect {
+	
+	height: 30px;
+	margin-top: 20px;
+	font-family: 'Viaoda Libre', cursive;
+	color: white;
+	background-color: #da8f22 ;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	
+}
+
+.buttonCreate {
+	
+	height: 30px;
+	margin-top: 20px;
+	font-family: 'Viaoda Libre', cursive;
+	color: white;
+	background-color: #682c33 ;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	
+}
+
+.buttonConnect:hover {
+	
+	
+	font-family: 'Raleway', cursive;
+	color: white;
+	background-color: #da8f22;
+}
+
+.logoEcole {
+	
+	text-align: center;
+	background-color: #682c33;
+}
+
