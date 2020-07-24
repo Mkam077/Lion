@@ -8,9 +8,17 @@
     
 <h:head>
 	<title>>Importer et Exporter Un fichier Excel </title>
+<style>
+		
+<h:outputStylesheet library="cssPerso" name="style.css"  />	
+</style>
 </h:head>
+
 <h:body>
-	<h2>Manage ArticleStock</h2>
+      <h2>Importer et Exporter des fichiers Excel </h2>
+
+	<h3>Importer un fichier Excel </h3>
+	
 	
   <h:form enctype="multipart/form-data">
     <h:inputFile value="#{excelControllerMB.file}">
@@ -22,7 +30,8 @@
 <!-- 	<a href="articleStocks.xlsx"> Télecharger mon fichier</a> -->
 <!-- 	<p:commandButton value="Submit" ajax="false" action="#{excelControllerMB.getFiles()}" /> -->
 <!-- 	</h:form> -->
-	
+
+	  <h3>Exporter  un fichier Excel </h3>
 	<a href="@{attachment/articleStocks.xlsx}" >Download</a>
 	
 <!-- 	onclick="getFiles()" -->
@@ -51,4 +60,5 @@
 <!-- </h:form> -->
 	
 </h:body>
+
 </html>

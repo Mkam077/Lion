@@ -78,14 +78,7 @@ public class ArticleStockService implements ArticleStockServiceInterface {
 //		daoArticleStock.calculCouvertureStock();
 //		
 //	}
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	@Transactional
 	public void ajouterUneQuantité () {
 		//variable désignation article recherché 

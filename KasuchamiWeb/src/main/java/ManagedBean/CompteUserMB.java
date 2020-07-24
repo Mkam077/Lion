@@ -162,10 +162,11 @@ public class CompteUserMB  implements Serializable{
 			
 		}
 	}
-	private boolean deconnexion() {
+	
+	public String deconnexion( ) {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.invalidate();
-		return true;
+		return "sucessdec";
 	}
 	
 	

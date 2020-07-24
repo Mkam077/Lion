@@ -85,11 +85,9 @@ public class DaoArticleStock    {
 		for ( ArticleStock articleStock : listResult) {
 
 			int totalcde = articleStock.getArticleUtilisationLibre() + articleStock.getArticleBloque() + articleStock.getArticleControleQualite()
-			+ articleStock.getArticleEnRetour() + articleStock.getArticleEnTransit() + articleStock.getArticleStockNonLibre();
-			
-			int couvStock = articleStock.getArticleCalculCde() / articleStock.getConsommationJournaliére();  
-			 
+			+ articleStock.getArticleEnRetour() + articleStock.getArticleEnTransit() + articleStock.getArticleStockNonLibre();   
 			articleStock.setArticleCalculCde(totalcde);
+			int couvStock = articleStock.getArticleCalculCde() / articleStock.getConsommationJournaliére();
 			articleStock.setCouverturedestock(couvStock);
 			 System.out.println("avant merge");
 			 

@@ -1,5 +1,5 @@
 package Utils;
-
+//  Pour permettre des mise à jour dans la même session et ne pas avoir à redémarer le serveur.
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -7,6 +7,7 @@ public final class HttpSessionUtils {
 
 	public static final String COMPTE_USER_IDENTIFIANT = "compteUserIdentifiant";
 	public static final String FICHE_EMPLOYE_IDENTIFIANT = "ficheEmployeIdentifiant";
+	
 	
 	private HttpSessionUtils() {
 	}

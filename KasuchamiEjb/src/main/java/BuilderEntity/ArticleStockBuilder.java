@@ -23,7 +23,7 @@ public class ArticleStockBuilder {
 	}
 
 	public ArticleStock Build ( String designation, Integer utilisationLibre,Integer controleQualite, Integer stockNonLibre, Integer articleBloque, 
-	Integer  articleEnRetour, Integer articleEnTransit,  LocalDateTime dateEnregistrement ) {
+	Integer  articleEnRetour, Integer articleEnTransit,Integer couvertureStock,  LocalDateTime dateEnregistrement ) {
 		ArticleStock articleStock = articleStockFactory.creer(); 
 		   articleStock.setArticleDesignation(designation);
 		   articleStock.setArticleUtilisationLibre(utilisationLibre);
@@ -32,6 +32,7 @@ public class ArticleStockBuilder {
 		   articleStock.setArticleBloque(articleBloque);
 		   articleStock.setArticleEnRetour(articleEnRetour);
 		   articleStock.setArticleEnTransit(articleEnTransit);
+		  // articleStock.setCouverturedestock(couvertureStock);
 //		   articleStock.setDateEnregistrement(dateEnregistrement);
 		return articleStock;		
 		// TODO Auto-generated constructor stub
@@ -47,6 +48,7 @@ public class ArticleStockBuilder {
 		 articleStock.setArticleBloque(articleStockDto.getArticleBloque());
 		 articleStock.setArticleEnRetour(articleStockDto.getArticleEnRetour());
 		 articleStock.setArticleEnTransit(articleStockDto.getArticleEnTransit());
+		 articleStock.setConsommationJournaliére(articleStockDto.getConsommationJournaliére());
     //	 articleStock.setDateEnregistrement(articleStockDto.getDateEnregistrement( ));
 		// articleStock.setDateEnregistrement(LocalDateTime.now());
 		return  articleStock;
@@ -62,6 +64,8 @@ public class ArticleStockBuilder {
 		articleStockDto.setArticleEnRetour(articleStock.getArticleEnRetour());
 		articleStockDto.setArticleEnTransit(articleStock.getArticleEnTransit());
 		articleStockDto.setArticleStockNonLibre(articleStock.getArticleStockNonLibre());
+		articleStockDto.setCouverturedestock(articleStock.getCouverturedestock());
+		articleStockDto.setConsommationJournaliére(articleStock.getConsommationJournaliére());
 //		articleStockDto.setDateEnregistrement(articleStock.getDateEnregistrement());
 		
 		return articleStockDto;

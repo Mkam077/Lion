@@ -14,70 +14,60 @@
 	
 <h:outputStylesheet library="cssPerso" name="style.css"  />
 <h:outputStylesheet library="cssPerso" name="connexionCandidat.css"  />
-
-
 	
 </style>
-
 	<title>Kasuchami -connexion</title>
 </h:head>
 
-
-	
-
 <h:body>
-	<h2>Connectez vous</h2>
-
-	<div class="contenant">
-		<h:form id="CompteUser">
-
+<h2>Connectez vous</h2>
+	<div class="contenant">	
+	<h:form  id="connexion">
 			<div class="connexion">
-
 				<h3>Login</h3>
 
 				<p:outputLabel for="identifiantinput" value="Identifiant :" />
 				<p:inputText  id="identifiantinput" type="text" 
-					placeholder="identifiant" size="35"
+					placeholder="identifiant" size="20"
 					value="#{compteUserMB.compteUserDto.identifiant}"></p:inputText>
 
 				<p:outputLabel for="mdpinput" value="Mot de Passe" />
 				<p:password id="mdpinput" type="text" placeholder="Mot de Passe" 
-					size="35" value="#{compteUserMB.compteUserDto.motDePasse}"></p:password>
+					size="20" value="#{compteUserMB.compteUserDto.motDePasse}"></p:password>
 
 				<h:commandButton class="buttonConnect" value="connexion"
-					action="#{compteUserMB.connexion()}"   ></h:commandButton>
-
-			</div>
-		</h:form>
-	</div>
-	<h2>Connectez vous en tant qu administrateur</h2>
-
+					action="#{compteUserMB.connexion()}"></h:commandButton>
+			</div>	
+			</h:form>			
+	        </div>
+	         
+	
+<h2>Connectez vous en tant qu administrateur</h2>
+	
 	<div class="contenant">
-		<h:form id="CompteUserAC">
-
+	<h:form  id="connexionAdm">
 			<div class="connexion">
-
 				<h3>Login</h3>
 
-				<p:outputLabel for="identifiantinput" value="Identifiant :" />
-				<p:inputText  id="identifiantinput" type="text" 
-					placeholder="identifiant" size="35"
+				<p:outputLabel for="identifiantinputAdm" value="Identifiant :" />
+				<p:inputText  id="identifiantinputAdm" type="text" 
+					placeholder="identifiant" size="20"
 					value="#{compteUserMB.compteUserDto.identifiant}"></p:inputText>
 
-				<p:outputLabel for="mdpinput" value="Mot de Passe" />
-				<p:password id="mdpinput" type="text" placeholder="Mot de Passe" 
-					size="35" value="#{compteUserMB.compteUserDto.motDePasse}"></p:password>
+				<p:outputLabel for="mdpinputAdm" value="Mot de Passe" />
+				<p:password id="mdpinputAdm" type="text" placeholder="Mot de Passe" 
+					size="20" value="#{compteUserMB.compteUserDto.motDePasse}"></p:password>
 					
 				<p:outputLabel for="adminput" value="Administrateur" />
 				<p:password id="adminput" type="password" placeholder="administrateur" 
-					size="35" value="#{compteUserMB.compteUserDto.administrateur}" required = "true"></p:password>
+					size="20" value="#{compteUserMB.compteUserDto.administrateur}" required = "true"></p:password>
 
 				<h:commandButton class="buttonConnect" value="connexionAdministrateur"
-					action="#{compteUserMB.connexionAdm()}"   ></h:commandButton>
-
+					action="#{compteUserMB.connexionAdm()}"></h:commandButton>
 			</div>
 		</h:form>
 	</div>
+	
 </h:body>
 
 </html>

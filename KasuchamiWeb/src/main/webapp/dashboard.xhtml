@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="refresh" content="5"> </meta>
+	<title>DashBoard</title>
+	
+	<style>
+<h:outputStylesheet library="cssPerso" name="style.css"  />
+
+	</style>
+	
+	
+</h:head>
+
+	
+<h2 class="titreSection">Tableau De Bord</h2>	
+
+<div class="contenantDashboard">
+
+<div class="contenantPromoCandidature">
+
+<h3>Indicateur</h3>
+
+<div class="contenantCandidature">
+
+<div class="candidatureUn">
+<h4>Couverture de Stock</h4>
+
+
+
+<h:form class="form">
+
+<!-- <p:commandButton value="MiseAjour" action="#{articleStockMB.afficherTout()  }" update="@form" > -->
+<!-- 						 </p:commandButton> -->
+
+<!-- // permet la mise à jour de la table articleStockList tout les 2 secondes -->
+      <p:poll interval="2" update="articleStocklist" />
+        
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="articleStocklist" var="articleStock"
+			value="#{articleStockMB.articleStockDtolist}" style="width:85%;">
+
+			<p:column headerText="Designation">
+				<p:inputText id="Desup" value="#{articleStock.articleDesignation}" />
+			</p:column>
+			<p:column headerText="IndCouvStock">
+				<p:inputText id="couvStock"
+					value="#{articleStock.couverturedestock}" />
+			</p:column>
+		</p:dataTable>		
+	</h:form>
+
+</div>
+
+<!-- <div class="candidatureDeux"> -->
+<!-- <h3>Candidature retenue</h3> -->
+
+<!-- </div> -->
+<!-- </div> -->
+</div>
+<!-- <div class="rdv"> -->
+<!-- <h3>Prochains RDV</h3> -->
+
+</div>
+
+</div>
+
+
+
+
+</html>	

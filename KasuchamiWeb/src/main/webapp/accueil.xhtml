@@ -102,7 +102,25 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 			<h:commandButton class="connect"  value="Stock"
 				action="VersStock" >
 			</h:commandButton>
+			<h:commandButton class="connect"  value="Importer "
+				action="Versimport" >
+			</h:commandButton>
+
+			<h:commandButton class="connect"  value="Tableau De Bord"
+				action="VersTableauDeBord" >
+			</h:commandButton>
+			
+			<H2> Deconnexion</H2>
+			<h:commandButton class="buttonConnect"  value="Deconnexion"
+				action="#{compteUserMB.deconnexion }" >
+			</h:commandButton>
+			
 		</h:form>
+		
+		
+		
+		
+		
 <!-- <div class="equipe"> -->
 <!-- 		<div class="titreEquipe"> -->
 <!-- 			<h2>Notre équipe à votre service</h2> -->
@@ -150,28 +168,27 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 
 		
 </div>
-<div class="connexionadmin">
+<!-- <div class="connexionadmin"> -->
 
-<h3>Espace réservé a l'administrateur</h3>
-<h3>Login</h3>
-        		<p:outputLabel for="identifiantinput" value="Identifiant :" />
-				<p:inputText  id="identifiantinput" type="text" 
-					placeholder="identifiant" size="35"
-					value="#{compteUserMB.compteUserDto.identifiant}"></p:inputText>
+<!-- <h3>Espace réservé a l'administrateur</h3> -->
+<!-- <h3>Login</h3> -->
+<!--         		<p:outputLabel for="identifiantinput" value="Identifiant :" /> -->
+<!-- 				<p:inputText  id="identifiantinput" type="text"  -->
+<!-- 					placeholder="identifiant" size="35" -->
+<!-- 					value="#{compteUserMB.compteUserDto.identifiant}"></p:inputText> -->
 
-				<p:outputLabel for="mdpinput" value="Mot de Passe" />
-				<p:password id="mdpinput" type="text" placeholder="Mot de Passe" 
-					size="35" value="#{compteUserMB.compteUserDto.motDePasse}"></p:password>
+<!-- 				<p:outputLabel for="mdpinput" value="Mot de Passe" /> -->
+<!-- 				<p:password id="mdpinput" type="text" placeholder="Mot de Passe"  -->
+<!-- 					size="35" value="#{compteUserMB.compteUserDto.motDePasse}"></p:password> -->
 					
-				<p:outputLabel for="adminput" value="Administrateur" />
-				<p:password id="adminput" type="text" placeholder="Mot de Passe" 
-					size="35" value="#{compteUserMB.compteUserDto.administrateur}"></p:password>
+<!-- 				<p:outputLabel for="adminput" value="Administrateur" /> -->
+<!-- 				<p:password id="adminput" type="text" placeholder="Mot de Passe"  -->
+<!-- 					size="35" value="#{compteUserMB.compteUserDto.administrateur}"></p:password> -->
 
-				<h:commandButton class="buttonConnect" value="connexionAdm"
-					action="#{compteUserMB.connexionAdm() }"   ></h:commandButton>
+<!-- 				<h:commandButton class="buttonConnect" value="connexionAdm" -->
+<!-- 					action="#{compteUserMB.connexionAdm() }"   ></h:commandButton> -->
 
-</div>
-
+<!-- </div> -->
 
 		<div class="footer"></div>
 	</div>

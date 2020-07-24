@@ -70,12 +70,19 @@ public class ArticleStockMB  implements Serializable{
 	 @PostConstruct
 	    public void init() {
 		 resetArticleStockDto();
+		 articleStockService.calculIndicateurs();
 		 this.articleStockDtolist = articleStockService.Affichertout();
 		 ArticleStockDto articleStockDto = new ArticleStockDto();
 		// this.articleStockDtolist = serviceArticleStock.Affichertout();
-		 articleStockService.calculIndicateurs();
+		 
 		 
 	    }
+	 
+	 public void afficherTout () {
+		 
+		 this.articleStockDtolist = articleStockService.Affichertout();
+	 }
+	 
 	 
 	public void ajouterUnArticle () { 
 		
@@ -128,9 +135,18 @@ public class ArticleStockMB  implements Serializable{
 		public void  modifier ( ArticleStockDto articleStockDto) {
 			
 			articleStockService.modifier(articleStockDto);
+		
 			
 		}
 	
+		
+//		public void miseAjourIndCouv ( ) {
+//			
+//			articleStockService.calculIndicateurs();
+//		}
+		
+		
+		
 		private void resetArticleStockDto() {
 			
 			this.articleStockDto = new ArticleStockDto();

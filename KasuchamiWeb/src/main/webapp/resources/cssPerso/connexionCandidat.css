@@ -5,7 +5,7 @@
 
 *{
 	
-	background-color: white;
+	background-color: #00ffff;
 	
 }
 
@@ -40,7 +40,7 @@ h5 {
 	width: 500px;
 	height: 500px;
 
-	margin: 60px;
+	margin: 40px;
 	color: #682c33;
 	
 	display: flex;
@@ -58,7 +58,7 @@ h5 {
 	width: 500px;
 	height: 500px;
 
-	margin: 60px;
+	margin: 50px;
 	color: #682c33;
 	
 	display: flex;

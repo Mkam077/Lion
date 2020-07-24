@@ -5,7 +5,8 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
     version="2.3">
 <!--Ces règles sont utilisées par les h:link -->
-<!--     connexion d' un utilisateur -->
+
+<!--     connexion et deconnexion d' un utilisateur -->
 	<navigation-rule>
 		<from-view-id>/connexion.xhtml</from-view-id>
 		<navigation-case>
@@ -15,14 +16,27 @@
 			<to-view-id>/accueil.xhtml</to-view-id>
 	
 		</navigation-case>
+		
+		
 		<navigation-case>
 <!-- 			<from-action>#{compteUserMB.connexion}</from-action>
  -->			<from-outcome>notsucess</from-outcome>
 			<to-view-id>/erreurConnexion.xhtml</to-view-id>
 			
 		</navigation-case>
+	
+				
 	</navigation-rule>
 	
+	<navigation-rule>
+	<from-view-id>/accueil.xhtml</from-view-id>
+		<navigation-case>
+<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
+ -->			<from-outcome>sucessdec</from-outcome>
+			<to-view-id>/connexion.xhtml</to-view-id>
+			
+		</navigation-case>
+	</navigation-rule>
 <!-- 	Connexion d' un administrateur -->
 	<navigation-rule>
 		<from-view-id>/connexion.xhtml</from-view-id>
@@ -36,17 +50,27 @@
 		<navigation-case>
 <!-- 			<from-action>#{compteUserMB.connexion}</from-action>
  -->			<from-outcome>notsucessadm</from-outcome>
-			<to-view-id>/erreurConnexion.xhtml</to-view-id>
-			
-		</navigation-case>
+			<to-view-id>/erreurConnexion.xhtml</to-view-id>	
+		</navigation-case>	
 	</navigation-rule>
 
-<!-- de la page accueil vers page GestionStock	 -->
+
      <navigation-rule>
 	  <from-view-id>/accueil.xhtml</from-view-id>
+<!-- de la page accueil vers page GestionStock	 -->
 	  <navigation-case>
 	     <from-outcome>VersStock</from-outcome>
 	     <to-view-id>/ajouterUnArticle.xhtml</to-view-id>
+	  </navigation-case>
+<!-- de la page accueil vers page Tableau de Bord	 -->	  
+	  <navigation-case>
+	     <from-outcome>VersTableauDeBord</from-outcome>
+	     <to-view-id>/dashboard.xhtml</to-view-id>
+	  </navigation-case>
+<!-- de la page accueil vers import	 -->	  
+	  <navigation-case>
+	     <from-outcome>Versimport</from-outcome>
+	     <to-view-id>/ajout_file.xhtml</to-view-id>
 	  </navigation-case>
 	</navigation-rule>
 	

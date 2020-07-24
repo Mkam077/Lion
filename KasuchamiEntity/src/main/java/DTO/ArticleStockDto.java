@@ -64,6 +64,7 @@ public class ArticleStockDto implements Serializable{
 			  builder.append(", articleEnTransit=");
 			  builder.append(articleEnTransit);
 			  builder.append(", dateEnregistrement=" );
+			  builder.append(",couverturedestock=" );
 //			  builder.append(dateEnregistrement );
 			return  builder.toString();
 		}

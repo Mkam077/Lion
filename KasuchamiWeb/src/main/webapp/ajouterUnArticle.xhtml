@@ -8,24 +8,31 @@
 
 <h:head>
 	<title>Kasuchami - Ajout d'un Article</title>
-	<style>	
-<h:outputStylesheet library="cssPerso" name="style.css"  /> 
-<h:outputStylesheet library="cssPerso" name="fichecandidat.css"  /> 	
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css" />
 </style>
 
 </h:head>
+<ui:composition template="/menubar.xhtml">
+	<ui:define name="pageTitle">Gestion du Stock</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
 <body>
      <h2>GERER LES ARTICLES</h2>
      
 	<h1>Supprimer un Article</h1>
 	<h:form class="form">
-
+        <p:poll interval="3" update="articleStocklist" />
 		<p:growl id="growl" sticky="true" />
 
 		<p:dataTable id="articleStocklist" var="articleStock"
-			value="#{articleStockMB.articleStockDtolist}" style="width:85%;">
+			value="#{articleStockMB.articleStockDtolist}" 
+			rowKey="#{articleStock.idArticleStock}" paginator="true" rows="10"
+			selectionMode="single" selection="#{personneMail}"
+			filteredValue="#{articleStock.filteredarticleStock}"
+			style="width:120%;">
 
-			<p:column headerText="id">
+			<p:column headerText="id" >
 				<h:outputText value="#{articleStock.idArticleStock}" />
 			</p:column>
 
@@ -54,8 +61,6 @@
 				<h:outputText id="artEnTr" value="#{articleStock.articleEnTransit}" />
 			</p:column>
 			<p:column style="width:120px;">
-			</p:column>
-			<p:column style="width:120px;">
 				<p:commandButton update="articleStocklist" value="Delete"
 					icon="ui-icon-closethick"
 					action="#{articleStockMB.supprimerUnArticle(articleStock)}"
@@ -69,7 +74,11 @@
 	<h:form class="form">
 		<p:growl id="growl" sticky="true" />
 		<p:dataTable id="articleStocklist" var="articleStock"
-			value="#{articleStockMB.articleStockDtolist}" style="width:85%;">
+			value="#{articleStockMB.articleStockDtolist}" 
+			rowKey="#{articleStock.idArticleStock}" paginator="true" rows="10"
+			selectionMode="single" selection="#{personneMail}"
+			filteredValue="#{articleStock.filteredarticleStock}"
+			style="width:120%;">
 
 			<p:column headerText="Designation">
 				<p:inputText id="Desup" value="#{articleStock.articleDesignation}" />
@@ -95,8 +104,10 @@
 			<p:column headerText="EnTransit">
 				<p:inputText id="artEnTrup" value="#{articleStock.articleEnTransit}" />
 			</p:column>
-			<p:column style="width:120px;">
+			<p:column headerText="ConsoJour">
+				<p:inputText id="artConsoJour" value="#{articleStock.consommationJournaliére}" />
 			</p:column>
+		
 			<p:column style="width:120px;">
 				<p:commandButton update="articleStocklist" value="update"
 					icon="ui-icon-closethick"
@@ -248,6 +259,8 @@
 	</p:dataTable>
 	</h:form>
 </body>
+</ui:define>
+</ui:composition>
 </html>
 
 
