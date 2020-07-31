@@ -37,10 +37,10 @@ public class ExcelService implements ExcelServiceInterface {
 
 	
 	
-	public ByteArrayInputStream load() {
+	public byte[] load() {
 	    List<ArticleStock> articleStocks = daoArticleStock.exporter();
 
-	    ByteArrayInputStream in = ExcelHelper.articleStocksToExcel(articleStocks);
+	    byte[] in = ExcelHelper.articleStocksToExcel(articleStocks);
 	    return in;
 	  }
 

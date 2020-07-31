@@ -9,16 +9,20 @@
 	<title>Kasuchami - Ajout d'une Personne</title>
 <style>	
 <h:outputStylesheet library="cssPerso" name="style.css"  /> 
-<h:outputStylesheet library="cssPerso" name="fichecandidat.css"  /> 	
+	
 </style>
 </h:head>
+<ui:composition template="/menubarAdm.xhtml">
+	<ui:define name="pageTitle">Gestion du Stock</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
 <body>
 	<h1>Supprimer une Personne</h1>
 	<h:form class="form">
 
 		<p:growl id="growl" sticky="true" />
 
-		<p:dataTable id="personnelist" var="personne"
+		<p:dataTable id="listePersonne" var="personne"
 			value="#{personneMB.listePersonneDto}" style="width:85%;">
 
 			<p:column headerText="id">
@@ -43,11 +47,11 @@
 			<p:column headerText="avatar">
 				<h:outputText id="ava" value="#{personne.avatar}" />
 			</p:column>
-			
+
+
+		
 			<p:column style="width:120px;">
-			</p:column>
-			<p:column style="width:120px;">
-				<p:commandButton update="personnelist" value="Delete"
+				<p:commandButton update="listePersonne" value="Delete"
 					icon="ui-icon-closethick"
 					action="#{personneMB.supprimerUnePersonne( personne)}"
 					styleClass="ui-priority-primary">
@@ -90,8 +94,6 @@
 				<p:inputText id="ava" value="#{personne.avatar}" />
 			</p:column>
 			
-			<p:column style="width:120px;">
-			</p:column>
 			<p:column style="width:120px;">
 				<p:commandButton update="personnelist" value="Update"
 					icon="ui-icon-closethick"
@@ -172,12 +174,7 @@
 						value="#{personneMB.personneDto.nom}"
 						size="25" />
 					<p:message for="personneNom" />
-        					   
-<!--            <h:commandLink text="commandLink 1" id="cl1"> -->
-<!--            <f:setPropertyActionListener value="value pass by commandLink" -->
-<!--                 target="#{viewScope.articleStockMB.articleStockDto.articleDesignation}"/> -->
-<!--             </h:commandLink> -->
-				
+        					   				
 				<p:commandButton value="rechercher"
 					action="#{personneMB.rechercherUnePersonne()}" update="@form" >			
 				</p:commandButton>
@@ -189,7 +186,7 @@
 			value="#{personneMB.listePersonneDtoRech}" style="width:85%;">
 
 			<p:column headerText="id">
-				<h:outputText value="#{personne.idPersonne}" />
+				<h:outputText value="#{personneRech.idPersonne}" />
 			</p:column>
 
 			<p:column headerText="nom">
@@ -211,8 +208,7 @@
 				<h:outputText id="ava" value="#{personneRech.avatar}" />
 			</p:column>
 			
-			<p:column style="width:120px;">
-			</p:column>
+			
 			<p:column style="width:120px;">
 				<p:commandButton update="personnelistRech" value="Delete"
 					icon="ui-icon-closethick"
@@ -223,6 +219,8 @@
 		</p:dataTable>
 	</h:form>
 </body>
+</ui:define>
+</ui:composition>
 </html>
 
 

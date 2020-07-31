@@ -5,33 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.ManagedBean;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
-import org.jboss.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import DTO.ArticleStockDto;
 import Service.ArticleStockServiceInterface;
 
 @Named
-@SessionScoped
+@ViewScoped
 public class ArticleStockMB  implements Serializable{
 	
 	 /**
 	 * 
 	 */
 	private static final long serialVersionUID = -7690536477406198688L;
-	
+
+//////////////////Pour un Logger/////////////////////////////////////////////////////////////////////	
 //	private static final Logger LOGGER = Logger.getLogger(ArticleStockMB.class.getSimpleName());
 
-	
-	
-	
       ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 
@@ -139,22 +133,19 @@ public class ArticleStockMB  implements Serializable{
 			
 		}
 	
-		
+/////////////////////////Pour la methode Mise à jour indCouv Non utilisé dans cette application/////////////////////		
 //		public void miseAjourIndCouv ( ) {
 //			
 //			articleStockService.calculIndicateurs();
 //		}
 		
-		
-		
+				
 		private void resetArticleStockDto() {
 			
 			this.articleStockDto = new ArticleStockDto();
 		}
 
-		
-		
-		
+				
 		public ArticleStockDto getArticleStockDto() {
 			return articleStockDto;
 		}
@@ -194,10 +185,7 @@ public class ArticleStockMB  implements Serializable{
 			this.listarticleStockDtoreherché = listarticleStockDtoreherché;
 		}
 		
-	//	@GetMapping("/articleStock/export")
-	//	public void exportToExcel(httpServletResponse response) {
-			
-	//	}
+	
 		
 		
 		

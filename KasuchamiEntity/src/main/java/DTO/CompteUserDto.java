@@ -73,21 +73,7 @@ public class CompteUserDto implements Serializable {
 				+ identifiant + ", motDePasse=" + motDePasse + "]";
 	}
 
-//to String
-//	@Override
-//	public String toString() {
-//		
-//		StringBuilder builder = new StringBuilder();
-//		
-//		builder.append("IdCompteUser=");
-//		builder.append("IdCompteUser");
-//		builder.append(", Identifiant=");
-//		builder.append("Identifiant");
-//		builder.append(", MotDePasse=");
-//		builder.append("MotDePasse");
-//		
-//		return builder.toString();
-//	}
+
 
 
 	

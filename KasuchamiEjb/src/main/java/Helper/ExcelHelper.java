@@ -21,8 +21,8 @@ import Entity.ArticleStock;
 
 public class ExcelHelper {
 	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	static String[] HEADERs = {"articleDesignation","articleUtilisationLibre","articleControleQualite,"
-			+"articleBloque","articleEnRetour","articleEnTransit, "};
+	static String[] HEADERs = {"articleDesignation","articleUtilisationLibre","articleControleQualite",
+		"articleBloque","articleEnRetour","articleEnTransit","ConsommationJournaliére "};
 	static String SHEET = "Feuil1";
 
 	public static boolean hasExcelFormat(Part file) {
@@ -119,7 +119,7 @@ public class ExcelHelper {
 		}
 		
 	}
-		 public static ByteArrayInputStream articleStocksToExcel(List<ArticleStock> articleStocks) {
+		 public static byte[] articleStocksToExcel(List<ArticleStock> articleStocks) {
 
 			    try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
 			      Sheet sheet = workbook.createSheet(SHEET);
@@ -149,7 +149,7 @@ public class ExcelHelper {
 			      }
 
 			      workbook.write(out);
-			      return new ByteArrayInputStream(out.toByteArray());
+			      return out.toByteArray();
 			    } catch (IOException e) {
 			      throw new RuntimeException("fail to import data to Excel file: " + e.getMessage());
 			    }

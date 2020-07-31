@@ -6,44 +6,73 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-<meta http-equiv="refresh" content="5"> </meta>
+<meta http-equiv="refresh" content="5"></meta>
+<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+  <script type = "text/JavaScript"> 
+         
+              function AutoRefresh( t ) {  
+                 setTimeout("location.reload(true);", t);
+             }  
+         
+       </script> 
+     
+
 	<title>DashBoard</title>
-	
+
 	<style>
 <h:outputStylesheet library="cssPerso" name="style.css"  />
+<h:outputStylesheet library="cssPerso" name="cssAccueil.css"  />
 
 	</style>
 	
 	
 </h:head>
 
-	
+
+
+ <body onload = "JavaScript:AutoRefresh(5000);" >	  
 <h2 class="titreSection">Tableau De Bord</h2>	
 
-<div class="contenantDashboard">
 
-<div class="contenantPromoCandidature">
 
 <h3>Indicateur</h3>
 
-<div class="contenantCandidature">
 
-<div class="candidatureUn">
+
+<div class="couvertureDeStock">
 <h4>Couverture de Stock</h4>
 
 
 
-<h:form class="form">
+<h:form >
 
-<!-- <p:commandButton value="MiseAjour" action="#{articleStockMB.afficherTout()  }" update="@form" > -->
-<!-- 						 </p:commandButton> -->
-
-<!-- // permet la mise à jour de la table articleStockList tout les 2 secondes -->
-      <p:poll interval="2" update="articleStocklist" />
-        
+<!--  // permet la mise à jour de la table articleStockList tout les 2 secondes  -->
+<!--        <p:poll interval="5" update="articleStocklist" />  -->
+    
+        <h:commandButton class="connect"  value="Accueil"
+				action="VersAccueil" >
+			</h:commandButton>
+			<h:commandButton class="connect"  value="Stock"
+				action="VersStock" >
+			</h:commandButton>
+			<h:commandButton class="connect"  value="Import"
+				action="VersImport" >
+			</h:commandButton>
+   </h:form> 
+    
+   <p:separator /> 
+   <h:form class="form">     
 		<p:growl id="growl" sticky="true" />
+		<p:poll interval="5" update="articleStocklist" />
+		
 		<p:dataTable id="articleStocklist" var="articleStock"
-			value="#{articleStockMB.articleStockDtolist}" style="width:85%;">
+			value="#{articleStockMB.articleStockDtolist}" 
+			rowKey="#{articleStock.idArticleStock}" paginator="true" rows="10"
+			selectionMode="single" selection="#{articleStock}"
+			filteredValue="#{articleStock.filteredarticleStock}"
+			style="width:30%;">
 
 			<p:column headerText="Designation">
 				<p:inputText id="Desup" value="#{articleStock.articleDesignation}" />
@@ -52,25 +81,14 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 				<p:inputText id="couvStock"
 					value="#{articleStock.couverturedestock}" />
 			</p:column>
-		</p:dataTable>		
+		</p:dataTable>			
 	</h:form>
 
 </div>
 
-<!-- <div class="candidatureDeux"> -->
-<!-- <h3>Candidature retenue</h3> -->
-
-<!-- </div> -->
-<!-- </div> -->
-</div>
-<!-- <div class="rdv"> -->
-<!-- <h3>Prochains RDV</h3> -->
-
-</div>
-
-</div>
 
 
+</body>
 
 
 </html>	

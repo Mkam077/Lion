@@ -15,9 +15,7 @@ public interface PersonneDaoInterface {
 	List<PersonneDto> Afficher ();
 	
 	List<PersonneDto> RechercherParNom(String personne);
-	
-	
-	
+		
 	PersonneDto RechercheParId (Long id);
 	
 }

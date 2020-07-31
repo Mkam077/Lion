@@ -70,7 +70,7 @@ public class ArticleStockService implements ArticleStockServiceInterface {
 		
 		
 	}
-	
+//////////////////CRON exemple   non utilisé dans le code///////////////////////////////////////////////////	
 //	@Transactional
 //	@Scheduled(cron = "0/60 * * * * * ")
 //	@Override
@@ -99,20 +99,8 @@ public class ArticleStockService implements ArticleStockServiceInterface {
 		   articleStockRecherché.setArticleEnTransit(nouvelleQuantitéEnTransit);
 		   daoArticleStock.modifier(articleStockRecherché);
 	}
-
 	
-	
-//	public void supprimerUneQuantité() {
-//		
-//			
-//	}
-//	
-//	public void transfererUneQuantité() {
-//		
-//	}
-	
-	
-	
+//////////////////CRON Test  non utilisé dans le code///////////////////////////////////////////////////	
 	//@Scheduled(cron = "* 0/1 * * * * ")
 	//public void ring() {
 	//	System.out.println("ok");

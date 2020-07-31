@@ -27,16 +27,26 @@
 	
 				
 	</navigation-rule>
-	
 	<navigation-rule>
 	<from-view-id>/accueil.xhtml</from-view-id>
 		<navigation-case>
 <!-- 			<from-action>#{compteUserMB.connexion}</from-action>
  -->			<from-outcome>sucessdec</from-outcome>
-			<to-view-id>/connexion.xhtml</to-view-id>
-			
+			<to-view-id>/connexion.xhtml</to-view-id>		
 		</navigation-case>
 	</navigation-rule>
+	
+<!-- 	deConnexion d' un administrateur -->
+	<navigation-rule>
+	<from-view-id>/accueilAdmin.xhtml</from-view-id>
+		<navigation-case>
+<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
+ -->			<from-outcome>sucessdecAdm</from-outcome>
+			<to-view-id>/connexion.xhtml</to-view-id>		
+		</navigation-case>
+	</navigation-rule>
+	
+	
 <!-- 	Connexion d' un administrateur -->
 	<navigation-rule>
 		<from-view-id>/connexion.xhtml</from-view-id>
@@ -71,8 +81,30 @@
 	  <navigation-case>
 	     <from-outcome>Versimport</from-outcome>
 	     <to-view-id>/ajout_file.xhtml</to-view-id>
-	  </navigation-case>
+	  </navigation-case>  
 	</navigation-rule>
+	
+<!-- A partir de la page Tableau de Bord	 -->	
+	<navigation-rule>
+	  <from-view-id>/dashboard.xhtml</from-view-id>
+	  <!-- de la page Tableau de Bord Utilisateur vers page AccueilUtilisateur	 -->
+	 <navigation-case>
+	     <from-outcome>VersAccueil</from-outcome>
+	     <to-view-id>/accueil.xhtml</to-view-id>
+	  </navigation-case> 
+<!-- de la page Tableau de Bord Utilisateur vers page Stock	 --> 
+ <navigation-case>
+	     <from-outcome>VersStock</from-outcome>
+	     <to-view-id>/ajouterUnArticle.xhtml</to-view-id>
+	  </navigation-case> 
+<!-- de la page Tableau de Bord Utilisateur vers page Import	 --> 	  
+	  <navigation-case>
+	     <from-outcome>VersImport</from-outcome>
+	     <to-view-id>/ajout_file.xhtml</to-view-id>
+	  </navigation-case> 
+	</navigation-rule>
+	
+	
 	
 <!-- de la page accueilAdmin vers page AccueilUtilisateur	 -->
 	<navigation-rule>

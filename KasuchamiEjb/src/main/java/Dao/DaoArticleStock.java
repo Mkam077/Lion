@@ -46,6 +46,7 @@ public class DaoArticleStock    {
 				.map(articleStock -> ArticleStockBuilder.fromEntity(articleStock))
 				.collect(Collectors.toList());
 
+////////// Autre possibilité pour obtenir une référence//////////////////////////
 		//		Optional<ArticleStockDto > optional = resultList
 		//				.stream()
 		//				.map(entity -> ArticleStockBuilder.fromEntity(entity))
@@ -89,17 +90,20 @@ public class DaoArticleStock    {
 			articleStock.setArticleCalculCde(totalcde);
 			int couvStock = articleStock.getArticleCalculCde() / articleStock.getConsommationJournaliére();
 			articleStock.setCouverturedestock(couvStock);
-			 System.out.println("avant merge");
+			// System.out.println("avant merge");
 			 
 			entitymanager.persist(articleStock);
 			this.entitymanager.flush();
-			System.out.println("apres merge");
+			//System.out.println("apres merge");
 			
 		}
-   System.out.println("ok");
+   //System.out.println("ok");
 
 	}
-    
+ 
+	
+///////   Methode inclus dans la methode  calcul donc n' est plus utile  ///////////////
+	
 //	public void calculCouvertureStock () {
 //		
 //		List<ArticleStock> listcouvStock =  entitymanager.createNamedQuery("ArticleStock.AfficherTout",ArticleStock.class).getResultList().stream()

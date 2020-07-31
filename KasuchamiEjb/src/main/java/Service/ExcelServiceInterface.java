@@ -15,6 +15,6 @@ public interface ExcelServiceInterface {
 	 void save(Part file);
 	 List<ArticleStock> getAllArticleStocks();
 	 
-	 ByteArrayInputStream load();
+	 byte[] load();
 
 }

@@ -12,7 +12,12 @@
 <h:outputStylesheet library="cssPerso" name="fichecandidat.css"  /> 	
 </style>
 </h:head>
+<ui:composition template="/menubarAdm.xhtml">
+	<ui:define name="pageTitle">Gestion du Stock</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
 <body>
+
 	<h1>Supprimer un CompteUser</h1>
 	<h:form class="form">
 
@@ -28,13 +33,12 @@
 			<p:column headerText="Identifiant">
 				<h:outputText id="idc" value="#{compteUser.identifiant}" />
 			</p:column>
+			
 			<p:column headerText="MotDePasse">
 				<h:outputText id="Mdp"
 					value="#{compteUser.motDePasse}" />
 			</p:column>
 			
-			<p:column style="width:120px;">
-			</p:column>
 			<p:column style="width:120px;">
 				<p:commandButton update="comptUserlist" value="Delete"
 					icon="ui-icon-closethick"
@@ -64,8 +68,6 @@
 					value="#{compteUser.administrateur}" />
 			</p:column>
 			
-			<p:column style="width:120px;">
-			</p:column>
 			<p:column style="width:120px;">
 				<p:commandButton update="compteUserList" value="update"
 					icon="ui-icon-closethick"
@@ -132,12 +134,7 @@
 						value="#{compteUserMB.compteUserDto.identifiant}"
 						size="25" />
 					<p:message for="compteUserid" />
-        					   
-<!--            <h:commandLink text="commandLink 1" id="cl1"> -->
-<!--            <f:setPropertyActionListener value="value pass by commandLink" -->
-<!--                 target="#{viewScope.articleStockMB.articleStockDto.articleDesignation}"/> -->
-<!--             </h:commandLink> -->
-				
+        					   				
 				<p:commandButton value="rechercher"
 					action="#{compteUserMB.rechercherParNom()}" update="@form" >			
 				</p:commandButton>
@@ -145,7 +142,7 @@
 			</h:panelGrid>
 		</p:panel>
 
-	<p:dataTable id="CompteUserDtoreherché" var="compteUserRec"
+	<p:dataTable id="CompteUserListRech" var="compteUserRec"
 		value="#{compteUserMB.compteUserDtoListrech}"
 		style="width:85%;">
 
@@ -156,13 +153,18 @@
 			<p:inputText id="Mdp"
 				value="#{compteUserRec.motDePasse}" />
 		</p:column>
-
+        <p:column headerText="administrateur">
+			<p:inputText id="adm"
+				value="#{compteUserRec.administrateur}" />
+		</p:column>
 		<p:column style="width:120px;">
 		</p:column>
 		
 	</p:dataTable>
 	</h:form>
 </body>
+</ui:define>
+</ui:composition>
 </html>
 
 

@@ -1,9 +1,13 @@
 package ManagedBean;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 
@@ -82,15 +86,34 @@ public class ExcelControllerMB implements Serializable {
 	    }
 	  }
 	  
-	  @GetMapping("attachment/articleStocks.xlsx")
-	  public ResponseEntity<Resource> getFiles() {
-	    String filename = "articleStocks.xlsx";
-	    InputStreamResource file = new InputStreamResource(excelService.load());
+	  public void download() throws IOException {
+		    String filename = "articleStocks";
+		    FacesContext fc = FacesContext.getCurrentInstance();
+		    ExternalContext ec = fc.getExternalContext();
 
-	    return ResponseEntity.ok()
-	        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
-	        .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
-	        .body(file);
+		    ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
+		    ec.setResponseContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
+		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\"" + filename + "\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.
+
+		    OutputStream output = ec.getResponseOutputStream();
+		    output.write(excelService.load());
+		    // Now you can write the InputStream of the file to the above OutputStream the usual way.
+		    // ...
+
+		    fc.responseComplete(); // Important! Otherwise JSF will attempt to render the response which obviously will fail since it's already written with a file and closed.
+		}
+	  
+	  
+	  
+	 /////////////////////////////Methode non Utilisé /////////////////////////////////////////////////////// 
+	  public void getFiles() {
+//	    String filename = "articleStocks.xlsx";
+//	    InputStreamResource file = new InputStreamResource(excelService.load());
+//
+//	    return ResponseEntity.ok()
+//	        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
+//	        .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
+//	        .body(file);
 	  }
 	  
 	  

@@ -73,7 +73,7 @@ public class CompteUserMB  implements Serializable{
 		resetCompteUseDto();
 		this.compteUserDtoList = compteUserService.afficher();
 
-		String identifiant = compteUserDto.getidentifiant();
+		
 
 		//this.compteUserDtoListrech = compteUserService.rechercherParNom(identifiant);
 
@@ -145,7 +145,6 @@ public class CompteUserMB  implements Serializable{
 //		boolean compteUserDtoTrouvé;
 //		if( compteUserDtoTrouvé = compteUserService.connexion(identifiant, motDePasse) != null   )
 		{
-			System.out.println( "connexion");
 			HttpSessionUtils.setCompteUserIdentifiantInHttpSession(identifiant);
 			this.p = compteUserDto.getPersonneDto();
 			return"sucess";
@@ -169,6 +168,12 @@ public class CompteUserMB  implements Serializable{
 		return "sucessdec";
 	}
 	
+	public String deconnexionAdm( ) {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		session.invalidate();
+		System.out.println("ok decadm");
+		return "sucessdecAdm";		
+	}
 	
 	public String connexionAdm ( ) {	
 	     try {
@@ -184,7 +189,7 @@ public class CompteUserMB  implements Serializable{
 //		if( compteUserDtoTrouvé = compteUserService.connexion(identifiant, motDePasse) != null   )
 		{
 			System.out.println( "connexion");
-			
+			HttpSessionUtils.setCompteUserIdentifiantInHttpSession(identifiant);
 			this.p = compteUserDto.getPersonneDto();
 			return"sucessadm";
 		}
@@ -243,7 +248,7 @@ public class CompteUserMB  implements Serializable{
 		this.identifiant = identifiant;
 	}
 
-};
+}
 
 
 

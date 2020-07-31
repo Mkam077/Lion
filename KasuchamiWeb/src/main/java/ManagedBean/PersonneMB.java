@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -32,6 +33,7 @@ public class PersonneMB implements Serializable{
 	private PersonneDto personneDto = new PersonneDto();
 	private List<PersonneDto>listePersonneDtoRech = new ArrayList<PersonneDto>();
 	
+	 @PostConstruct
 	public void init() {
 		
 		this.listePersonneDto = personneService.Afficher();
@@ -62,7 +64,7 @@ public class PersonneMB implements Serializable{
 		
 		String nom = personneDto.getnom();
 		
-	listePersonneDtoRech =	personneService.RechercherParNom(nom);
+	this.listePersonneDtoRech =	personneService.RechercherParNom(nom);
 		
 	}
 	
