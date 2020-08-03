@@ -15,8 +15,8 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter("localDateTimeConverter")
 public class LocalDateConvertor implements Converter {
 
-/////////////////////class à utiliser si ajout d' un champ avec date en BDD////////////////////////////////	
-	
+	/////////////////////class à utiliser si ajout d' un champ avec date en BDD////////////////////////////////	
+
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		if (value == null || value.isEmpty()) {

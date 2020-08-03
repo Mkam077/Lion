@@ -17,39 +17,39 @@ import Entity.CompteUser;
 @Repository
 public class DaoCompteUser  implements CompteUserDaoInterface {
 
-	
-	
+
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Override
 	public void ajouterUnCompteUser(CompteUserDto compteUserdto) {
-		
+
 		CompteUser compteuser = CompteUserBuilder.fromUser(compteUserdto);
-		  this.entityManager.persist(compteuser);
-		  this.entityManager.flush();
+		this.entityManager.persist(compteuser);
+		this.entityManager.flush();
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void supprimerUnCompteUser(Long id) {
-		
+
 		CompteUser compteuseraSupprimer = entityManager.find(CompteUser.class, id);
-		
-		  this.entityManager.remove(compteuseraSupprimer);
-		  
+
+		this.entityManager.remove(compteuseraSupprimer);
+
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void modifierUnCompteUser(CompteUserDto compteUserdto) {
-		
+
 		CompteUser compteuser = CompteUserBuilder.fromUser(compteUserdto);
-	      this.entityManager.merge(compteuser);
+		this.entityManager.merge(compteuser);
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -90,28 +90,28 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 	public CompteUserDto rechercherPourConnexion ( String identifiant, String mdp) {
 		List<CompteUser> resultList = this.entityManager.createNamedQuery("CompteUser.connexion",CompteUser.class)
 				.setParameter("nomf" , identifiant)
-		        .setParameter("nomg", mdp)
-		        .getResultList();
-		        Optional<CompteUserDto> optional = resultList
+				.setParameter("nomg", mdp)
+				.getResultList();
+		Optional<CompteUserDto> optional = resultList
 				.stream()
 				.map(compteUser -> CompteUserBuilder.fromEntity(compteUser))
 				.findAny();
-		 return optional.isPresent() ? optional.get() : null;
-		
-			
+		return optional.isPresent() ? optional.get() : null;
+
+
 	}
-	
+
 	public CompteUserDto rechercherPourConnexionAdministrateur ( String identifiant, String mdp,String administrateur) {
 		List<CompteUser> resultList = this.entityManager.createNamedQuery("CompteUser.connexionAdm",CompteUser.class)
 				.setParameter("nomf" , identifiant)
-		        .setParameter("nomg", mdp)
-		        .setParameter("adm", administrateur)
-		        .getResultList();
-		        Optional<CompteUserDto> optional = resultList
+				.setParameter("nomg", mdp)
+				.setParameter("adm", administrateur)
+				.getResultList();
+		Optional<CompteUserDto> optional = resultList
 				.stream()
 				.map(compteUser -> CompteUserBuilder.fromEntity(compteUser))
 				.findAny();
-		 return optional.isPresent() ? optional.get() : null;
-		
+		return optional.isPresent() ? optional.get() : null;
+
 	}
 }

@@ -11,12 +11,12 @@ public class CompteUserDto implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1386155735245364439L;
-	
-//Attributs liée au cardinalités	
+
+	//Attributs liée au cardinalités	
 	//Attribut pour le lien One To One avec personne
 	private PersonneDto personneDto ;
-	
-	
+
+
 	//Attribut de la classe	
 	private Long idCompteUser;
 	@NotNull(message = "Veuillez remplir ce champs")
@@ -25,12 +25,12 @@ public class CompteUserDto implements Serializable {
 	@NotNull(message = "Veuillez remplir ce champs")
 	@NotBlank(message = "Veuillez remplir ce champs")
 	private String motDePasse;
-    private String administrateur;
-   // constructeur
+	private String administrateur;
+	// constructeur
 	public CompteUserDto() {
-		
+
 	}
-	
+
 	//Getter et Setter
 	public Long getidCompteUser() {
 		return idCompteUser;
@@ -46,47 +46,30 @@ public class CompteUserDto implements Serializable {
 	}
 
 	public String getmotDePasse() {
-	return motDePasse;
-     }
+		return motDePasse;
+	}
 	public void setmotDePasse(String motDePasse) {
-	this.motDePasse = motDePasse;
-     }	
+		this.motDePasse = motDePasse;
+	}	
 	public String getadministrateur() {
 		return administrateur;
 	}	
 	public void setadministrateur(String administrateur) {
 		this.administrateur = administrateur;
 	}
-	
+
 	public PersonneDto getPersonneDto() {
 		return personneDto;
 	}
 	public void setPersonneDto(PersonneDto personneDto) {
 		this.personneDto = personneDto;
 	}
-	
-	
+
 
 	@Override
 	public String toString() {
 		return "CompteUserDto [personneDto=" + personneDto + ", idCompteUser=" + idCompteUser + ", identifiant="
 				+ identifiant + ", motDePasse=" + motDePasse + "]";
 	}
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

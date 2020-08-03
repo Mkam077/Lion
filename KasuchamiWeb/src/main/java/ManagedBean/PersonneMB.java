@@ -25,50 +25,50 @@ public class PersonneMB implements Serializable{
 	private static final long serialVersionUID = 2017277975690967399L;
 
 	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-	
+
 	PersonneServiceInterface personneService = (PersonneServiceInterface) context.getBean("personneService");
-	
-   //Les attribut
+
+	//Les attribut
 	private List<PersonneDto>listePersonneDto = new ArrayList<PersonneDto>();
 	private PersonneDto personneDto = new PersonneDto();
 	private List<PersonneDto>listePersonneDtoRech = new ArrayList<PersonneDto>();
-	
-	 @PostConstruct
+
+	@PostConstruct
 	public void init() {
-		
+
 		this.listePersonneDto = personneService.Afficher();
-		
+
 	}
-	
+
 	public void supprimerUnePersonne(PersonneDto personneDto) {
-		
+
 		Long id = personneDto.getidPersonne();
 		personneService.supprimer(id);
-		
+
 	}
-	
-	
+
+
 	public void ajouterUnePersonne() {
-		
+
 		personneService.ajouter(personneDto);
 		this.personneDto = new PersonneDto();
 	}
-	
+
 	public void modifierUnePersonne(PersonneDto personneDto) {
-		
+
 		personneService.modifier(personneDto);
-		
+
 	}
-	
+
 	public void rechercherUnePersonne() {
-		
+
 		String nom = personneDto.getnom();
-		
-	this.listePersonneDtoRech =	personneService.RechercherParNom(nom);
-		
+
+		this.listePersonneDtoRech =	personneService.RechercherParNom(nom);
+
 	}
-	
-	
+
+
 
 	public PersonneDto getPersonneDto() {
 		return personneDto;
@@ -101,8 +101,5 @@ public class PersonneMB implements Serializable{
 	public void setListePersonneDto(List<PersonneDto> listePersonneDto) {
 		this.listePersonneDto = listePersonneDto;
 	}
-	
-	
-	
-	
+
 }

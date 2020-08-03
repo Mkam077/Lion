@@ -1,139 +1,132 @@
 <?xml version="1.0"?>
-<faces-config
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
-    version="2.3">
-<!--Ces règles sont utilisées par les h:link -->
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+	version="2.3">
+	<!--Ces règles sont utilisées par les h:link -->
 
-<!--     connexion et deconnexion d' un utilisateur -->
+	<!-- connexion et deconnexion d' un utilisateur -->
 	<navigation-rule>
 		<from-view-id>/connexion.xhtml</from-view-id>
 		<navigation-case>
-<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
- -->
- 			<from-outcome>sucess</from-outcome>
+			<!-- <from-action>#{compteUserMB.connexion}</from-action> -->
+			<from-outcome>sucess</from-outcome>
 			<to-view-id>/accueil.xhtml</to-view-id>
-	
+
 		</navigation-case>
-		
-		
+
+
 		<navigation-case>
-<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
- -->			<from-outcome>notsucess</from-outcome>
+			<!-- <from-action>#{compteUserMB.connexion}</from-action> -->
+			<from-outcome>notsucess</from-outcome>
 			<to-view-id>/erreurConnexion.xhtml</to-view-id>
-			
+
 		</navigation-case>
-	
-				
+
+
 	</navigation-rule>
 	<navigation-rule>
-	<from-view-id>/accueil.xhtml</from-view-id>
+		<from-view-id>/accueil.xhtml</from-view-id>
 		<navigation-case>
-<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
- -->			<from-outcome>sucessdec</from-outcome>
-			<to-view-id>/connexion.xhtml</to-view-id>		
+			<!-- <from-action>#{compteUserMB.connexion}</from-action> -->
+			<from-outcome>sucessdec</from-outcome>
+			<to-view-id>/connexion.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-<!-- 	deConnexion d' un administrateur -->
+
+	<!-- deConnexion d' un administrateur -->
 	<navigation-rule>
-	<from-view-id>/accueilAdmin.xhtml</from-view-id>
+		<from-view-id>/accueilAdmin.xhtml</from-view-id>
 		<navigation-case>
-<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
- -->			<from-outcome>sucessdecAdm</from-outcome>
-			<to-view-id>/connexion.xhtml</to-view-id>		
+			<!-- <from-action>#{compteUserMB.connexion}</from-action> -->
+			<from-outcome>sucessdecAdm</from-outcome>
+			<to-view-id>/connexion.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-	
-<!-- 	Connexion d' un administrateur -->
+
+
+	<!-- Connexion d' un administrateur -->
 	<navigation-rule>
 		<from-view-id>/connexion.xhtml</from-view-id>
 		<navigation-case>
-<!-- 			<from-action>#{compteUserMB.connexionAdm}</from-action> -->
+			<!-- <from-action>#{compteUserMB.connexionAdm}</from-action> -->
 
- 			<from-outcome>sucessadm</from-outcome>
+			<from-outcome>sucessadm</from-outcome>
 			<to-view-id>/accueilAdmin.xhtml</to-view-id>
-	
+
 		</navigation-case>
 		<navigation-case>
-<!-- 			<from-action>#{compteUserMB.connexion}</from-action>
- -->			<from-outcome>notsucessadm</from-outcome>
-			<to-view-id>/erreurConnexion.xhtml</to-view-id>	
-		</navigation-case>	
+			<!-- <from-action>#{compteUserMB.connexion}</from-action> -->
+			<from-outcome>notsucessadm</from-outcome>
+			<to-view-id>/erreurConnexion.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 
 
-     <navigation-rule>
-	  <from-view-id>/accueil.xhtml</from-view-id>
-<!-- de la page accueil vers page GestionStock	 -->
-	  <navigation-case>
-	     <from-outcome>VersStock</from-outcome>
-	     <to-view-id>/ajouterUnArticle.xhtml</to-view-id>
-	  </navigation-case>
-<!-- de la page accueil vers page Tableau de Bord	 -->	  
-	  <navigation-case>
-	     <from-outcome>VersTableauDeBord</from-outcome>
-	     <to-view-id>/dashboard.xhtml</to-view-id>
-	  </navigation-case>
-<!-- de la page accueil vers import	 -->	  
-	  <navigation-case>
-	     <from-outcome>Versimport</from-outcome>
-	     <to-view-id>/ajout_file.xhtml</to-view-id>
-	  </navigation-case>  
+	<navigation-rule>
+		<from-view-id>/accueil.xhtml</from-view-id>
+		<!-- de la page accueil vers page GestionStock -->
+		<navigation-case>
+			<from-outcome>VersStock</from-outcome>
+			<to-view-id>/ajouterUnArticle.xhtml</to-view-id>
+		</navigation-case>
+		<!-- de la page accueil vers page Tableau de Bord -->
+		<navigation-case>
+			<from-outcome>VersTableauDeBord</from-outcome>
+			<to-view-id>/dashboard.xhtml</to-view-id>
+		</navigation-case>
+		<!-- de la page accueil vers import -->
+		<navigation-case>
+			<from-outcome>Versimport</from-outcome>
+			<to-view-id>/ajout_file.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
-	
-<!-- A partir de la page Tableau de Bord	 -->	
+
+	<!-- A partir de la page Tableau de Bord -->
 	<navigation-rule>
-	  <from-view-id>/dashboard.xhtml</from-view-id>
-	  <!-- de la page Tableau de Bord Utilisateur vers page AccueilUtilisateur	 -->
-	 <navigation-case>
-	     <from-outcome>VersAccueil</from-outcome>
-	     <to-view-id>/accueil.xhtml</to-view-id>
-	  </navigation-case> 
-<!-- de la page Tableau de Bord Utilisateur vers page Stock	 --> 
- <navigation-case>
-	     <from-outcome>VersStock</from-outcome>
-	     <to-view-id>/ajouterUnArticle.xhtml</to-view-id>
-	  </navigation-case> 
-<!-- de la page Tableau de Bord Utilisateur vers page Import	 --> 	  
-	  <navigation-case>
-	     <from-outcome>VersImport</from-outcome>
-	     <to-view-id>/ajout_file.xhtml</to-view-id>
-	  </navigation-case> 
+		<from-view-id>/dashboard.xhtml</from-view-id>
+		<!-- de la page Tableau de Bord Utilisateur vers page AccueilUtilisateur -->
+		<navigation-case>
+			<from-outcome>VersAccueil</from-outcome>
+			<to-view-id>/accueil.xhtml</to-view-id>
+		</navigation-case>
+		<!-- de la page Tableau de Bord Utilisateur vers page Stock -->
+		<navigation-case>
+			<from-outcome>VersStock</from-outcome>
+			<to-view-id>/ajouterUnArticle.xhtml</to-view-id>
+		</navigation-case>
+		<!-- de la page Tableau de Bord Utilisateur vers page Import -->
+		<navigation-case>
+			<from-outcome>VersImport</from-outcome>
+			<to-view-id>/ajout_file.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
-	
-	
-	
-<!-- de la page accueilAdmin vers page AccueilUtilisateur	 -->
+
+
+
+	<!-- de la page accueilAdmin vers page AccueilUtilisateur -->
 	<navigation-rule>
-	  <from-view-id>/accueilAdmin.xhtml</from-view-id>
-	  <navigation-case>
-	     <from-outcome>VersAccueilUtilisateur</from-outcome>
-	     <to-view-id>/accueil.xhtml</to-view-id>
-	  </navigation-case>
+		<from-view-id>/accueilAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>VersAccueilUtilisateur</from-outcome>
+			<to-view-id>/accueil.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
-<!-- de la page accueilAdmin vers page GestionCompteUser	 -->
+	<!-- de la page accueilAdmin vers page GestionCompteUser -->
 	<navigation-rule>
-	  <from-view-id>/accueilAdmin.xhtml</from-view-id>
-	  <navigation-case>
-	     <from-outcome>VersCompteUser</from-outcome>
-	     <to-view-id>/ajouterUnCompteUser.xhtml</to-view-id>
-	  </navigation-case>
-	</navigation-rule>	
-<!-- de la page accueilAdmin vers page GestionPersonne	 -->
+		<from-view-id>/accueilAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>VersCompteUser</from-outcome>
+			<to-view-id>/ajouterUnCompteUser.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- de la page accueilAdmin vers page GestionPersonne -->
 	<navigation-rule>
-	  <from-view-id>/accueilAdmin.xhtml</from-view-id>
-	  <navigation-case>
-	     <from-outcome>VersPersonne</from-outcome>
-	     <to-view-id>/ajouterUnePersonne.xhtml</to-view-id>
-	  </navigation-case>
-	</navigation-rule>		
-	
-	
-	
-	
-	
-	
+		<from-view-id>/accueilAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>VersPersonne</from-outcome>
+			<to-view-id>/ajouterUnePersonne.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
 </faces-config>

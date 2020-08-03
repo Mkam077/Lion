@@ -13,7 +13,7 @@ import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 
 @NamedQueries ({ @NamedQuery(name = "Personne.AfficherTout", query = "SELECT p FROM Personne p" ),
-              @NamedQuery(name = "Personne.FindBy", query = "SELECT p FROM Personne p WHERE p.nom =:nomf")})
+	@NamedQuery(name = "Personne.FindBy", query = "SELECT p FROM Personne p WHERE p.nom =:nomf")})
 
 @Entity
 @Table (name="Personne")
@@ -43,7 +43,7 @@ public class Personne {
 	@Column(name = "avatar")
 	private String avatar;
 
-  // Getter et Setter
+	// Getter et Setter
 	public Long getidPersonne() {
 		return idPersonne;
 	}

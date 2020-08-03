@@ -8,11 +8,11 @@ public class PersonneDto implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 5843075279282453960L;
-	
+
 	//Attributs liée au cardinalités	
-		//Attribut pour le lien One To One avec CompteUser
-   private CompteUserDto compteUserDto ;
-	
+	//Attribut pour le lien One To One avec CompteUser
+	private CompteUserDto compteUserDto ;
+
 	// Attributs liée à la classe
 	private Long idPersonne;
 	private String nom;	
@@ -20,14 +20,14 @@ public class PersonneDto implements Serializable {
 	private String sexe;
 	private String identifiant;
 	private String avatar;
-	
 
-   // constructeur
+
+	// constructeur
 	public PersonneDto() {
-		
+
 	}
-	
-	
+
+
 	//Getter et Setter
 	public Long getidPersonne() {
 		return idPersonne;
@@ -91,12 +91,5 @@ public class PersonneDto implements Serializable {
 		return "PersonneDto [idPersonne=" + idPersonne + ", nom=" + nom + ", prenom=" + prenom + ", sexe=" + sexe
 				+ ", identifiant=" + identifiant + ", avatar=" + avatar + "]";
 	}
-
-
-
-
-	
-
-
 
 }

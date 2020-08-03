@@ -28,14 +28,14 @@ public class DaoPersonne implements PersonneDaoInterface {
 	@Override
 	public void ajouter(PersonneDto personneDto) {
 		// Rajout d' une name query pour réaliser la  contrainte one to one // 
-		
+
 		// pour ajouter une personne il faut forcément un compteUser 
 		//on va chercher dans la colonne identifiant de compte User un identifiant qui correspond à la personne que l' on est
 		//en train d' ajouter ou de créer. si il existe on retourne son compteUser.
 		CompteUser userEntity = this.entityManager.createNamedQuery("CompteUser.findName", CompteUser.class)
 				.setParameter("identifiant",personneDto.getidentifiant())
 				.getSingleResult();
-        
+
 		//si il existe un compteUser on effectue l' action d' ajout
 		// Enregistrement en base de donnée
 		if (userEntity != null) {
@@ -44,7 +44,7 @@ public class DaoPersonne implements PersonneDaoInterface {
 			personne.setCompteUser(userEntity);
 			// au compte User on lui affecte la personne.
 			userEntity.setPersonne(personne);
-			
+
 			this.entityManager.persist(personne);
 			this.entityManager.flush();
 

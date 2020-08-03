@@ -1,6 +1,5 @@
 package Helper;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,14 +14,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.web.multipart.MultipartFile;
 
 import Entity.ArticleStock;
 
 public class ExcelHelper {
 	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 	static String[] HEADERs = {"articleDesignation","articleUtilisationLibre","articleControleQualite",
-		"articleBloque","articleEnRetour","articleEnTransit","ConsommationJournaliére "};
+			"articleBloque","articleEnRetour","articleEnTransit","ConsommationJournaliére "};
 	static String SHEET = "Feuil1";
 
 	public static boolean hasExcelFormat(Part file) {
@@ -62,44 +60,44 @@ public class ExcelHelper {
 					Cell currentCell = cellsInRow.next();
 
 					switch (cellIdx) {
-					
+
 
 					case 0:
-						//tutorial.setTitle(currentCell.getStringCellValue());
+
 						articleStock.setArticleDesignation(currentCell.getStringCellValue());
 						break;
 
 					case 1:
-						//tutorial.setPublished(currentCell.getBooleanCellValue());
+
 						articleStock.setArticleUtilisationLibre((int) currentCell.getNumericCellValue());
 						break;
 
 					case 2:
-						
+
 						articleStock.setArticleControleQualite((int) currentCell.getNumericCellValue());
 						break;
 					case 3:
-						
+
 						articleStock.setArticleStockNonLibre((int) currentCell.getNumericCellValue());
 						break;
-						
+
 					case 4:
-						
+
 						articleStock.setArticleBloque((int) currentCell.getNumericCellValue());
 						break;
 					case 5:
-						
+
 						articleStock.setArticleEnRetour((int) currentCell.getNumericCellValue());
 						break;	
-						
+
 					case 6:
-						
+
 						articleStock.setArticleEnTransit((int) currentCell.getNumericCellValue());
 						break;
 
 					default:
 						break;
-					
+
 					case 7:
 						articleStock.setConsommationJournaliére((int) currentCell.getNumericCellValue());
 						break;
@@ -117,41 +115,40 @@ public class ExcelHelper {
 		} catch (IOException e) {
 			throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
 		}
-		
+
 	}
-		 public static byte[] articleStocksToExcel(List<ArticleStock> articleStocks) {
+	public static byte[] articleStocksToExcel(List<ArticleStock> articleStocks) {
 
-			    try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
-			      Sheet sheet = workbook.createSheet(SHEET);
+		try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
+			Sheet sheet = workbook.createSheet(SHEET);
 
-			      // Header
-			      Row headerRow = sheet.createRow(0);
+			// Header
+			Row headerRow = sheet.createRow(0);
 
-			      for (int col = 0; col < HEADERs.length; col++) {
-			        Cell cell = headerRow.createCell(col);
-			        cell.setCellValue(HEADERs[col]);
-			      }
+			for (int col = 0; col < HEADERs.length; col++) {
+				Cell cell = headerRow.createCell(col);
+				cell.setCellValue(HEADERs[col]);
+			}
 
-			      int rowIdx = 1;
-			      for (ArticleStock articleStock : articleStocks) {
-			        Row row = sheet.createRow(rowIdx++);
+			int rowIdx = 1;
+			for (ArticleStock articleStock : articleStocks) {
+				Row row = sheet.createRow(rowIdx++);
 
-			        row.createCell(0).setCellValue(articleStock.getArticleDesignation());
-			        row.createCell(1).setCellValue(articleStock.getArticleUtilisationLibre());
-			        row.createCell(2).setCellValue(articleStock.getArticleControleQualite());
-			        row.createCell(3).setCellValue(articleStock.getArticleStockNonLibre());
-			        row.createCell(4).setCellValue(articleStock.getArticleBloque());
-			        row.createCell(5).setCellValue(articleStock.getArticleEnRetour());
-			        row.createCell(6).setCellValue(articleStock.getArticleEnTransit());
-			        row.createCell(7).setCellValue(articleStock.getConsommationJournaliére());
-//			        row.createCell(8).setCellValue(articleStock.getArticleCalculCde());
-//			        row.createCell(9).setCellValue(articleStock.getCouverturedestock());
-			      }
+				row.createCell(0).setCellValue(articleStock.getArticleDesignation());
+				row.createCell(1).setCellValue(articleStock.getArticleUtilisationLibre());
+				row.createCell(2).setCellValue(articleStock.getArticleControleQualite());
+				row.createCell(3).setCellValue(articleStock.getArticleStockNonLibre());
+				row.createCell(4).setCellValue(articleStock.getArticleBloque());
+				row.createCell(5).setCellValue(articleStock.getArticleEnRetour());
+				row.createCell(6).setCellValue(articleStock.getArticleEnTransit());
+				row.createCell(7).setCellValue(articleStock.getConsommationJournaliére());
 
-			      workbook.write(out);
-			      return out.toByteArray();
-			    } catch (IOException e) {
-			      throw new RuntimeException("fail to import data to Excel file: " + e.getMessage());
-			    }
+			}
+
+			workbook.write(out);
+			return out.toByteArray();
+		} catch (IOException e) {
+			throw new RuntimeException("fail to import data to Excel file: " + e.getMessage());
+		}
 	}
 }

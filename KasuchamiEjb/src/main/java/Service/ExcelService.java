@@ -1,6 +1,5 @@
 package Service;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -16,32 +15,32 @@ import Helper.ExcelHelper;
 
 @Service
 public class ExcelService implements ExcelServiceInterface {
-	
+
 	@Autowired
-	 private  DaoArticleStock daoArticleStock = new DaoArticleStock();
+	private  DaoArticleStock daoArticleStock = new DaoArticleStock();
 
-	
-	 @Transactional
-	  public void save(Part file) {
-	    try {
-	      List<ArticleStock> articleStocks = ExcelHelper.excelToArticleStocks(file.getInputStream());
-	      daoArticleStock.importer(articleStocks);
-	    } catch (IOException e) {
-	      throw new RuntimeException("fail to store excel data: " + e.getMessage());
-	    }
-	  }
 
-	  public List<ArticleStock> getAllArticleStocks() {
-	    return daoArticleStock.exporter();
-	  }
+	@Transactional
+	public void save(Part file) {
+		try {
+			List<ArticleStock> articleStocks = ExcelHelper.excelToArticleStocks(file.getInputStream());
+			daoArticleStock.importer(articleStocks);
+		} catch (IOException e) {
+			throw new RuntimeException("fail to store excel data: " + e.getMessage());
+		}
+	}
 
-	
-	
+	public List<ArticleStock> getAllArticleStocks() {
+		return daoArticleStock.exporter();
+	}
+
+
+
 	public byte[] load() {
-	    List<ArticleStock> articleStocks = daoArticleStock.exporter();
+		List<ArticleStock> articleStocks = daoArticleStock.exporter();
 
-	    byte[] in = ExcelHelper.articleStocksToExcel(articleStocks);
-	    return in;
-	  }
+		byte[] in = ExcelHelper.articleStocksToExcel(articleStocks);
+		return in;
+	}
 
 }

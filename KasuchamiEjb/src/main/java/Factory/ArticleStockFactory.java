@@ -12,7 +12,7 @@ public class ArticleStockFactory  implements IFactory<ArticleStock>{
 	public ArticleStock creer() {
 		// TODO Auto-generated method stub
 		return new  ArticleStock();
-		// il me retourne un articlestockentity a cause des ()
+		
 	}
 
 }

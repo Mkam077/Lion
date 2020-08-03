@@ -73,10 +73,6 @@ public class CompteUserMB  implements Serializable{
 		resetCompteUseDto();
 		this.compteUserDtoList = compteUserService.afficher();
 
-		
-
-		//this.compteUserDtoListrech = compteUserService.rechercherParNom(identifiant);
-
 	}
 
 
@@ -105,26 +101,12 @@ public class CompteUserMB  implements Serializable{
 	}
 
 	public void ajouter() {
-//		if( compteUserDto.getidentifiant().equalsIgnoreCase(compteUserDtoConfirm.getidentifiant())) {
-//			if( compteUserDto.getmotDePasse().equals(compteUserDtoConfirm.getmotDePasse())) {
-				compteUserService.ajouter(compteUserDto);
-			//	HttpSessionUtils.setCompteUserIdentifiantInHTTPSession(compteUserDto.getidentifiant());
-				// TODO Auto-generated method stub
-				this.compteUserDtoList = compteUserService.afficher();
-				this.compteUserDto = new CompteUserDto();
+		compteUserService.ajouter(compteUserDto);
 
-//			}else {
-//				System.out.println("mot de passe incorrecte ");
-//
-//			} 
-//		}else {
-//			System.out.println("identifiant incorrecte ");
-//		}
+		// TODO Auto-generated method stub
+		this.compteUserDtoList = compteUserService.afficher();
+		this.compteUserDto = new CompteUserDto();
 		resetCompteUseDto();
-		//	public List<CompteUserDto> afficher() {
-		//		// TODO Auto-generated method stub
-		//		return null;
-		//	}
 
 	}
 	private void resetCompteUseDto() {
@@ -132,82 +114,74 @@ public class CompteUserMB  implements Serializable{
 		this.compteUserDto = new CompteUserDto();
 	}
 
-	
-	
 	public String connexion ( ) {	
-	     try {
-		CompteUserDto compteUserDtoTrouvé= compteUserService.findconnexion(compteUserDto);
-		String identifiant = compteUserDto.getidentifiant();
-		String motDePasse = compteUserDto.getmotDePasse();
-		
-		if( identifiant.equals(compteUserDtoTrouvé.getidentifiant()) 
-				&& ( motDePasse.equals(compteUserDtoTrouvé.getmotDePasse()))) 
-//		boolean compteUserDtoTrouvé;
-//		if( compteUserDtoTrouvé = compteUserService.connexion(identifiant, motDePasse) != null   )
-		{
-			HttpSessionUtils.setCompteUserIdentifiantInHttpSession(identifiant);
-			this.p = compteUserDto.getPersonneDto();
-			return"sucess";
-		}
-		else {	
+		try {
+			CompteUserDto compteUserDtoTrouvé= compteUserService.findconnexion(compteUserDto);
+			String identifiant = compteUserDto.getidentifiant();
+			String motDePasse = compteUserDto.getmotDePasse();
+
+			if( identifiant.equals(compteUserDtoTrouvé.getidentifiant()) 
+					&& ( motDePasse.equals(compteUserDtoTrouvé.getmotDePasse()))) 
+			{
+				HttpSessionUtils.setCompteUserIdentifiantInHttpSession(identifiant);
+				this.p = compteUserDto.getPersonneDto();
+				return"sucess";
+			}
+			else {	
 			}
 			System.out.println("pas de connexion");
 			return"notsucess";
-		
-			
+
+
 		} catch (NullPointerException e) {
 			System.out.println("pas de connexion attrapé");
 			return"notsucess";
-			
+
 		}
 	}
-	
+
 	public String deconnexion( ) {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.invalidate();
 		return "sucessdec";
 	}
-	
+
 	public String deconnexionAdm( ) {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.invalidate();
 		System.out.println("ok decadm");
 		return "sucessdecAdm";		
 	}
-	
+
 	public String connexionAdm ( ) {	
-	     try {
-		CompteUserDto compteUserDtoTrouvé= compteUserService.connexionAdm(compteUserDto);
-		String identifiant = compteUserDto.getidentifiant();
-		String motDePasse = compteUserDto.getmotDePasse();
-		String administrateur = compteUserDto.getadministrateur();
-		
-		if( identifiant.equals(compteUserDtoTrouvé.getidentifiant()) 
-				&& ( motDePasse.equals(compteUserDtoTrouvé.getmotDePasse())
-						&& (administrateur.equals(compteUserDtoTrouvé.getadministrateur()))))
-//		boolean compteUserDtoTrouvé;
-//		if( compteUserDtoTrouvé = compteUserService.connexion(identifiant, motDePasse) != null   )
-		{
-			System.out.println( "connexion");
-			HttpSessionUtils.setCompteUserIdentifiantInHttpSession(identifiant);
-			this.p = compteUserDto.getPersonneDto();
-			return"sucessadm";
-		}
-		else {	
+		try {
+			CompteUserDto compteUserDtoTrouvé= compteUserService.connexionAdm(compteUserDto);
+			String identifiant = compteUserDto.getidentifiant();
+			String motDePasse = compteUserDto.getmotDePasse();
+			String administrateur = compteUserDto.getadministrateur();
+
+			if( identifiant.equals(compteUserDtoTrouvé.getidentifiant()) 
+					&& ( motDePasse.equals(compteUserDtoTrouvé.getmotDePasse())
+							&& (administrateur.equals(compteUserDtoTrouvé.getadministrateur()))))
+			{
+				System.out.println( "connexion");
+				HttpSessionUtils.setCompteUserIdentifiantInHttpSession(identifiant);
+				this.p = compteUserDto.getPersonneDto();
+				return"sucessadm";
+			}
+			else {	
 			}
 			System.out.println("pas de connexion");
 			return"notsucessadm";
-		
-			
+
+
 		} catch (NullPointerException e) {
 			System.out.println("pas de connexion attrapé");
 			return"notsucessadm";
-			
+
 		}
 	}
-	
-	
-	
+
 	public CompteUserDto getCompteUserDto() {
 		return compteUserDto;
 	}

@@ -1,7 +1,5 @@
 package Entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,68 +14,59 @@ import javax.persistence.Table;
 @Table (name="ArticleStock")
 @NamedQueries({ @NamedQuery(name = "ArticleStock.afficherTout", query = "SELECT a FROM ArticleStock a"),
 	@NamedQuery(name = "ArticleStock.findName", query = "SELECT a FROM ArticleStock a where a.articleDesignation = :nomf"),
-    //@NamedQuery(name = "ArticleStock.choix", query = "SELECT CASE a.articleUtilisationLibre "
-    	//	+ "WHEN (a.articleUtilisationLibre < 20)  THEN 'Stock Faible' "
-    		//+ "WHEN (a.articleUtilisationLibre = 20)  THEN  'Stock Correcte' "
-    //		+ "ELSE 'SurStock' "
-    //		+ "END  "
-    	//	+ "FROM ArticleStock a"),
+
 })
- 
+
 public class ArticleStock {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idArticleStock;
-	
-    @Column (name= "articleDesignation")
+
+	@Column (name= "articleDesignation")
 	private String articleDesignation;
-	
-    @Column (name= "articleUtilisationLibre")
+
+	@Column (name= "articleUtilisationLibre")
 	private Integer articleUtilisationLibre;
-	
-    @Column (name= "articleControleQualite")
+
+	@Column (name= "articleControleQualite")
 	private Integer articleControleQualite;
-	
-    @Column (name= "articleStockNonLibre")
+
+	@Column (name= "articleStockNonLibre")
 	private Integer articleStockNonLibre;
-	
-    @Column (name= "articleBloque")
+
+	@Column (name= "articleBloque")
 	private Integer articleBloque;
-	
-    @Column (name= "articleEnRetour")
+
+	@Column (name= "articleEnRetour")
 	private Integer articleEnRetour;
-	
-    @Column (name= "articleEnTransit")
+
+	@Column (name= "articleEnTransit")
 	private Integer articleEnTransit;
-    
-    @Column (name="consommationJournaliére")
-    private Integer consommationJournaliére;
-    
-    @Column ( name="couverturedestock")
-    private Integer couverturedestock;
-	
-//
-  //  @Column (name= "dateEnregistrement")
-  //	  private  LocalDateTime    dateEnregistrement;
-    
-    // obtenue par un traitement algo
-    @Column (name="articleCalculCde")
-    private Integer articleCalculCde;
-    
-    ////////////////////////Constructeur//////////////////
-    
-    public ArticleStock() {
-    	
-    	
-    }
-    
-    public ArticleStock( int articleCalculCde ) {
-    	
-    	this.articleCalculCde = articleCalculCde;
-    	
-    }
-	
+
+	@Column (name="consommationJournaliére")
+	private Integer consommationJournaliére;
+
+	@Column ( name="couverturedestock")
+	private Integer couverturedestock;
+
+	// obtenue par un traitement algo
+	@Column (name="articleCalculCde")
+	private Integer articleCalculCde;
+
+	////////////////////////Constructeur//////////////////
+
+	public ArticleStock() {
+
+
+	}
+
+	public ArticleStock( int articleCalculCde ) {
+
+		this.articleCalculCde = articleCalculCde;
+
+	}
+
 	/////////////////////////Getter and Setter////////////////////////////////
 	public long getIdArticleStock() {
 		return idArticleStock;
@@ -143,39 +132,31 @@ public class ArticleStock {
 		this.articleEnTransit = articleEnTransit;
 	}
 
-//	public LocalDateTime getDateEnregistrement() {
-//		return dateEnregistrement;
-//	}
-//
-//	public void setDateEnregistrement(LocalDateTime localDateTime) {
-//		this.dateEnregistrement = localDateTime;
-//	}
-//	
-   public Integer getArticleCalculCde( ) {
-	      return articleCalculCde;
-   }
-	
-   public void setArticleCalculCde( Integer articleCalculCde ) {
-	   this.articleCalculCde =  articleCalculCde;
-   }
+	public Integer getArticleCalculCde( ) {
+		return articleCalculCde;
+	}
 
-   public Integer getConsommationJournaliére() {
-	return consommationJournaliére;
-   }
+	public void setArticleCalculCde( Integer articleCalculCde ) {
+		this.articleCalculCde =  articleCalculCde;
+	}
 
-   public void setConsommationJournaliére(Integer consommation) {
-	this.consommationJournaliére = consommation;
-  }
+	public Integer getConsommationJournaliére() {
+		return consommationJournaliére;
+	}
 
-   public Integer getCouverturedestock() {
-	return couverturedestock;
-   }
+	public void setConsommationJournaliére(Integer consommation) {
+		this.consommationJournaliére = consommation;
+	}
 
-   public void setCouverturedestock(Integer couverturedestock) {
-	this.couverturedestock = couverturedestock;
-   }
+	public Integer getCouverturedestock() {
+		return couverturedestock;
+	}
+
+	public void setCouverturedestock(Integer couverturedestock) {
+		this.couverturedestock = couverturedestock;
+	}
 
 
-	
-	
+
+
 }

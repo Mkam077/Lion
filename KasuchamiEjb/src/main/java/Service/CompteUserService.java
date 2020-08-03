@@ -16,55 +16,55 @@ public class CompteUserService implements CompteUserServiceInterface {
 
 	@Autowired
 	private DaoCompteUser dao;
-	
-	
-	
+
+
+
 	@Transactional
 	public void ajouter(CompteUserDto compteUserDto) {
-		
+
 		dao.ajouterUnCompteUser(compteUserDto);
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Transactional
 	public void supprimer(Long id) {
-		
+
 		dao.supprimerUnCompteUser(id);
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Transactional
 	public void modifier(CompteUserDto compteUserDto) {
-		
+
 		dao.modifierUnCompteUser(compteUserDto);
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public List<CompteUserDto> afficher() {
-		
-	return	dao.afficherTout();
+
+		return	dao.afficherTout();
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public List<CompteUserDto> rechercherParNom(String identifiant) {
-		
-	return	dao.rechercherParNom(identifiant);
+
+		return	dao.rechercherParNom(identifiant);
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Transactional
 	public void rechercherParId(Long id) {
-		
+
 		dao.rechercheParId(id);
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class CompteUserService implements CompteUserServiceInterface {
 		return dao.rechercherParNomUnique(identifiantUnique);
 	}
 
-	
+
 	public CompteUserDto findconnexion (CompteUserDto compteUserDto) {
 		// TODO Auto-generated method stub
 		return dao.rechercherPourConnexion(compteUserDto.getidentifiant(), compteUserDto.getmotDePasse());
@@ -92,7 +92,5 @@ public class CompteUserService implements CompteUserServiceInterface {
 				compteUserDto.getmotDePasse(),
 				compteUserDto.getadministrateur());
 	}
-	
-	
 
 }

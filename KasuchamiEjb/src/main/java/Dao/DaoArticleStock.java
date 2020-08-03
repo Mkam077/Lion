@@ -31,8 +31,6 @@ public class DaoArticleStock    {
 
 	}
 
-	
-	
 	public ArticleStockDto rechercheParId ( Long id) { 
 		return  ArticleStockBuilder.fromEntity(entitymanager.find(ArticleStock.class,id));
 	}
@@ -46,12 +44,6 @@ public class DaoArticleStock    {
 				.map(articleStock -> ArticleStockBuilder.fromEntity(articleStock))
 				.collect(Collectors.toList());
 
-////////// Autre possibilité pour obtenir une référence//////////////////////////
-		//		Optional<ArticleStockDto > optional = resultList
-		//				.stream()
-		//				.map(entity -> ArticleStockBuilder.fromEntity(entity))
-		//				.findAny();
-		//		return optional.isPresent() ? optional.get() : null;
 	}
 
 	public void supprimerUnArticle( Long id) {
@@ -60,14 +52,11 @@ public class DaoArticleStock    {
 
 	}
 
-	
-	
 	public ArticleStock modifier ( ArticleStockDto articleStockDto) {
 		ArticleStock articlestock = ArticleStockBuilder.fromuser(articleStockDto);
 		return this.entitymanager.merge(articlestock );
 
 	}
-
 
 	public List<ArticleStockDto> afficherTout() {
 
@@ -76,13 +65,13 @@ public class DaoArticleStock    {
 
 	}
 
-	
+
 	public void  calcul (){
-		
-		
+
+
 		List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList().stream()
 				.collect(Collectors.toList());
-		
+
 		for ( ArticleStock articleStock : listResult) {
 
 			int totalcde = articleStock.getArticleUtilisationLibre() + articleStock.getArticleBloque() + articleStock.getArticleControleQualite()
@@ -91,62 +80,31 @@ public class DaoArticleStock    {
 			int couvStock = articleStock.getArticleCalculCde() / articleStock.getConsommationJournaliére();
 			articleStock.setCouverturedestock(couvStock);
 			// System.out.println("avant merge");
-			 
+
 			entitymanager.persist(articleStock);
 			this.entitymanager.flush();
 			//System.out.println("apres merge");
-			
+
 		}
-   //System.out.println("ok");
+		//System.out.println("ok");
 
 	}
- 
-	
-///////   Methode inclus dans la methode  calcul donc n' est plus utile  ///////////////
-	
-//	public void calculCouvertureStock () {
-//		
-//		List<ArticleStock> listcouvStock =  entitymanager.createNamedQuery("ArticleStock.AfficherTout",ArticleStock.class).getResultList().stream()
-//		           .collect(Collectors.toList());
-//		
-//		for (  ArticleStock articleStock : listcouvStock) {
-//			
-//			int couvStock = articleStock.getArticleCalculCde() / articleStock.getConsommationJournaliére();
-//			
-//			articleStock.setCouverturedestock(couvStock);
-//			
-//			entitymanager.persist(articleStock);
-//			
-//			entitymanager.flush();
-//			System.out.println("apres mergecouv");
-//		}
-//		
-//		  System.out.println("okcouv");       
-//		
-//		
-//	}
-	
-	
-	
+
 	public void importer (List<ArticleStock> ListarticleStocks) {
 
 		for(ArticleStock articleStock : ListarticleStocks ) {
-		this.entitymanager.persist(articleStock);
-		this.entitymanager.flush();
+			this.entitymanager.persist(articleStock);
+			this.entitymanager.flush();
 		}
 
 	}	
-	
+
 	public List<ArticleStock> exporter() {
 
-		 List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList().stream()
+		List <ArticleStock> listResult =  entitymanager.createNamedQuery("ArticleStock.afficherTout",ArticleStock.class).getResultList().stream()
 				.collect(Collectors.toList());	
 		return listResult;
 
 	}
-	
-	
-	
-	
 
 }
