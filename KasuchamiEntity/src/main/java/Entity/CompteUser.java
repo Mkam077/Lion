@@ -37,9 +37,12 @@ public class CompteUser {
 	@Column(name="administrateur")
 	private String administrateur;
 
+	//////////////////////////////CONSTRUCTEUR/////////////////////////////////////////	
+	public CompteUser () {
 
+	}
 
-	//Getter et setter
+	//Getter et setter///////////////////////////////////////////////////////////
 	public Personne getPersonne() {
 		return personne;
 	}
