@@ -28,8 +28,7 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 		CompteUser compteuser = CompteUserBuilder.fromUser(compteUserdto);
 		this.entityManager.persist(compteuser);
 		this.entityManager.flush();
-		// TODO Auto-generated method stub
-
+	
 	}
 
 	@Override
@@ -39,7 +38,6 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 
 		this.entityManager.remove(compteuseraSupprimer);
 
-		// TODO Auto-generated method stub
 
 	}
 
@@ -48,7 +46,6 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 
 		CompteUser compteuser = CompteUserBuilder.fromUser(compteUserdto);
 		this.entityManager.merge(compteuser);
-		// TODO Auto-generated method stub
 
 	}
 
@@ -71,7 +68,6 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 
 	@Override
 	public CompteUserDto rechercheParId(Long id) {
-		// TODO Auto-generated method stub
 		return CompteUserBuilder.fromEntity(entityManager.find(CompteUser.class,id));
 	}
 

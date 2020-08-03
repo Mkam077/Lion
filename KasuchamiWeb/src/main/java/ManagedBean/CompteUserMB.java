@@ -103,7 +103,6 @@ public class CompteUserMB  implements Serializable{
 	public void ajouter() {
 		compteUserService.ajouter(compteUserDto);
 
-		// TODO Auto-generated method stub
 		this.compteUserDtoList = compteUserService.afficher();
 		this.compteUserDto = new CompteUserDto();
 		resetCompteUseDto();
