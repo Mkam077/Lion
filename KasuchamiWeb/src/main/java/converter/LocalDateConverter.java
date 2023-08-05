@@ -13,7 +13,7 @@ import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
 @FacesConverter("localDateTimeConverter")
-public class LocalDateConvertor implements Converter {
+public class LocalDateConverter implements Converter {
 
 	/////////////////////class à utiliser si ajout d' un champ avec date en BDD////////////////////////////////	
 
@@ -22,10 +22,11 @@ public class LocalDateConvertor implements Converter {
 		if (value == null || value.isEmpty()) {
 			return null;
 		}
-		//yyyy-MM-dd HH:mm:ss
+		
 		try {
-			return LocalDate.parse(value, DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
-		} catch (IllegalArgumentException | DateTimeException e) {
+			return LocalDate.parse(value, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+		} catch (IllegalArgumentException | DateTimeException e 
+				                                                 ) {
 			throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, null, "Message"), e);
 		}
 	}
@@ -36,7 +37,9 @@ public class LocalDateConvertor implements Converter {
 			return "";
 		}
 
-		String s = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(value);
+		String s = new SimpleDateFormat("dd-MM-yyyy").format(value);
+		
+		
 		return s;
 		// According to a time zone of a specific user.
 	}

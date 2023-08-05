@@ -173,13 +173,20 @@
 						size="25" />
 					<p:message for="articleStockRetour" />
 
-					<p:outputLabel for="articleStockNonLibre"
+					<h:outputLabel for="articleStockNonLibre"
 						value="Quantité Non Libre" />
 					<p:inputText id="articleStockNonLibre"
 						value="#{articleStockMB.articleStockDto.articleStockNonLibre}"
 						size="25" />
 					<p:message for="articleStockNonLibre" />
-
+					
+					<h:outputLabel for="articleStockconsommationJournaliére"
+						value="Quantité Consommation journaliére" />
+					<p:inputText id="articleStockconsommationJournaliére"
+						value="#{articleStockMB.articleStockDto.consommationJournaliére}"
+						size="25" />
+					<p:message for="articleStockconsommationJournaliére" />
+					
 					<p:commandButton value="Add"
 						action="#{articleStockMB.ajouterUnArticle }" update="@form">
 					</p:commandButton>

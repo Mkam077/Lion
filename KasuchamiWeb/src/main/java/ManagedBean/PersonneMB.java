@@ -28,7 +28,7 @@ public class PersonneMB implements Serializable{
 
 	PersonneServiceInterface personneService = (PersonneServiceInterface) context.getBean("personneService");
 
-	//Les attribut
+	//Les attributs
 	private List<PersonneDto>listePersonneDto = new ArrayList<PersonneDto>();
 	private PersonneDto personneDto = new PersonneDto();
 	private List<PersonneDto>listePersonneDtoRech = new ArrayList<PersonneDto>();
@@ -36,6 +36,7 @@ public class PersonneMB implements Serializable{
 	@PostConstruct
 	public void init() {
 
+		resetPersonneDto();
 		this.listePersonneDto = personneService.Afficher();
 
 	}
@@ -67,7 +68,11 @@ public class PersonneMB implements Serializable{
 		this.listePersonneDtoRech =	personneService.RechercherParNom(nom);
 
 	}
+    
+	private void resetPersonneDto() {
 
+		this.personneDto = new PersonneDto();
+	}
 
 
 	public PersonneDto getPersonneDto() {

@@ -68,17 +68,32 @@
 		<!-- de la page accueil vers page GestionStock -->
 		<navigation-case>
 			<from-outcome>VersStock</from-outcome>
-			<to-view-id>/ajouterUnArticle.xhtml</to-view-id>
+			<to-view-id>/ajouterUnCatalogue.xhtml</to-view-id>
 		</navigation-case>
 		<!-- de la page accueil vers page Tableau de Bord -->
 		<navigation-case>
 			<from-outcome>VersTableauDeBord</from-outcome>
 			<to-view-id>/dashboard.xhtml</to-view-id>
 		</navigation-case>
+		<!-- de la page accueil vers page Achat -->
+		<navigation-case>
+			<from-outcome>VersAchat</from-outcome>
+			<to-view-id>/ajouterUneDemande.xhtml</to-view-id>
+		</navigation-case>
+		<!-- de la page accueil vers page Gestion Sociétés -->
+		<navigation-case>
+			<from-outcome>VersSociétés</from-outcome>
+			<to-view-id>/ajouterUneSociété.xhtml</to-view-id>
+		</navigation-case>
 		<!-- de la page accueil vers import -->
 		<navigation-case>
 			<from-outcome>Versimport</from-outcome>
 			<to-view-id>/ajout_file.xhtml</to-view-id>
+		</navigation-case>
+		<!-- de la page accueil vers Gestion Fournisseurs -->
+		<navigation-case>
+			<from-outcome>VersFournisseur</from-outcome>
+			<to-view-id>/ajouterUnFournisseur.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
@@ -93,7 +108,7 @@
 		<!-- de la page Tableau de Bord Utilisateur vers page Stock -->
 		<navigation-case>
 			<from-outcome>VersStock</from-outcome>
-			<to-view-id>/ajouterUnArticle.xhtml</to-view-id>
+			<to-view-id>/ajouterUnCatalogue.xhtml</to-view-id>
 		</navigation-case>
 		<!-- de la page Tableau de Bord Utilisateur vers page Import -->
 		<navigation-case>
@@ -102,8 +117,18 @@
 		</navigation-case>
 	</navigation-rule>
 
-
-
+     <!-- A partir de la page Ajouter une demande -->
+	<navigation-rule>
+		<from-view-id>/ajouterUneDemande.xhtml</from-view-id>
+		<!-- de la page Ajouter une demande vers page ajouterUneLignesuruneDemande -->
+		<navigation-case>
+			<from-outcome>VersLigneDemande</from-outcome>
+			<to-view-id>/ajouterUneLignesuruneDemande.xhtml</to-view-id>
+		</navigation-case>
+		
+	
+			
+    </navigation-rule>
 	<!-- de la page accueilAdmin vers page AccueilUtilisateur -->
 	<navigation-rule>
 		<from-view-id>/accueilAdmin.xhtml</from-view-id>
@@ -128,5 +153,10 @@
 			<to-view-id>/ajouterUnePersonne.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	
+	
+	
+	
 
 </faces-config>

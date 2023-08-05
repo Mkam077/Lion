@@ -19,7 +19,7 @@ public class ArticleStockBuilder {
 	}
 
 	public ArticleStock Build ( String designation, Integer utilisationLibre,Integer controleQualite, Integer stockNonLibre, Integer articleBloque, 
-			Integer  articleEnRetour, Integer articleEnTransit,Integer couvertureStock,  LocalDateTime dateEnregistrement ) {
+		Integer  articleEnRetour, Integer articleEnTransit,Integer couvertureStock,  LocalDateTime dateEnregistrement, Integer consommationJournaliere) {
 		ArticleStock articleStock = articleStockFactory.creer(); 
 		articleStock.setArticleDesignation(designation);
 		articleStock.setArticleUtilisationLibre(utilisationLibre);
@@ -28,6 +28,7 @@ public class ArticleStockBuilder {
 		articleStock.setArticleBloque(articleBloque);
 		articleStock.setArticleEnRetour(articleEnRetour);
 		articleStock.setArticleEnTransit(articleEnTransit);
+		articleStock.setConsommationJournaliere(consommationJournaliere);
 		return articleStock;		
 		// TODO Auto-generated constructor stub
 	}
@@ -42,7 +43,7 @@ public class ArticleStockBuilder {
 		articleStock.setArticleBloque(articleStockDto.getArticleBloque());
 		articleStock.setArticleEnRetour(articleStockDto.getArticleEnRetour());
 		articleStock.setArticleEnTransit(articleStockDto.getArticleEnTransit());
-		articleStock.setConsommationJournaliére(articleStockDto.getConsommationJournaliére());
+		articleStock.setConsommationJournaliere(articleStockDto.getconsommationJournaliere());
 		return  articleStock;
 	}
 
@@ -57,7 +58,7 @@ public class ArticleStockBuilder {
 		articleStockDto.setArticleEnTransit(articleStock.getArticleEnTransit());
 		articleStockDto.setArticleStockNonLibre(articleStock.getArticleStockNonLibre());
 		articleStockDto.setCouverturedestock(articleStock.getCouverturedestock());
-		articleStockDto.setConsommationJournaliére(articleStock.getConsommationJournaliére());	
+		articleStockDto.setConsommationJournaliere(articleStock.getConsommationJournaliere());	
 		return articleStockDto;
 	}
 

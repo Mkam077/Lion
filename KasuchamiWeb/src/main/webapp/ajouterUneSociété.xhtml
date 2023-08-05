@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Ajout d'un Fournisseur</title>
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css"  /> 
+<h:outputStylesheet library="cssPerso" name="fichecandidat.css"  /> 	
+</style>
+</h:head>
+<ui:composition template="/menubar.xhtml">
+	<ui:define name="pageTitle">Gestion Societe</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
+<body>
+
+	<h1>Supprimer un Société</h1>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="societelist" var="societe"
+			value="#{societeMB.societeDtoList}" style="width:85%;">
+
+			<p:column headerText="idSociété">
+				<h:outputText id="ids" value="#{societe.idSociete}" />
+			</p:column>
+
+			<p:column headerText="NumeroSociete">
+				<h:outputText id="Ns" value="#{societe.c_SOCIETE}" />
+			</p:column>
+			
+			<p:column headerText="LibelleSociete">
+				<h:outputText id="Ls"
+					value="#{societe.l_SOCIETE}" />
+			</p:column>
+			
+			<p:column headerText="RegionDeLaSociete">
+				<h:outputText id="Rs"
+					value="#{societe.c_REGION}" />
+			</p:column>
+			
+			
+			<p:column headerText="NumeroComptableSociété">
+				<h:outputText id="NCs"
+					value="#{societe.nUM_AXE}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="societelist" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{societeMB.supprimer }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>Modifier une societe</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="societeList" var="societe"
+			value="#{societeMB.societeDtoList}" style="width:85%;">
+
+			<p:column headerText="idSociete">
+				<p:inputText id="ids" value="#{societe.idSociete}" />
+			</p:column>
+			<p:column headerText="NumeroSociete">
+				<p:inputText id="Ns"
+					value="#{societe.c_SOCIETE}" />
+			</p:column>
+			<p:column headerText="LibelleSociete">
+				<p:inputText id="Ls"
+					value="#{societe.l_SOCIETE}" />
+			</p:column>
+			<p:column headerText="RegionDeLaSociete">
+				<p:inputText id="Rs"
+					value="#{societe.c_REGION}" />
+			</p:column>
+			<p:column headerText="NumeroComptableSociété">
+				<p:inputText id="NCs"
+					value="#{societe.nUM_AXE}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="societeList" value="update"
+					icon="ui-icon-closethick"
+					action="#{societeMB.modifier(societe) }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>ajout d'une Societe</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="societeentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="NumeroSociete"
+						value="Numero de la societe" />
+					<p:inputText id="NumeroSociete"
+						value="#{societeMB.societeDto.c_SOCIETE}"
+						size="25" />
+					<p:message for="NumeroSociete" />
+					
+					<h:outputLabel for="LibelleSociete"
+					value="Libelle de la societe" />
+					<p:inputText id="LibelleSociete"
+                     value="#{societeMB.societeDto.l_SOCIETE}"
+                     size="25"/>
+			        <p:message for="LibelleSociete" />
+			        
+			        <h:outputLabel for="RegionDeLaSociete"
+						value="Region de la societe" />
+					<p:inputText id="RegionDeLaSociete"
+						value="#{societeMB.societeDto.c_REGION}"
+						size="25" />
+					<p:message for="RegionDeLaSociete" />
+					
+					<h:outputLabel for="NumeroComptableSociété"
+					value="Numero comptable de la societe" />
+					<p:inputText id="NumeroComptableSociété"
+                     value="#{societeMB.societeDto.nUM_AXE}"
+                     size="25"/>
+			        <p:message for="NumeroComptableSociété" />
+			        
+			        	        
+					<p:commandButton value="Add"
+						action="#{societeMB.ajouter() }" update="@form">
+					</p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+
+	<h1>Rechercher D' une société</h1>
+
+
+	<h:form class="form">
+		<p:panel id="societeentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="societeid"
+						value="Id de la société" />
+					<p:inputText id="societeid"
+						value="#{societeMB.societeDto.idSociete}"
+						size="25" />
+					<p:message for="societeid" />
+        					   				
+				<p:commandButton value="rechercher"
+					action="#{societeMB.rechercherParId()}" update="@form" >			
+				</p:commandButton>
+
+			</h:panelGrid>
+		</p:panel>
+
+	<p:dataTable id="societeDtoRech" var="societeRec"
+		value="#{societeMB.societeDtoRech}"
+		style="width:85%;">
+
+		<p:column headerText="idSociete">
+				<p:inputText id="ids" value="#{societeRec.idSociete}" />
+			</p:column>
+			<p:column headerText="NumeroSociete">
+				<p:inputText id="Ns"
+					value="#{societeRec.c_SOCIETE}" />
+			</p:column>
+			<p:column headerText="LibelleSociete">
+				<p:inputText id="Ls"
+					value="#{societeRec.l_SOCIETE}" />
+			</p:column>
+			<p:column headerText="RegionDeLaSociete">
+				<p:inputText id="Rs"
+					value="#{societeRec.c_REGION}" />
+			</p:column>
+			<p:column headerText="NumeroComptableSociété">
+				<p:inputText id="NCs"
+					value="#{societeRec.nUM_AXE}" />
+			</p:column>
+		
+		
+		
+		<p:column style="width:120px;">
+		</p:column>
+		
+	</p:dataTable>
+	</h:form>
+</body>
+</ui:define>
+</ui:composition>
+</html>
+
+

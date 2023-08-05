@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15909325369160" configfile="/KasuchamiWeb/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="connexion.xhtml" x="122" y="925" id="pf15910258220382" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf15951759108270 pf15955910992460 pf15955910992461 pf15955910992462" inlinks="pf15955910992463 pf15959407351800" path="/connexion.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" x="554" y="946" id="pf159102584015712" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" outlinks="pf15955910992463 pf15955910992464 pf15955910992465 pf15957729567460" inlinks="pf15951759108270 pf15957729567462 pf15958392314420" path="/accueil.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="122" y="1310" id="pf159102585518715" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/accueil.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="erreurConnexion.xhtml" x="338" y="339" id="pf15955910992468" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf15955910992460 pf15955910992462" path="/erreurConnexion.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueilAdmin.xhtml" x="338" y="723" id="pf15955910992469" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf15957729567462 pf15957729567463 pf15957729567464 pf15959407351800" inlinks="pf15955910992461" path="/accueilAdmin.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" x="770" y="754" id="pf159559109924712" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" inlinks="pf15955910992464 pf15958392314421" path="/ajouterUnArticle.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="dashboard.xhtml" x="338" y="1149" id="pf159559109924713" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf15958392314420 pf15958392314421 pf15958392918682" inlinks="pf15955910992465" path="/dashboard.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ajouterUnCompteUser.xhtml" x="554" y="178" id="pf15957729567465" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf15957729567463" path="/ajouterUnCompteUser.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ajouterUnePersonne.xhtml" x="554" y="562" id="pf15957729567476" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf15957729567464" path="/ajouterUnePersonne.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ajout_file.xhtml" x="770" y="1138" id="pf15957729567477" referenceLink="//@navigationRule.5/@navigationCase.2/@toViewId|" inlinks="pf15957729567460 pf15958392918682" path="/ajout_file.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="connexion.xhtml" x="554" y="764" id="pf15910258220382" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf15951759108270 pf15955910992460 pf15955910992461 pf15955910992462" inlinks="pf15955910992463 pf15959407351800" path="/connexion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" x="338" y="1532" id="pf159102584015712" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf15955910992463 pf15955910992465 pf15957729567460 pf16577921000531 pf16577921000532 pf16852860106480 pf16852860106481" inlinks="pf15951759108270 pf15958392314420 pf16829529612511" path="/accueil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="122" y="279" id="pf159102585518715" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/accueil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="erreurConnexion.xhtml" x="770" y="764" id="pf15955910992468" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf15955910992460 pf15955910992462" path="/erreurConnexion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueilAdmin.xhtml" x="122" y="764" id="pf15955910992469" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf15959407351800 pf16829529612511 pf16829529612512 pf16829529612513" inlinks="pf15955910992461" path="/accueilAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnArticle.xhtml" x="554" y="1916" id="pf159559109924712" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" inlinks="pf15958392314421 pf16852860106480" path="/ajouterUnCatalogue.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="dashboard.xhtml" x="122" y="1916" id="pf159559109924713" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf15958392314420 pf15958392314421 pf15958392918682" inlinks="pf15955910992465" path="/dashboard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajout_file.xhtml" x="554" y="2300" id="pf15957729567477" referenceLink="//@navigationRule.4/@navigationCase.5/@toViewId|" inlinks="pf15957729567460 pf15958392918682" path="/ajout_file.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnCatalogue.xhtml" x="122" y="2300" id="pf16577921000536" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" path="/ajouterUnCatalogue.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUneDemande.xhtml" x="554" y="1148" id="pf16577921000537" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf16577921000538" inlinks="pf16577921000531" path="/ajouterUneDemande.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUneSociété.xhtml" x="554" y="1532" id="pf16577921000539" referenceLink="//@navigationRule.4/@navigationCase.3/@toViewId|" inlinks="pf16577921000532" path="/ajouterUneSociété.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUneLignesuruneDemande.xhtml" x="770" y="1148" id="pf165779210005310" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf16577921000538" path="/ajouterUneLignesuruneDemande.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnCompteUser.xhtml" x="338" y="178" id="pf16829529612514" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf16829529612512" path="/ajouterUnCompteUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnePersonne.xhtml" x="338" y="562" id="pf16829529612515" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf16829529612513" path="/ajouterUnePersonne.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ajouterUnFournisseur.xhtml" id="pf16852860106492" referenceLink="//@navigationRule.4/@navigationCase.5/@toViewId|" inlinks="pf16852860106481" path="/ajouterUnFournisseur.xhtml"/>
   <links id="pf15951759108270" target="pf159102584015712" source="pf15910258220382" outcome="sucess"/>
   <links id="pf15955910992460" target="pf15955910992468" source="pf15910258220382" outcome="notsucess"/>
   <links id="pf15955910992463" target="pf15910258220382" source="pf159102584015712" outcome="sucessdec"/>
   <links id="pf15955910992461" target="pf15955910992469" source="pf15910258220382" outcome="sucessadm"/>
   <links id="pf15955910992462" target="pf15955910992468" source="pf15910258220382" outcome="notsucessadm"/>
-  <links id="pf15955910992464" target="pf159559109924712" source="pf159102584015712" outcome="VersStock"/>
   <links id="pf15955910992465" target="pf159559109924713" source="pf159102584015712" outcome="VersTableauDeBord"/>
-  <links id="pf15957729567462" target="pf159102584015712" source="pf15955910992469" outcome="VersAccueilUtilisateur"/>
-  <links id="pf15957729567463" target="pf15957729567465" source="pf15955910992469" outcome="VersCompteUser"/>
-  <links id="pf15957729567464" target="pf15957729567476" source="pf15955910992469" outcome="VersPersonne"/>
   <links id="pf15957729567460" target="pf15957729567477" source="pf159102584015712" outcome="Versimport"/>
   <links id="pf15958392314420" target="pf159102584015712" source="pf159559109924713" outcome="VersAccueil"/>
   <links id="pf15958392314421" target="pf159559109924712" source="pf159559109924713" outcome="VersStock"/>
   <links id="pf15958392918682" target="pf15957729567477" source="pf159559109924713" outcome="VersImport"/>
   <links id="pf15959407351800" target="pf15910258220382" source="pf15955910992469" outcome="sucessdecAdm"/>
+  <links id="pf16577921000531" target="pf16577921000537" source="pf159102584015712" outcome="VersAchat"/>
+  <links id="pf16577921000532" target="pf16577921000539" source="pf159102584015712" outcome="VersSociétés"/>
+  <links id="pf16577921000538" target="pf165779210005310" source="pf16577921000537" outcome="VersLigneDemande"/>
+  <links id="pf16829529612511" target="pf159102584015712" source="pf15955910992469" outcome="VersAccueilUtilisateur"/>
+  <links id="pf16829529612512" target="pf16829529612514" source="pf15955910992469" outcome="VersCompteUser"/>
+  <links id="pf16829529612513" target="pf16829529612515" source="pf15955910992469" outcome="VersPersonne"/>
+  <links id="pf16852860106480" target="pf159559109924712" source="pf159102584015712" outcome="VersStock"/>
+  <links id="pf16852860106481" target="pf16852860106492" source="pf159102584015712" outcome="VersFournisseur"/>
 </pageflow:Pageflow>

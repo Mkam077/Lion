@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Gestion Article</title>
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css"  /> 
+<h:outputStylesheet library="cssPerso" name="fichecandidat.css"  /> 	
+</style>
+</h:head>
+<ui:composition template="/menubar.xhtml">
+	<ui:define name="pageTitle">Gestion Catalogue</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
+<body>
+
+	<h1>Supprimer Un article </h1>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="cataloguelist" var="catalogue"
+			value="#{catalogueMB.catalogueDtoListe}" style="width:85%;">
+			<p:column headerText="Articleid">
+				<h:outputText id="idducatalogue" value="#{catalogue.catalogueid}" />
+			</p:column>
+
+			<p:column headerText="Numero de l'article">
+				<h:outputText id="Numeroducatalogue" value="#{catalogue.nUM_REF_PROD}" />
+			</p:column>
+			
+			<p:column headerText="Libellé de l' article">
+				<h:outputText id="Libelléducatalogue"
+					value="#{catalogue.l_REF_PROD}" />
+			</p:column>
+			
+			<p:column headerText="Numero du Fournisseur">
+				<h:outputText id="Numerodufournisseur"
+					value="#{catalogue.nUM_FOURNISSEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="Montant">
+				<h:outputText id="Montantduproduit"
+					value="#{catalogue.montant}" />
+			</p:column>
+			
+			<p:column headerText="Unite">
+				<h:outputText id="unitéduproduit"
+					value="#{catalogue.unite}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="cataloguelist" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{catalogueMB.supprimerUnProduitDuCatalogue (catalogue) }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>Modifier Un article</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="catalogueList" var="catalogue"
+			value="#{catalogueMB.catalogueDtoListe}" style="width:85%;">
+
+			<p:column headerText="Articleid">
+				<p:inputText id="ids" value="#{catalogue.catalogueid}" />
+			</p:column>
+			<p:column headerText="Numero de l'article">
+				<p:inputText id="Ns"
+					value="#{catalogue.nUM_REF_PROD}" />
+			</p:column>
+			<p:column headerText="Libellé de l'article">
+				<p:inputText id="Ls"
+					value="#{catalogue.l_REF_PROD}" />
+			</p:column>
+			<p:column headerText="Numero du Fournisseur">
+				<p:inputText id="Rs"
+					value="#{catalogue.nUM_FOURNISSEUR}" />
+			</p:column>
+			<p:column headerText="Montant">
+				<p:inputText id="NCs"
+					value="#{catalogue.montant}" />
+			</p:column>
+			<p:column headerText="Unite">
+				<p:inputText id="un"
+					value="#{catalogue.unite}" />
+			</p:column>
+			<p:column style="width:120px;">
+				<p:commandButton update="catalogueList" value="update"
+					icon="ui-icon-closethick"
+					action="#{catalogueMB.ModifierUnProduitDuCatalogue (catalogue) }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+
+	<h1>ajout d'un Article</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="produitentre" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="NumeroDeRefDuProduitDuCat"
+						value="Numero de l'Article" />
+					<p:inputText id="NumeroDeRefDuProduitDuCat"
+						value="#{catalogueMB.catalogueDto.nUM_REF_PROD}"
+						size="25" />
+					<p:message for="NumeroDeRefDuProduitDuCat" />
+					
+					<h:outputLabel for="LibelleDeLaRefDuProdDuCat"
+					value="Libelle de l'Article" />
+					<p:inputText id="LibelleDeLaRefDuProdDuCat"
+                     value="#{catalogueMB.catalogueDto.l_REF_PROD}"
+                     size="25"/>
+			        <p:message for="LibelleDeLaRefDuProdDuCat" />
+			        
+			        <h:outputLabel for="NumeroDuFournisseurDuProduitDuCat"
+						value="Numéro du fournisseur" />
+					<p:inputText id="NumeroDuFournisseurDuProduitDuCat"
+						value="#{catalogueMB.catalogueDto.nUM_FOURNISSEUR}"
+						size="25" />
+					<p:message for="NumeroDuFournisseurDuProduitDuCat" />
+					
+					<h:outputLabel for="MontantDuProduitDuCatalogue"
+					value="Prix de l'Article" />
+					<p:inputText id="MontantDuProduitDuCatalogue"
+                     value="#{catalogueMB.catalogueDto.montant}"
+                     size="25"/>
+			        <p:message for="MontantDuProduitDuCatalogue" />
+			        
+			        
+			        <h:outputLabel for="UnitéDuProduitDuCatalogue"
+					value="Unite de l'article " />
+					<p:inputText id="UnitéDuProduitDuCatalogue"
+                     value="#{catalogueMB.catalogueDto.unite}"
+                     size="25"/>
+			        <p:message for="UnitéDuProduitDuCatalogue" />
+			        	        
+					<p:commandButton value="Add"
+						action="#{catalogueMB.AjouterUnNouveauProduit  }" update="@form">
+					</p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+
+	<h1>Rechercher Un article</h1>
+
+
+	<h:form class="form">
+		<p:panel id="catalogueentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="catalogueid"
+						value="ArticleId" />
+					<p:inputText id="catalogueid"
+						value="#{catalogueMB.catalogueDto.catalogueid}"
+						size="25" />
+					<p:message for="catalogueid" />
+        					   				
+				<p:commandButton value="rechercher"
+					action="#{catalogueMB.RechercherParIDnumeroduProduit}" update="@form" >			
+				</p:commandButton>
+
+			</h:panelGrid>
+		</p:panel>
+<p:dataTable id="catalogueDtoRech" var="catalogueRec"
+		value="#{catalogueMB.catalogueDtoRech}"
+		style="width:85%;">
+
+		<p:column headerText="Articleid">
+				<p:inputText id="ids" value="#{catalogueRec.catalogueid}" />
+			</p:column>
+			<p:column headerText="Numero de l'Article">
+				<p:inputText id="Ns"
+					value="#{catalogueRec.nUM_REF_PROD}" />
+			</p:column>
+			<p:column headerText="Libellé de l'Article">
+				<p:inputText id="Ls"
+					value="#{catalogueRec.l_REF_PROD}" />
+			</p:column>
+			<p:column headerText="Numero du Fournisseur">
+				<p:inputText id="Rs"
+					value="#{catalogueRec.nUM_FOURNISSEUR}" />
+			</p:column>
+			<p:column headerText="Prix">
+				<p:inputText id="NCs"
+					value="#{catalogueRec.montant}" />
+			</p:column>
+		    <p:column headerText="Unite">
+				<p:inputText id="Unite"
+					value="#{catalogueRec.unite}" />
+			</p:column>		
+		<p:column style="width:120px;">
+		</p:column>	
+	</p:dataTable>	
+	</h:form>
+</body>
+</ui:define>
+</ui:composition>
+</html>
+
+

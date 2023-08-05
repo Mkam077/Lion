@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Gestion Fournisseur</title>
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css"  /> 
+<h:outputStylesheet library="cssPerso" name="fichecandidat.css"  /> 	
+</style>
+</h:head>
+<ui:composition template="/menubar.xhtml">
+	<ui:define name="pageTitle">Gestion Fournisseur</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
+<body>
+
+	<h1>Supprimer Un fournisseur </h1>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="fournisseurlist" var="fournisseur"
+			value="#{fournisseurMB.fournisseurDtoListe}" style="width:85%;">
+			<p:column headerText="Fournisseurid">
+				<h:outputText id="iddufournisseur" value="#{fournisseur.idFournisseur}" />
+			</p:column>
+
+			<p:column headerText="Numero Du Fournisseur">
+				<h:outputText id="Numerodufournisseur" value="#{fournisseur.c_Fournisseur}" />
+			</p:column>
+			
+			<p:column headerText="Libellé du Fournisseur">
+				<h:outputText id="Libellédufournisseur"
+					value="#{fournisseur.l_Fournisseur}" />
+			</p:column>
+			
+			<p:column headerText="Numero de téléphone du Fournisseur">
+				<h:outputText id="NumeroTeldufournisseur"
+					value="#{fournisseur.num_TelFour}" />
+			</p:column>
+			
+			
+			<p:column headerText="Adresse du Fournisseur">
+				<h:outputText id="Adressedufournisseur"
+					value="#{fournisseur.adresse_Fournisseur}" />
+			</p:column>
+						
+			<p:column style="width:120px;">
+				<p:commandButton update="fournisseurlist" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{fournisseurMB.supprimerUnFournisseur (fournisseur) }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>Modifier Un fournisseur</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="fournisseurList" var="fournisseur"
+			value="#{fournisseurMB.fournisseurDtoListe}" style="width:85%;">
+
+			<p:column headerText="Fournisseurid">
+				<p:inputText id="idsf" value="#{fournisseur.idFournisseur}" />
+			</p:column>
+			<p:column headerText="Numero du Fournisseur">
+				<p:inputText id="Nsf"
+					value="#{fournisseur.c_Fournisseur}" />
+			</p:column>
+			<p:column headerText="Libellé du Fournisseur">
+				<p:inputText id="Lsf"
+					value="#{fournisseur.l_Fournisseur}" />
+			</p:column>
+			<p:column headerText="Numero de Tel du Fournisseur">
+				<p:inputText id="Rsf"
+					value="#{fournisseur.num_TelFour}" />
+			</p:column>
+			<p:column headerText="Adresse du Fournisseur">
+				<p:inputText id="NCsf"
+					value="#{fournisseur.adresse_Fournisseur}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="fournisseurList" value="update"
+					icon="ui-icon-closethick"
+					action="#{fournisseurMB.modifierUnFournisseur(fournisseur) }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+
+	<h1>ajout d'un Fournisseur</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="fournisseurentre" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="NumeroDeRefDufournisseur"
+						value="Numero du Fournisseur" />
+					<p:inputText id="NumeroDeRefDuFournisseur"
+						value="#{fournisseurMB.fournisseurDto.c_Fournisseur}"
+						size="25" />
+					<p:message for="NumeroDeRefDuFournisseur" />
+					
+					<h:outputLabel for="LibelleDuFournisseur"
+					value="Libelle du Fournisseur" />
+					<p:inputText id="LibelleDuFournisseur"
+                     value="#{fournisseurMB.fournisseurDto.l_Fournisseur}"
+                     size="25"/>
+			        <p:message for="LibelleDuFournisseur" />
+			        
+			        <h:outputLabel for="NumeroDeTelDuFournisseur"
+						value="Numéro de Tel du fournisseur" />
+					<p:inputText id="NumeroDeTelDuFournisseur"
+						value="#{fournisseurMB.fournisseurDto.num_TelFour}"
+						size="25" />
+					<p:message for="NumeroDeTelDuFournisseur" />
+					
+					<h:outputLabel for="AdresseDuFournisseur"
+					value="Adresse du Fournisseur" />
+					<p:inputText id="AdresseDuFournisseur"
+                     value="#{fournisseurMB.fournisseurDto.adresse_Fournisseur}"
+                     size="25"/>
+			        <p:message for="AdresseDuFournisseur" />
+			         	        
+					<p:commandButton value="Add"
+						action="#{fournisseurMB.AjouterUnNouveauFournisseur  }" update="@form">
+					</p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+
+	<h1>Rechercher Un fournisseur</h1>
+
+
+	<h:form class="form">
+		<p:panel id="fournisseurentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="fournisseurid"
+						value="FournisseurId" />
+					<p:inputText id="fournisseurid"
+						value="#{fournisseurMB.fournisseurDto.idFournisseur}"
+						size="25" />
+					<p:message for="fournisseurid" />
+        					   				
+				<p:commandButton value="rechercher"
+					action="#{fournisseurMB.RechercherParIDnumeroduFournisseur}" update="@form" >			
+				</p:commandButton>
+
+			</h:panelGrid>
+		</p:panel>
+<p:dataTable id="fournisseurDtoRech" var="fournisseurRec"
+		value="#{fournisseurMB.fournisseurDtoRech}"
+		style="width:85%;">
+
+		<p:column headerText="Fournisseurid">
+				<p:inputText id="idsf" value="#{fournisseurRec.idFournisseur}" />
+			</p:column>
+			<p:column headerText="Numero du Fournisseur">
+				<p:inputText id="Nsf"
+					value="#{fournisseurRec.c_Fournisseur}" />
+			</p:column>
+			<p:column headerText="Libellé du Fournisseur">
+				<p:inputText id="Lsf"
+					value="#{fournisseurRec.l_Fournisseur}" />
+			</p:column>
+			<p:column headerText="Numero de Tel du Fournisseur">
+				<p:inputText id="Rsf"
+					value="#{fournisseurRec.num_TelFour}" />
+			</p:column>
+			<p:column headerText="Adresse_Fournisseur">
+				<p:inputText id="NCsf"
+					value="#{fournisseurRec.adresse_Fournisseur}" />
+			</p:column>
+		    	
+		<p:column style="width:120px;">
+		</p:column>	
+	</p:dataTable>	
+	</h:form>
+</body>
+</ui:define>
+</ui:composition>
+</html>
+
+

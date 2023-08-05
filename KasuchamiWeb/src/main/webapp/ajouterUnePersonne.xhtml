@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Kasuchami - Ajout d'une Personne</title>
+	<title>Kasuchami - Gestion Fiche Personne</title>
 <style>	
 <h:outputStylesheet library="cssPerso" name="style.css"  /> 
 	
@@ -40,7 +40,7 @@
 				<h:outputText id="sexe"
 					value="#{personne.sexe}" />
 			</p:column>
-			<p:column headerText="identifiant">
+			<p:column headerText="Compte User">
 				<h:outputText id="ide"
 					value="#{personne.identifiant}" />
 			</p:column>
@@ -78,7 +78,7 @@
 				<p:inputText id="pren"
 					value="#{personne.prenom}" />
 			</p:column>
-			<p:column headerText="identifiant">
+			<p:column headerText="Compte User">
 				<p:inputText id="iden"
 					value="#{personne.identifiant}" />
 			</p:column>
@@ -118,34 +118,35 @@
 					style="position: relative; right: 0;">
 
 					<h:outputLabel for="personneNom"
-						value="Nom de L' Employe" />
+						value="Nom" />
 					<p:inputText id="personneNom"
 						value="#{personneMB.personneDto.nom}"
 						size="25" />
 					<p:message for="personneNom" />
 
 					<h:outputLabel for="personnePrenom"
-						value="Prenom de L'Employe" />
+						value="Prenom" />
 					<p:inputText id="personnePrenom"
 						value="#{personneMB.personneDto.prenom}"
 						size="25" />
 					<p:message for="personnePrenom" />
 
                     <h:outputLabel for="personneIdentifiant"
-						value="Identifiant de L'Employe" />
+						value="Compte User" />
 					<p:inputText id="personneIdentifiant"
 						value="#{personneMB.personneDto.identifiant}"
 						size="25" />
 					<p:message for="personnePrenom" />
 					<h:outputLabel for="personneSexe"
-						value="Sexe de L' Employe" />
+						value="Sexe" />
 					<p:inputText id="personneSexe"
 						value="#{personneMB.personneDto.sexe}"
 						size="25" />
 					<p:message for="personneSexe" />
 
 
-					<h:outputLabel for="personneAvatar" value="Avatar de L' Employe" />
+					<h:outputLabel for="personneAvatar" 
+		                 value="Avatar" />
 					<p:inputText id="personneAvatar"
 						value="#{personneMB.personneDto.avatar}" size="25" />
 					<p:message for="personneAvatar" />
@@ -200,7 +201,7 @@
 				<h:outputText id="sexe"
 					value="#{personneRech.sexe}" />
 			</p:column>
-			<p:column headerText="identifiant">
+			<p:column headerText="Compte User">
 				<h:outputText id="ide"
 					value="#{personneRech.identifiant}" />
 			</p:column>

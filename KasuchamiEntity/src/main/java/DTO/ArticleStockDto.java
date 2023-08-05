@@ -19,9 +19,10 @@ public class ArticleStockDto implements Serializable{
 	private Integer articleBloque;	   
 	private Integer articleEnRetour;	   
 	private Integer articleEnTransit;			
-	private Integer consommationJournaliére;		
+	private Integer consommationJournaliere;		
 	private Integer couverturedestock;	
 	private Integer articleCalculCde;
+	
 
 	@Override
 	public String toString() {
@@ -42,8 +43,11 @@ public class ArticleStockDto implements Serializable{
 		builder.append(articleEnRetour );
 		builder.append(", articleEnTransit=");
 		builder.append(articleEnTransit);
+		builder.append(", consommationJournaliére=");
+		builder.append(consommationJournaliere);
 		builder.append(", dateEnregistrement=" );
 		builder.append(",couverturedestock=" );
+		
 		return  builder.toString();
 	}
 	public Long getIdArticleStock() {
@@ -94,11 +98,11 @@ public class ArticleStockDto implements Serializable{
 	public void setArticleEnTransit(Integer articleEnTransit) {
 		this.articleEnTransit = articleEnTransit;
 	}
-	public Integer getConsommationJournaliére() {
-		return consommationJournaliére;
+	public Integer getconsommationJournaliere() {
+		return consommationJournaliere;
 	}
-	public void setConsommationJournaliére(Integer consommation) {
-		this.consommationJournaliére = consommation;
+	public void setConsommationJournaliere(Integer consommationJournaliere) {
+		this.consommationJournaliere = consommationJournaliere;
 	}
 	public Integer getCouverturedestock() {
 		return couverturedestock;

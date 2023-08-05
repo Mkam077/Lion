@@ -99,7 +99,7 @@ public class ExcelHelper {
 						break;
 
 					case 7:
-						articleStock.setConsommationJournaliére((int) currentCell.getNumericCellValue());
+						articleStock.setConsommationJournaliere((int) currentCell.getNumericCellValue());
 						break;
 					}
 
@@ -141,7 +141,7 @@ public class ExcelHelper {
 				row.createCell(4).setCellValue(articleStock.getArticleBloque());
 				row.createCell(5).setCellValue(articleStock.getArticleEnRetour());
 				row.createCell(6).setCellValue(articleStock.getArticleEnTransit());
-				row.createCell(7).setCellValue(articleStock.getConsommationJournaliére());
+				row.createCell(7).setCellValue(articleStock.getConsommationJournaliere());
 
 			}
 

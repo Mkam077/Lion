@@ -73,7 +73,8 @@ public class ArticleStockMB  implements Serializable{
 		articleStockDto.setArticleEnRetour(newarticleStockDto.getArticleEnRetour());
 		articleStockDto.setArticleEnTransit(newarticleStockDto.getArticleEnTransit());
 		articleStockDto.setArticleStockNonLibre(newarticleStockDto.getArticleStockNonLibre());
-
+		articleStockDto.setConsommationJournaliere(newarticleStockDto.getconsommationJournaliere());
+		articleStockDto.setArticleStockNonLibre(newarticleStockDto.getArticleStockNonLibre());
 		this.articleStockDtolist = articleStockService.Affichertout();
 
 		resetArticleStockDto();

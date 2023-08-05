@@ -44,8 +44,8 @@ public class ArticleStock {
 	@Column (name= "articleEnTransit")
 	private Integer articleEnTransit;
 
-	@Column (name="consommationJournaliére")
-	private Integer consommationJournaliére;
+	@Column (name="consommationJournaliere")
+	private Integer consommationJournaliere;
 
 	@Column ( name="couverturedestock")
 	private Integer couverturedestock;
@@ -53,6 +53,8 @@ public class ArticleStock {
 	// obtenue par un traitement algo
 	@Column (name="articleCalculCde")
 	private Integer articleCalculCde;
+	
+	
 
 	////////////////////////Constructeur//////////////////
 
@@ -140,12 +142,12 @@ public class ArticleStock {
 		this.articleCalculCde =  articleCalculCde;
 	}
 
-	public Integer getConsommationJournaliére() {
-		return consommationJournaliére;
+	public Integer getConsommationJournaliere() {
+		return consommationJournaliere;
 	}
 
-	public void setConsommationJournaliére(Integer consommation) {
-		this.consommationJournaliére = consommation;
+	public void setConsommationJournaliere(Integer consommationJournaliere) {
+		this.consommationJournaliere = consommationJournaliere;
 	}
 
 	public Integer getCouverturedestock() {
@@ -156,7 +158,5 @@ public class ArticleStock {
 		this.couverturedestock = couverturedestock;
 	}
 
-
-
-
+	
 }

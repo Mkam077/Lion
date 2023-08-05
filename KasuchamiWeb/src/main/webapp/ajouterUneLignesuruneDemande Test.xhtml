@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Ajout d'une ligne sur une Demande</title>
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css"  /> 
+	
+</style>
+</h:head>
+<ui:composition template="/menubar.xhtml">
+	<ui:define name="pageTitle">Gestion Approvisionnement</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
+<body>
+	
+	<h1>ajout d'une ligne de Demande</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="detaildemandeentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="numerodedemandeid"
+						value="Numero de demande" />
+					<p:inputText id="numerodedemandeid"
+						value="#{detailDemandeMB.detaildemandeDto.demandeid}"
+						size="25" />
+					<p:message for="numerodedemandeid" />
+
+
+                   <h:outputLabel for="numerodeProduitid"
+						value="numero du Produit id" />
+					<p:inputText id="numerodeProduitid"
+						value="#{detailDemandeMB.detaildemandeDto.catalogueid}"
+						size="25" />
+					<p:message for="numerodeProduitid" />
+
+					<h:outputLabel for="descriptionDuProduit"
+						value="description Du Produit" />
+					<p:inputText id="descriptionDuProduit"
+						value="#{detailDemandeMB.detaildemandeDto.description}"
+						size="25" />
+					<p:message for="descriptionDuProduit" />
+
+                    <h:outputLabel for="DateDeLivraison" 
+                        
+						value="Date de La Livraison" />
+					<p:inputText id="DateDeLivraison"
+					     converter="localDateTimeConverter"
+						value="#{detailDemandeMB.detaildemandeDto.date_BESOIN}"
+						size="25" />
+					<p:message for="DateDeLivraison" />
+					
+					<h:outputLabel for="c_CLASSIF_ACHATDeLaDemande"
+						value="Classification Achat de la ligne de commande" />
+					<p:inputText id="c_CLASSIF_ACHATDeLaDemande"
+						value="#{detailDemandeMB.detaildemandeDto.c_CLASSIF_ACHAT}"
+						size="25" />
+					<p:message for="c_CLASSIF_ACHATDeLaDemande" />
+					
+					<h:outputLabel for="frais_PORTdeLaLigneDeDemande"
+						value="Frais de port de ligne de commande" />
+					<p:inputText id="frais_PORTdeLaLigneDeDemande"
+						value="#{detailDemandeMB.detaildemandeDto.frais_PORT}"
+						size="25" />
+					<p:message for="frais_PORTdeLaLigneDeDemande" />
+					
+					<h:outputLabel for="montant_TOTALDeLaLigneDeDemande"
+						value="montant De La Ligne De Demande" />
+					<p:inputText id="montant_TOTALDeLaLigneDeDemande"
+						value="#{detailDemandeMB.detaildemandeDto.montant_TOTAL}"
+						size="25" />
+					<p:message for="montant_TOTALDeLaLigneDeDemande" />
+
+
+					<h:outputLabel for="quantiteDeLaLigneDeDemande" 
+					     value="Quanntité de La Ligne de Demande" />
+					<p:inputText id="quantiteDeLaLigneDeDemande"
+						value="#{detailDemandeMB.detaildemandeDto.quantite}" size="25" />
+					<p:message for="quantiteDeLaLigneDeDemande" />
+
+					<h:outputLabel for="lieu_LIVRAISONDeLaLigneDeDemande" 
+					     value="Lieu de livraison de la Ligne De Demande" />
+					<p:inputText id="lieu_LIVRAISONDeLaLigneDeDemande"
+						value="#{detailDemandeMB.detaildemandeDto.lieu_LIVRAISON}" size="25" />
+					<p:message for="lieu_LIVRAISONDeLaLigneDeDemande" />
+						
+				</h:panelGrid>
+				
+			</p:panel>
+			<p:commandButton value="Actualiser"
+					action="#{detailDemandeMB.AfficherUnPrix   }" update="@form" >			
+				</p:commandButton>
+			<p:commandButton value="Add"
+						action="#{detailDemandeMB.AjouterLignedeDemande  }" update="@form">
+				</p:commandButton>
+				
+			
+				
+				
+		</div>
+	</h:form>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="produitduCataloguelist" var="catalogue"
+			value="#{catalogueMB.catalogueDtoListe}" style="width:85%;">
+
+			<p:column headerText="idProduitDuCatalogue">
+				<h:outputText id="idPCat" value="#{catalogue.catalogueid}" />
+			</p:column>
+
+			<p:column headerText="NumeroDeRefDuProduitDuCat">
+				<h:outputText id="NRefProdCat" value="#{catalogue.nUM_REF_PROD}" />
+			</p:column>
+			
+			<p:column headerText="LibelleDeLaRefDuProdDuCat">
+				<h:outputText id="LRefProdCat"
+					value="#{catalogue.l_REF_PROD}" />
+			</p:column>
+			
+			<p:column headerText="NumeroDuFournisseurDuProduitDuCat">
+				<h:outputText id="NumFrsDuProdCat"
+					value="#{catalogue.nUM_FOURNISSEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="MontantDuProduitDuCatalogue">
+				<h:outputText id="MtProdCat"
+					value="#{catalogue.montant}" />
+			</p:column>
+			
+			
+			<p:column headerText="UnitéDuProduitDuCatalogue">
+				<h:outputText id="UnProdCat"
+					value="#{catalogue.unite}" />
+			</p:column>
+			
+
+			<p:column style="width:120px;">
+				<p:commandButton update="produitduCataloguelist" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{detailDemandeMB.AjouterLignedeDemande }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	<h1>  </h1>
+</body>
+</ui:define>
+</ui:composition>
+</html>
+
+

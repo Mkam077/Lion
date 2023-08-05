@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Ajout d'une Demande</title>
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css"  /> 
+<h:outputStylesheet library="cssPerso" name="cssAccueil.css"  />	
+</style>
+</h:head>
+<ui:composition template="/menubar.xhtml">
+	<ui:define name="pageTitle">Gestion Approvisionnement</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
+<body>
+	<h1>Supprimer une Demande</h1>
+	<h:form class="form">
+
+		<p:growl id="growl" sticky="true" />
+
+		<p:dataTable id="listeDemande" var="demande"
+			value="#{demandeMB.demandeDtoList}" style="width:85%;">
+
+			<p:column headerText="idDemande">
+				<h:outputText id="idD" value="#{demande.idDemande}" />
+			</p:column>
+
+			<p:column headerText="nUM_DEMANDE">
+				<h:outputText id="numdem" value="#{demande.nUM_DEMANDE}" />
+			</p:column>
+			<p:column headerText="c_REGION">
+				<h:outputText id="cReg"
+					value="#{demande.c_REGION}" />
+			</p:column>
+			<p:column headerText="c_ETAT">
+				<h:outputText id="cEtat"
+					value="#{demande.c_ETAT}" />
+			</p:column>
+			<p:column headerText="urgent">
+				<h:outputText id="urg"
+					value="#{demande.urgent}" />
+			</p:column>
+			<p:column headerText="c_DOMAINE">
+				<h:outputText id="cDom" value="#{demande.c_DOMAINE}" />
+			</p:column>
+
+           
+			<p:column headerText="c_TYP_COMMANDE">
+				<h:outputText id="cTcom" value="#{demande.c_TYP_COMMANDE}" />
+			</p:column>
+			
+			
+			<p:column headerText="c_TYP_FLUX_APPRO">
+				<h:outputText id="cTflux" value="#{demande.c_TYP_FLUX_APPRO}" />
+			</p:column>
+		
+		     
+			<p:column headerText="nOTE_APPROVISIONNEUR">
+				<h:outputText id="nAppro" value="#{demande.nOTE_APPROVISIONNEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="nOTE_FOURNISSEUR">
+				<h:outputText id="nFour" value="#{demande.nOTE_FOURNISSEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="cOM_DEMANDEUR">
+				<h:outputText id="cDem" value="#{demande.cOM_DEMANDEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="c_CLASSIF_ACHAT">
+				<h:outputText id="cClah" value="#{demande.c_CLASSIF_ACHAT}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="listeDemande" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{demandeMB.supprimer(demande)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>Modifier une demande</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="demandelist" var="demande"
+			value="#{demandeMB.demandeDtoList}" style="width:85%;">
+
+			
+
+			<p:column headerText="idDemande">
+				<p:inputText id="idD" value="#{demande.idDemande}" />
+			</p:column>
+
+			<p:column headerText="nUM_DEMANDE">
+				<p:inputText id="numdem" value="#{demande.nUM_DEMANDE}" />
+			</p:column>
+			<p:column headerText="c_REGION">
+				<p:inputText id="cReg"
+					value="#{demande.c_REGION}" />
+			</p:column>
+			<p:column headerText="c_ETAT">
+				<p:inputText id="cEtat"
+					value="#{demande.c_ETAT}" />
+			</p:column>
+			<p:column headerText="urgent">
+				<p:inputText id="urg"
+					value="#{demande.urgent}" />
+			</p:column>
+			<p:column headerText="c_DOMAINE">
+				<p:inputText id="cDom" value="#{demande.c_DOMAINE}" />
+			</p:column>
+
+           
+			<p:column headerText="c_TYP_COMMANDE">
+				<p:inputText id="cTcom" value="#{demande.c_TYP_COMMANDE}" />
+			</p:column>
+			
+			
+			<p:column headerText="c_TYP_FLUX_APPRO">
+				<p:inputText id="cTflux" value="#{demande.c_TYP_FLUX_APPRO}" />
+			</p:column>
+		
+		     
+			<p:column headerText="nOTE_APPROVISIONNEUR">
+				<p:inputText id="nAppro" value="#{demande.nOTE_APPROVISIONNEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="nOTE_FOURNISSEUR">
+				<p:inputText id="nFour" value="#{demande.nOTE_FOURNISSEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="cOM_DEMANDEUR">
+				<p:inputText id="cDem" value="#{demande.cOM_DEMANDEUR}" />
+			</p:column>
+			
+			
+			<p:column headerText="c_CLASSIF_ACHAT">
+				<p:inputText id="cClah" value="#{demande.c_CLASSIF_ACHAT}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="demandelist" value="Update"
+					icon="ui-icon-closethick"
+					action="#{demandeMB.modifier( demande)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>ajout d'une Demande</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<div class="form-left-decoration"></div>
+		<div class="form-right-decoration"></div>
+		<div class="circle"></div>
+		<div class="form-inner">
+
+			<p:panel id="demandeentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="numerodedemande"
+						value="Numero de demande" />
+					<p:inputText id="numerodedemande"
+						value="#{demandeMB.demandeDto.nUM_DEMANDE}"
+						size="25" />
+					<p:message for="numerodedemande" />
+
+					<h:outputLabel for="numeroDeRegion"
+						value="Numero de région" />
+					<p:inputText id="numeroDeRegion"
+						value="#{demandeMB.demandeDto.c_REGION}"
+						size="25" />
+					<p:message for="numeroDeRegion" />
+
+                    <h:outputLabel for="etatDelaDemande"
+						value="Etat de la Demande" />
+					<p:inputText id="etatDelaDemande"
+						value="#{demandeMB.demandeDto.c_ETAT}"
+						size="25" />
+					<p:message for="etatDelaDemande" />
+					
+					<h:outputLabel for="c_Societe"
+						value="Numéro de la société" />
+					<p:inputText id="c_Societe"
+						value="#{demandeMB.demandeDto.c_SOCIETE}"
+						size="25" />
+					<p:message for="c_Societe" />
+					
+					<h:outputLabel for="c_fournisseur"
+						value="Numéro Du Fournisseur" />
+					<p:inputText id="c_fournisseur"
+						value="#{demandeMB.demandeDto.c_Fournisseur}"
+						size="25" />
+					<p:message for="c_fournisseur" />
+					
+					<h:outputLabel for="urgent"
+						value="Urgence de la commande" />
+					<p:inputText id="urgent"
+						value="#{demandeMB.demandeDto.urgent}"
+						size="25" />
+					<p:message for="urgent" />
+
+
+					<h:outputLabel for="domaineDemande" 
+					     value="Domaine de la demande" />
+					<p:inputText id="domaineDemande"
+						value="#{demandeMB.demandeDto.c_DOMAINE}" size="25" />
+					<p:message for="domaineDemande" />
+
+					<h:outputLabel for="typedeCommande"
+						value="Type de la commande" />
+					<p:inputText id="typedeCommande"
+						value="#{demandeMB.demandeDto.c_TYP_COMMANDE}"
+						size="25" />
+					<p:message for="typedeCommande" />
+
+					<h:outputLabel for="TypeFluxappro"
+						value="Type du flux d' approvisionnement" />
+					<p:inputText id="TypeFluxappro"
+						value="#{demandeMB.demandeDto.c_TYP_FLUX_APPRO}"
+						size="25" />
+					<p:message for="TypeFluxappro" />
+
+                    <h:outputLabel for="Noteappro"
+						value="Note approvisionneur" />
+					<p:inputText id="Noteappro"
+						value="#{demandeMB.demandeDto.nOTE_APPROVISIONNEUR}"
+						size="25" />
+					<p:message for="Noteappro" />
+					
+					<h:outputLabel for="Notefour"
+						value="Note fournisseur" />
+					<p:inputText id="Notefour"
+						value="#{demandeMB.demandeDto.nOTE_FOURNISSEUR}"
+						size="25" />
+					<p:message for="Notefour" />
+
+
+					
+					<h:outputLabel for="comDemandeur"
+						value="Com du demandeur" />
+					<p:inputText id="comDemandeur"
+						value="#{demandeMB.demandeDto.cOM_DEMANDEUR}"
+						size="25" />
+					<p:message for="comDemandeur" />
+
+
+					<h:outputLabel for="ClassifAchat" 
+					value="Classification Achat de la demande" />
+					<p:inputText id="ClassifAchat"
+						value="#{demandeMB.demandeDto.c_CLASSIF_ACHAT}" size="25" />
+					<p:message for="ClassifAchat" />
+
+					<p:commandButton value="Add"
+						action="#{demandeMB.ajouterDemande() }" update="@form">
+					</p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+
+	<h1>Rechercher par un nom</h1>
+
+
+	<h:form class="form">
+		<p:panel id="demandeentré" style="margin-bottom:20px">
+				<h:panelGrid columns="3" cellpadding="5" width="500"
+					style="position: relative; right: 0;">
+
+					<h:outputLabel for="demandeNumero"
+						value="Numero de la demande" />
+					<p:inputText id="demandeNumero"
+						value="#{demandeMB.demandeDto.nUM_DEMANDE}"
+						size="25" />
+					<p:message for="demandeNumero" />
+        					   				
+				<p:commandButton value="rechercher"
+					action="#{demandeMB.rechercherPariD()}" update="@form" >			
+				</p:commandButton>
+
+			</h:panelGrid>
+		</p:panel>
+
+	<p:dataTable id="demandeDtoListrech" var="demandeRech"
+			value="#{demandeMB.demandeDtoListrech}" style="width:85%;">
+
+			<p:column headerText="id">
+				<h:outputText value="#{demandeRech.idDemande}" />
+			</p:column>
+
+			
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="demandeDtoListrech" value="Delete"
+					icon="ui-icon-closethick"
+					action="#{demandeMB.supprimer( demandeRech)}"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	
+	<h:form>
+			<h:commandButton class="connect"  value="Ajouter Ligne sur Demande"
+				action="VersLigneDemande" >
+			</h:commandButton>
+	</h:form>
+	
+</body>
+</ui:define>
+</ui:composition>
+</html>
+
+

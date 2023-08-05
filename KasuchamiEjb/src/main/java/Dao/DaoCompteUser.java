@@ -85,7 +85,7 @@ public class DaoCompteUser  implements CompteUserDaoInterface {
 
 	public CompteUserDto rechercherPourConnexion ( String identifiant, String mdp) {
 		List<CompteUser> resultList = this.entityManager.createNamedQuery("CompteUser.connexion",CompteUser.class)
-				.setParameter("nomf" , identifiant)
+				.setParameter("identifiant" , identifiant)
 				.setParameter("nomg", mdp)
 				.getResultList();
 		Optional<CompteUserDto> optional = resultList

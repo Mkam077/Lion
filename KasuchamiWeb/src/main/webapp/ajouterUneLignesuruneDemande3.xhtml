@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Kasuchami - Ajout d'une ligne sur une Demande</title>
+<style>	
+<h:outputStylesheet library="cssPerso" name="style.css"  /> 
+	
+</style>
+</h:head>
+<ui:composition template="/menubar.xhtml">
+	<ui:define name="pageTitle">Gestion Approvisionnement</ui:define>
+	<ui:define name="body" class="body">
+<p:separator />
+<body>
+	
+
+
+	<h1>Modifier une ligne de demande</h1>
+
+	<h:form class="form">
+		<p:growl id="growl" sticky="true" />
+		<p:dataTable id="listeDetailDemande" var="detailDemande"
+			value="#{detailDemandeMB.listeDetailDemandeDto}" style="width:85%;">
+
+			<p:column headerText="demandeid">
+				<p:inputText id="demandeid" value="#{detailDemande.demandeid}" />
+			</p:column>
+			
+			<p:column headerText="catalogueid">
+				<p:inputText id="catalogueid" value="#{detailDemande.catalogueid}" />
+			</p:column>
+			
+			<p:column headerText="nUM_DEMANDE">
+				<p:inputText id="nUM_DEMANDE" value="#{detailDemande.nUM_DEMANDE}" />
+			</p:column>
+			
+			<p:column headerText="nUM_REF_PROD">
+				<p:inputText id="nUM_REF_PROD" value="#{detailDemande.nUM_REF_PROD}" />
+			</p:column>
+			
+			<p:column headerText="description">
+				<p:inputText id="description" value="#{detailDemande.description}" />
+			</p:column>
+			
+			<p:column headerText="date_BESOIN">  
+				<p:inputText id="date_BESOIN" 
+				value="#{detailDemande.date_BESOIN}" />
+				
+			</p:column>
+			
+			<p:column headerText="c_CLASSIF_ACHAT">
+				<p:inputText id="c_CLASSIF_ACHAT" value="#{detailDemande.c_CLASSIF_ACHAT}" />
+			</p:column>
+			
+			<p:column headerText="frais_PORT">
+				<p:inputText id="frais_PORT" value="#{detailDemande.frais_PORT}" />
+			</p:column>
+			
+			<p:column headerText="montant_TOTAL">
+				<p:inputText id="montant_TOTAL" value="#{detailDemande.montant_TOTAL}" />
+			</p:column>
+			
+			<p:column headerText="quantite">
+				<p:inputText id="quantite" value="#{detailDemande.quantite}" />
+			</p:column>
+			
+			<p:column headerText="lieuLIVRAISON">
+				<p:inputText id="lieuLIVRAISON" value="#{detailDemande.lieu_LIVRAISON}" />
+			</p:column>
+			
+			<p:column style="width:120px;">
+				<p:commandButton update="listeDetailDemande" value="update"
+					icon="ui-icon-closethick"
+					action="#{detailDemandeMB.ModifierUneLigneDeDemande(detailDemande) }"
+					styleClass="ui-priority-primary">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h1>  </h1>
+</body>
+</ui:define>
+</ui:composition>
+</html>
+
+
